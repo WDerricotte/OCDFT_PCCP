@@ -1,0 +1,96 @@
+\begin{thebibliography}{10}
+
+\bibitem{hua_refinement_2010}
+Weijie Hua, Bin Gao, Shuhua Li, Hans Ågren, and Yi~Luo.
+\newblock Refinement of {DNA} structures through near-edge x-ray absorption
+  fine structure analysis: Applications on guanine and cytosine nucleobases,
+  nucleosides, and nucleotides.
+\newblock {\em The Journal of Physical Chemistry B}, 114(41):13214--13222,
+  October 2010.
+
+\bibitem{contini_gas-phase_2001}
+G.~Contini, V.~Carravetta, V.~Di~Castro, S.~Stranges, R.~Richter, and
+  M.~Alagia.
+\newblock Gas-phase experimental and theoretical near edge x-ray absorption
+  fine structure study of 2-mercaptobenzothiazole.
+\newblock {\em The Journal of Physical Chemistry A}, 105(30):7308--7314, August
+  2001.
+
+\bibitem{hahner_near_2006}
+Georg Hähner.
+\newblock Near edge x-ray absorption fine structure spectroscopy as a tool to
+  probe electronic and structural properties of thin organic films and liquids.
+\newblock {\em Chemical Society reviews}, 35(12):1244--1255, December 2006.
+\newblock {PMID:} 17225886.
+
+\bibitem{guo_electronic_2011}
+Q.~X. Guo, H.~Senda, K.~Saito, T.~Tanaka, M.~Nishio, J.~Ding, T.~X. Fan,
+  D.~Zhang, X.~Q. Wang, S.~T. Liu, B.~Shen, and R.~Ohtani.
+\newblock Electronic structure of {GaInN} semiconductors investigated by x-ray
+  absorption spectroscopy.
+\newblock {\em Applied Physics Letters}, 98(18):181901, May 2011.
+
+\bibitem{asmuruf_calculation_2008}
+Frans~A. Asmuruf and Nicholas~A. Besley.
+\newblock Calculation of near-edge x-ray absorption fine structure with the
+  {CIS(D)} method.
+\newblock {\em Chemical Physics Letters}, 463(1–3):267--271, September 2008.
+
+\bibitem{sheehy_correlation_1989}
+J.~A. Sheehy, T.~J. Gil, C.~L. Winstead, R.~E. Farren, and P.~W. Langhoff.
+\newblock Correlation of molecular valence‐ and k‐shell photoionization
+  resonances with bond lengths.
+\newblock {\em The Journal of Chemical Physics}, 91(3):1796--1812, August 1989.
+
+\bibitem{besley_self-consistent-field_2009}
+Nicholas~A. Besley, Andrew T.~B. Gilbert, and Peter M.~W. Gill.
+\newblock Self-consistent-field calculations of core excited states.
+\newblock {\em The Journal of Chemical Physics}, 130(12):124308, 2009.
+
+\bibitem{triguero_calculations_1998}
+L.~Triguero, L.~G.~M. Pettersson, and H.~Ågren.
+\newblock Calculations of near-edge x-ray-absorption spectra of gas-phase and
+  chemisorbed molecules by means of density-functional and transition-potential
+  theory.
+\newblock {\em Physical Review B}, 58(12):8097--8110, September 1998.
+
+\bibitem{stener_time_2003}
+M~Stener, G~Fronzoni, and M~de~Simone.
+\newblock Time dependent density functional theory of core electrons
+  excitations.
+\newblock {\em Chemical Physics Letters}, 373(1-2):115--123, May 2003.
+
+\bibitem{nakata_time-dependent_2006}
+Ayako Nakata, Yutaka Imamura, Takao Otsuka, and Hiromi Nakai.
+\newblock Time-dependent density functional theory calculations for
+  core-excited states: Assessment of standard exchange-correlation functionals
+  and development of a novel hybrid functional.
+\newblock {\em The Journal of Chemical Physics}, 124(9):094105, March 2006.
+
+\bibitem{imamura_time-dependent_2006}
+Yutaka Imamura and Hiromi Nakai.
+\newblock Time-dependent density functional theory ({TDDFT)} calculations for
+  core-excited states: Assessment of an exchange functional combining the
+  becke88 and van {Leeuwen–Baerends-type} functionals.
+\newblock {\em Chemical Physics Letters}, 419(1-3):297--303, February 2006.
+
+\bibitem{skowron_accurate_2012}
+Stephen~T. Skowron and Nicholas~A. Besley.
+\newblock Accurate time-dependent density functional theory calculations of the
+  near edge x-ray absorption fine structure of large systems.
+\newblock {\em Theoretical Chemistry Accounts}, 131(9), September 2012.
+
+\bibitem{sousa_general_2007}
+Sérgio~Filipe Sousa, Pedro~Alexandrino Fernandes, and Maria~João Ramos.
+\newblock General performance of density functionals.
+\newblock {\em The Journal of Physical Chemistry A}, 111(42):10439--10452,
+  October 2007.
+
+\bibitem{evangelista_orthogonality_2013}
+Francesco~A. Evangelista, Philip Shushkov, and John~C. Tully.
+\newblock Orthogonality constrained density functional theory for electronic
+  excited states.
+\newblock {\em The Journal of Physical Chemistry A}, 117(32):7378--7392, August
+  2013.
+
+\end{thebibliography}
