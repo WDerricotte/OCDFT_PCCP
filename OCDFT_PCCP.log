@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  6 OCT 2014 11:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  6 OCT 2014 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1040,15 +1040,19 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 284.
+Package pdftex.def Info: headers/LF.pdf used on input line 283.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
 
 <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 284.
+Package pdftex.def Info: headers/RF.pdf used on input line 283.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
  [18]
 Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¼ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no © in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¼ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
@@ -1057,7 +1061,16 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 Missing character: There is no Ì in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
-) 
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 534.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 534.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+ [19])
+
 AED: lastpage setting LastPage
 File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
@@ -1067,15 +1080,15 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 471.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [19] (./OCDFT_PCCP.aux) ) 
+ [20] (./OCDFT_PCCP.aux) ) 
 Here is how much of TeX's memory you used:
- 10091 strings out of 493315
- 173249 string characters out of 6137904
- 252032 words of memory out of 5000000
- 13310 multiletter control sequences out of 15000+600000
+ 10124 strings out of 493315
+ 174221 string characters out of 6137904
+ 252903 words of memory out of 5000000
+ 13343 multiletter control sequences out of 15000+600000
  55668 words of font info for 110 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,14n,43p,1913b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,14n,43p,1913b,581s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/b
 ase/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
@@ -1090,10 +1103,10 @@ st/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
 ype1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr
 i8a.pfb>
-Output written on OCDFT_PCCP.pdf (19 pages, 3183933 bytes).
+Output written on OCDFT_PCCP.pdf (20 pages, 3185112 bytes).
 PDF statistics:
- 879 PDF objects out of 1000 (max. 8388607)
- 560 compressed objects within 6 object streams
+ 882 PDF objects out of 1000 (max. 8388607)
+ 562 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
