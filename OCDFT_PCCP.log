@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 OCT 2014 09:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  8 OCT 2014 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -889,86 +889,86 @@ File: headers/RF.pdf Graphic file (type pdf)
 Package pdftex.def Info: headers/RF.pdf used on input line 365.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
  [10]
-<O2_1s.png, id=235, 1464.47125pt x 1229.59375pt>
-File: O2_1s.png Graphic file (type png)
- <use O2_1s.png>
-Package pdftex.def Info: O2_1s.png used on input line 373.
-(pdftex.def)             Requested size: 36.60275pt x 30.73225pt.
-
-<Pi_Star1.png, id=236, 2007.5pt x 2007.5pt>
-File: Pi_Star1.png Graphic file (type png)
- <use Pi_Star1.png>
-Package pdftex.def Info: Pi_Star1.png used on input line 373.
-(pdftex.def)             Requested size: 50.17513pt x 50.17513pt.
 File: headers/LF.pdf Graphic file (type pdf)
-
-<use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 387.
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 405.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
- <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 387.
+
+<use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 405.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
  [11 <./scatterNEW.pdf> <./adenineThymineNumbering3D.png>]
 File: headers/LF.pdf Graphic file (type pdf)
- <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 413.
+
+<use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 431.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 413.
+Package pdftex.def Info: headers/RF.pdf used on input line 431.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
  [12]
-<g130.png, id=788, 390.258pt x 352.6776pt>
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 431.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+
+<use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 431.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+ [13] <g130.png, id=790, 390.258pt x 352.6776pt>
 File: g130.png Graphic file (type png)
- <use g130.png>
-Package pdftex.def Info: g130.png used on input line 415.
+
+<use g130.png>
+Package pdftex.def Info: g130.png used on input line 433.
 (pdftex.def)             Requested size: 234.1566pt x 211.60818pt.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 422.
+LaTeX Warning: Command \r invalid in math mode on input line 440.
 
-<AdenineNspectra.png, id=789, 1228.59pt x 619.113pt>
+<AdenineNspectra.png, id=791, 1228.59pt x 619.113pt>
 File: AdenineNspectra.png Graphic file (type png)
  <use AdenineNspectra.png>
-Package pdftex.def Info: AdenineNspectra.png used on input line 431.
+Package pdftex.def Info: AdenineNspectra.png used on input line 449.
 (pdftex.def)             Requested size: 245.71364pt x 123.8204pt.
 
-<AdenineCspectra.png, id=790, 1227.98775pt x 620.3175pt>
+<AdenineCspectra.png, id=792, 1227.98775pt x 620.3175pt>
 File: AdenineCspectra.png Graphic file (type png)
 
 <use AdenineCspectra.png>
-Package pdftex.def Info: AdenineCspectra.png used on input line 432.
+Package pdftex.def Info: AdenineCspectra.png used on input line 450.
 (pdftex.def)             Requested size: 245.5932pt x 124.0613pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--462
+Underfull \hbox (badness 10000) in paragraph at lines 439--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--462
+Underfull \hbox (badness 10000) in paragraph at lines 439--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--462
+Underfull \hbox (badness 10000) in paragraph at lines 439--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--462
+Underfull \hbox (badness 10000) in paragraph at lines 439--480
 
  []
 
 File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 462.
+Package pdftex.def Info: headers/LF.pdf used on input line 480.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 462.
+Package pdftex.def Info: headers/RF.pdf used on input line 480.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [13 <./PiStar1.pdf> <./PiStar2.pdf
+ [14 <./PiStar1.pdf> <./PiStar2.pdf
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./PiStar2.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
@@ -983,70 +983,69 @@ ultiple pdfs with page group included in a single page
 >]
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 462.
+Package pdftex.def Info: headers/LF.pdf used on input line 480.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 462.
+Package pdftex.def Info: headers/RF.pdf used on input line 480.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [14 <./ThymineOKexperiment.png> <./ThymineNKexperiment.png> <./ThymineCKexperi
+ [15 <./ThymineOKexperiment.png> <./ThymineNKexperiment.png> <./ThymineCKexperi
 ment.png>]
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 462.
+Package pdftex.def Info: headers/LF.pdf used on input line 480.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
 
 <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 462.
+Package pdftex.def Info: headers/RF.pdf used on input line 480.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [15 <./O2_1s.png> <./Pi_Star1.png> <./g130.png>]
+ [16 <./g130.png> <./AdenineNspectra.png> <./AdenineCspectra.png>]
 File: headers/LF.pdf Graphic file (type pdf)
-
-<use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 462.
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 480.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 462.
+Package pdftex.def Info: headers/RF.pdf used on input line 480.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [16 <./AdenineNspectra.png> <./AdenineCspectra.png>] (./OCDFT_PCCP.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 463--4
+ [17] (./OCDFT_PCCP.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 481--4
 
  []
 
-File: headers/LF.pdf Graphic file (type pdf)
-<use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 4.
-(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
-File: headers/RF.pdf Graphic file (type pdf)
- <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 4.
-(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [17]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no … in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
+File: headers/LF.pdf Graphic file (type pdf)
+<use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 59.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 59.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+ [18]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no … in font ptmr7t!
 Missing character: There is no Ì in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¶ in font ptmr7t!
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 232.
+Package pdftex.def Info: headers/LF.pdf used on input line 317.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
 
 <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 232.
+Package pdftex.def Info: headers/RF.pdf used on input line 317.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [18]
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¶ in font ptmr7t!
+ [19]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¼ in font ptmr7t!
@@ -1058,37 +1057,27 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
-File: headers/LF.pdf Graphic file (type pdf)
- <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 483.
-(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
-File: headers/RF.pdf Graphic file (type pdf)
- <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 483.
-(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [19]
 Missing character: There is no Ì in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
-)
-
+) 
 AED: lastpage setting LastPage
 File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 471.
+Package pdftex.def Info: headers/LF.pdf used on input line 489.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 471.
+Package pdftex.def Info: headers/RF.pdf used on input line 489.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
  [20] (./OCDFT_PCCP.aux) ) 
 Here is how much of TeX's memory you used:
- 10124 strings out of 493315
- 174201 string characters out of 6137904
+ 10114 strings out of 493315
+ 174058 string characters out of 6137904
  252903 words of memory out of 5000000
- 13343 multiletter control sequences out of 15000+600000
+ 13335 multiletter control sequences out of 15000+600000
  55668 words of font info for 110 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,14n,43p,1913b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,14n,43p,1913b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/b
 ase/8r.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
@@ -1103,10 +1092,10 @@ st/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
 ype1/urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr
 i8a.pfb>
-Output written on OCDFT_PCCP.pdf (20 pages, 3480134 bytes).
+Output written on OCDFT_PCCP.pdf (20 pages, 2570454 bytes).
 PDF statistics:
- 882 PDF objects out of 1000 (max. 8388607)
+ 878 PDF objects out of 1000 (max. 8388607)
  562 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
