@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 OCT 2014 15:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  11 OCT 2014 20:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -508,14 +508,7 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 LaTeX Warning: Unused global option(s):
     [11.5pt].
 
-(./OCDFT_PCCP.aux
-
-LaTeX Warning: Label `figure:MOs' multiply defined.
-
-
-LaTeX Warning: Label `figure:MOs' multiply defined.
-
-)
+No file OCDFT_PCCP.aux.
 \openout1 = `OCDFT_PCCP.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -531,7 +524,7 @@ LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 74.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -651,6 +644,70 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 131.
 
+
+Package natbib Warning: Citation `mcmillan_synchrotronproposed_1945' on page 1 
+undefined on input line 131.
+
+
+Package natbib Warning: Citation `hua_refinement_2010' on page 1 undefined on i
+nput line 131.
+
+
+Package natbib Warning: Citation `contini_gas-phase_2001' on page 1 undefined o
+n input line 131.
+
+
+Package natbib Warning: Citation `hahner_near_2006' on page 1 undefined on inpu
+t line 131.
+
+
+Package natbib Warning: Citation `guo_electronic_2011' on page 1 undefined on i
+nput line 131.
+
+
+Package natbib Warning: Citation `feneberg_synchrotron-based_2011' on page 1 un
+defined on input line 131.
+
+
+Package natbib Warning: Citation `nakazato_observation_1989' on page 1 undefine
+d on input line 131.
+
+
+Package natbib Warning: Citation `coriani_coupled-cluster_2012' on page 1 undef
+ined on input line 133.
+
+
+Package natbib Warning: Citation `asmuruf_calculation_2008' on page 1 undefined
+ on input line 133.
+
+
+Package natbib Warning: Citation `schirmer_beyond_1982' on page 1 undefined on 
+input line 133.
+
+
+Package natbib Warning: Citation `trofimov_efficient_1995' on page 1 undefined 
+on input line 133.
+
+
+Package natbib Warning: Citation `sheehy_correlation_1989' on page 1 undefined 
+on input line 133.
+
+
+Package natbib Warning: Citation `besley_self-consistent-field_2009' on page 1 
+undefined on input line 133.
+
+
+Package natbib Warning: Citation `triguero_calculations_1998' on page 1 undefin
+ed on input line 133.
+
+
+Package natbib Warning: Citation `coriani_coupled-cluster_2012' on page 1 undef
+ined on input line 133.
+
+
+Package natbib Warning: Citation `stener_time_2003' on page 1 undefined on inpu
+t line 133.
+
 <headers/LH.pdf, id=1, 56.21pt x 7.02625pt>
 File: headers/LH.pdf Graphic file (type pdf)
  <use headers/LH.pdf>
@@ -686,8 +743,13 @@ LaTeX Font Info:    Try loading font information for OT1+phv on input line 134.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 134.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 134.
 
+
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 134.
+
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 134.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
@@ -699,8 +761,119 @@ LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <8> not available
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./heade
 rs/LH.pdf> <./headers/CH.pdf> <./headers/RH.pdf> <./headers/LF.pdf> <./headers/
 RF.pdf>]
-File: headers/LF.pdf Graphic file (type pdf)
 
+Package natbib Warning: Citation `runge_density-functional_1984' on page 2 unde
+fined on input line 135.
+
+
+Package natbib Warning: Citation `silva-junior_benchmarks_2008' on page 2 undef
+ined on input line 135.
+
+
+Package natbib Warning: Citation `besley_self-consistent-field_2009' on page 2 
+undefined on input line 135.
+
+
+Package natbib Warning: Citation `dreuw_failure_2004' on page 2 undefined on in
+put line 135.
+
+
+Package natbib Warning: Citation `peach_excitation_2008' on page 2 undefined on
+ input line 136.
+
+
+Package natbib Warning: Citation `besley_time-dependent_2009' on page 2 undefin
+ed on input line 136.
+
+
+Package natbib Warning: Citation `tu_core_2007' on page 2 undefined on input li
+ne 139.
+
+
+Package natbib Warning: Citation `besley_time-dependent_2009' on page 2 undefin
+ed on input line 139.
+
+
+Package natbib Warning: Citation `nakata_time-dependent_2006' on page 2 undefin
+ed on input line 139.
+
+
+Package natbib Warning: Citation `capano_role_2013' on page 2 undefined on inpu
+t line 139.
+
+
+Package natbib Warning: Citation `besley_time-dependent_2007' on page 2 undefin
+ed on input line 139.
+
+
+Package natbib Warning: Citation `besley_time-dependent_2010' on page 2 undefin
+ed on input line 139.
+
+
+Package natbib Warning: Citation `besley_self-consistent-field_2009' on page 2 
+undefined on input line 139.
+
+
+Package natbib Warning: Citation `evangelista_orthogonality_2013' on page 2 und
+efined on input line 141.
+
+
+Package natbib Warning: Citation `kowalczyk_assessment_2011' on page 2 undefine
+d on input line 141.
+
+
+Package natbib Warning: Citation `ziegler_calculation_1977' on page 2 undefined
+ on input line 141.
+
+
+Package natbib Warning: Citation `wu_constrained_2006' on page 2 undefined on i
+nput line 141.
+
+
+Package natbib Warning: Citation `gorling_density-functional_1999' on page 2 un
+defined on input line 141.
+
+
+Package natbib Warning: Citation `ziegler_relation_2009' on page 2 undefined on
+ input line 141.
+
+
+Package natbib Warning: Citation `ziegler_application_2011' on page 2 undefined
+ on input line 141.
+
+
+Package natbib Warning: Citation `krykunov_self-consistent_2013' on page 2 unde
+fined on input line 141.
+
+
+Package natbib Warning: Citation `ziegler_implementation_2012' on page 2 undefi
+ned on input line 141.
+
+
+Package natbib Warning: Citation `theophilou_energy_1979' on page 2 undefined o
+n input line 141.
+
+
+Package natbib Warning: Citation `fritsche_generalized_1986' on page 2 undefine
+d on input line 141.
+
+
+Package natbib Warning: Citation `gross_rayleigh-ritz_1988' on page 2 undefined
+ on input line 141.
+
+
+Package natbib Warning: Citation `gross_density-functional_1988' on page 2 unde
+fined on input line 141.
+
+
+Package natbib Warning: Citation `levy_variational_1999' on page 2 undefined on
+ input line 141.
+
+
+Package natbib Warning: Citation `nagy_variational_2001' on page 2 undefined on
+ input line 141.
+
+File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
 Package pdftex.def Info: headers/LF.pdf used on input line 143.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
@@ -708,9 +881,20 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 143.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 154.
 
+
+LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 143.
+
+[2]
+
+Package natbib Warning: Citation `evangelista_orthogonality_2013' on page 3 und
+efined on input line 150.
+
+
+Package natbib Warning: Citation `ayers_time-independent_2012' on page 3 undefi
+ned on input line 150.
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 154.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
@@ -726,8 +910,11 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 163.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [3]
-<Figure1.pdf, id=101, 722.7pt x 542.025pt>
+
+
+LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 163.
+
+[3] <Figure1.pdf, id=101, 722.7pt x 542.025pt>
 File: Figure1.pdf Graphic file (type pdf)
  <use Figure1.pdf>
 Package pdftex.def Info: Figure1.pdf used on input line 180.
@@ -743,7 +930,88 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 192.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [4]
+
+
+LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 192.
+
+[4]
+
+Package natbib Warning: Citation `puttner_vibrationally_1999' on page 5 undefin
+ed on input line 198.
+
+
+Package natbib Warning: Citation `remmers_high-resolution_1992' on page 5 undef
+ined on input line 198.
+
+
+Package natbib Warning: Citation `chen_k-shell_1989' on page 5 undefined on inp
+ut line 198.
+
+
+Package natbib Warning: Citation `tronc_nitrogen_1980' on page 5 undefined on i
+nput line 198.
+
+
+Package natbib Warning: Citation `tronc_carbon_1979' on page 5 undefined on inp
+ut line 198.
+
+
+Package natbib Warning: Citation `francis_studies_1994' on page 5 undefined on 
+input line 198.
+
+
+Package natbib Warning: Citation `adachi_vibronic_1999' on page 5 undefined on 
+input line 198.
+
+
+Package natbib Warning: Citation `hitchcock_k-shell_1979' on page 5 undefined o
+n input line 198.
+
+
+Package natbib Warning: Citation `domke_carbon_1990' on page 5 undefined on inp
+ut line 198.
+
+
+Package natbib Warning: Citation `nayandin_angle-resolved_2001' on page 5 undef
+ined on input line 198.
+
+
+Package natbib Warning: Citation `bodeur_single-and_1990' on page 5 undefined o
+n input line 198.
+
+
+Package natbib Warning: Citation `weigend_balanced_2005' on page 5 undefined on
+ input line 198.
+
+
+Package natbib Warning: Citation `weigend_accurate_2006' on page 5 undefined on
+ input line 198.
+
+
+Package natbib Warning: Citation `turney_psi4:_2012' on page 5 undefined on inp
+ut line 198.
+
+
+Package natbib Warning: Citation `maganas_l-edge_2014' on page 5 undefined on i
+nput line 200.
+
+
+Package natbib Warning: Citation `debeer_george_calibration_2010' on page 5 und
+efined on input line 200.
+
+
+Package natbib Warning: Citation `bauer_herfd-xas_2014' on page 5 undefined on 
+input line 200.
+
+
+Package natbib Warning: Citation `ankudinov_sensitivity_2002' on page 5 undefin
+ed on input line 200.
+
+
+Package natbib Warning: Citation `levy_excitation_1995' on page 5 undefined on 
+input line 200.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 198--201
 
  []
@@ -756,9 +1024,71 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 203.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [5 <./Figure1.pdf>]
-File: headers/LF.pdf Graphic file (type pdf)
 
+
+LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 203.
+
+[5 <./Figure1.pdf>]
+
+Package natbib Warning: Citation `desclaux_relativistic_1971' on page 6 undefin
+ed on input line 204.
+
+
+Package natbib Warning: Citation `douglas_quantum_1973' on page 6 undefined on 
+input line 208.
+
+
+Package natbib Warning: Citation `hess_applicability_1985' on page 6 undefined 
+on input line 208.
+
+
+Package natbib Warning: Citation `hess_relativistic_1986' on page 6 undefined o
+n input line 208.
+
+
+Package natbib Warning: Citation `lundberg_quantifying_2005' on page 6 undefine
+d on input line 213.
+
+
+Package natbib Warning: Citation `bally_incorrect_1997' on page 6 undefined on 
+input line 213.
+
+
+LaTeX Warning: Reference `table:OverallPerformance' on page 6 undefined on inpu
+t line 215.
+
+
+LaTeX Warning: Reference `figure:Hist' on page 6 undefined on input line 215.
+
+
+LaTeX Warning: Reference `table:FirstRow' on page 6 undefined on input line 215
+.
+
+
+LaTeX Warning: Reference `table:SecondRow' on page 6 undefined on input line 21
+5.
+
+
+LaTeX Warning: Reference `table:FirstRow' on page 6 undefined on input line 215
+.
+
+
+LaTeX Warning: Reference `table:SecondRow' on page 6 undefined on input line 21
+5.
+
+
+LaTeX Warning: Reference `figure:scatter' on page 6 undefined on input line 215
+.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 6 undefined on input line 215
+.
+
+
+LaTeX Warning: Reference `figure:Adenine' on page 6 undefined on input line 215
+.
+
+File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
 Package pdftex.def Info: headers/LF.pdf used on input line 216.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
@@ -766,7 +1096,39 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 216.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [6]
+
+
+LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 216.
+
+[6]
+
+LaTeX Warning: Reference `table:OverallPerformance' on page 7 undefined on inpu
+t line 217.
+
+
+Package natbib Warning: Citation `asmuruf_calculation_2008' on page 7 undefined
+ on input line 234.
+
+
+Package natbib Warning: Citation `coriani_coupled-cluster_2012' on page 7 undef
+ined on input line 234.
+
+
+Package natbib Warning: Citation `jacquemin_extensive_2009' on page 7 undefined
+ on input line 234.
+
+
+LaTeX Warning: Reference `figure:Hist' on page 7 undefined on input line 236.
+
+
+Package natbib Warning: Citation `ziegler_implementation_2012' on page 7 undefi
+ned on input line 236.
+
+
+Package natbib Warning: Citation `casida_charge-transfer_2000' on page 7 undefi
+ned on input line 236.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 217--237
 
  []
@@ -784,17 +1146,44 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 237.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [7]
-<TDDFT_OCDFT_histogram.pdf, id=191, 1514.05652pt x 874.46701pt>
+
+
+LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 237.
+
+[7] <TDDFT_OCDFT_histogram.pdf, id=191, 1514.05652pt x 874.46701pt>
 File: TDDFT_OCDFT_histogram.pdf Graphic file (type pdf)
 
 <use TDDFT_OCDFT_histogram.pdf>
 Package pdftex.def Info: TDDFT_OCDFT_histogram.pdf used on input line 247.
 (pdftex.def)             Requested size: 257.3862pt x 148.65742pt.
 
+
+LaTeX Warning: Reference `figure:Hist' on page 8 undefined on input line 252.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 244--253
 
  []
+
+
+LaTeX Warning: Reference `table:FirstRow' on page 8 undefined on input line 254
+.
+
+
+Package natbib Warning: Citation `besley_self-consistent-field_2009' on page 8 
+undefined on input line 254.
+
+
+Package natbib Warning: Citation `besley_time-dependent_2009' on page 8 undefin
+ed on input line 254.
+
+
+LaTeX Warning: Reference `table:FirstRow' on page 8 undefined on input line 254
+.
+
+
+Package natbib Warning: Citation `debeer_george_prediction_2008' on page 8 unde
+fined on input line 256.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 254--296
@@ -814,7 +1203,15 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 296.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [8]
+
+
+LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 296.
+
+[8]
+
+Package natbib Warning: Citation `peach_excitation_2008' on page 9 undefined on
+ input line 297.
+
 <scatterNEW.pdf, id=195, 1514.05652pt x 876.27374pt>
 File: scatterNEW.pdf Graphic file (type pdf)
  <use scatterNEW.pdf>
@@ -829,7 +1226,19 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 304.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [9 <./TDDFT_OCDFT_histogram.pdf>]
+
+
+LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 304.
+
+[9 <./TDDFT_OCDFT_histogram.pdf>]
+
+LaTeX Warning: Reference `figure:scatter' on page 10 undefined on input line 30
+7.
+
+
+Package natbib Warning: Citation `nakata_time-dependent_2006' on page 10 undefi
+ned on input line 342.
+
 <adenineThymineNumbering3D.png, id=223, 815.045pt x 367.3725pt>
 File: adenineThymineNumbering3D.png Graphic file (type png)
 
@@ -870,43 +1279,57 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 356.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [10]
+
+
+LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 356.
+
+[10]
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
 Package pdftex.def Info: headers/LF.pdf used on input line 396.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
-
-<use headers/RF.pdf>
+ <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 396.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [11 <./scatterNEW.pdf> <./adenineThymineNumbering3D.png>]
-File: headers/LF.pdf Graphic file (type pdf)
 
-<use headers/LF.pdf>
+
+LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 396.
+
+[11 <./scatterNEW.pdf> <./adenineThymineNumbering3D.png>]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 422.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+
+<use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 422.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+
+
+LaTeX Warning: Reference `LastPage' on page 12 undefined on input line 422.
+
+[12]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
 Package pdftex.def Info: headers/LF.pdf used on input line 422.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 422.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [12]
-File: headers/LF.pdf Graphic file (type pdf)
- <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 422.
-(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
-File: headers/RF.pdf Graphic file (type pdf)
 
-<use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 422.
-(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [13] <g130.png, id=786, 390.258pt x 352.6776pt>
+
+LaTeX Warning: Reference `LastPage' on page 13 undefined on input line 422.
+
+[13] <g130.png, id=786, 390.258pt x 352.6776pt>
 File: g130.png Graphic file (type png)
-
-<use g130.png>
+ <use g130.png>
 Package pdftex.def Info: g130.png used on input line 424.
 (pdftex.def)             Requested size: 234.1566pt x 211.60818pt.
- <particleorbitals.png, id=787, 845.19765pt x 597.6729pt>
+
+<particleorbitals.png, id=787, 845.19765pt x 597.6729pt>
 File: particleorbitals.png Graphic file (type png)
 
 <use particleorbitals.png>
@@ -920,103 +1343,187 @@ Overfull \hbox (61.9801pt too wide) in paragraph at lines 424--425
 
 LaTeX Warning: Command \r invalid in math mode on input line 431.
 
-<AdenineNspectra.png, id=788, 1228.59pt x 619.113pt>
-File: AdenineNspectra.png Graphic file (type png)
- <use AdenineNspectra.png>
-Package pdftex.def Info: AdenineNspectra.png used on input line 525.
-(pdftex.def)             Requested size: 245.71364pt x 123.8204pt.
 
-<AdenineCspectra.png, id=789, 1227.98775pt x 620.3175pt>
-File: AdenineCspectra.png Graphic file (type png)
+LaTeX Warning: Reference `figure:MOs' on page 14 undefined on input line 431.
 
-<use AdenineCspectra.png>
-Package pdftex.def Info: AdenineCspectra.png used on input line 526.
-(pdftex.def)             Requested size: 245.5932pt x 124.0613pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--556
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 43
+2.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 46
+4.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 51
+8.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 52
+3.
+
+<AdenineNKexperiment.png, id=788, 1514.0565pt x 876.27374pt>
+File: AdenineNKexperiment.png Graphic file (type png)
+
+<use AdenineNKexperiment.png>
+Package pdftex.def Info: AdenineNKexperiment.png used on input line 525.
+(pdftex.def)             Requested size: 302.80594pt x 175.25163pt.
+
+<AdenineCKexperiment.png, id=789, 1514.0565pt x 876.27374pt>
+File: AdenineCKexperiment.png Graphic file (type png)
+
+<use AdenineCKexperiment.png>
+Package pdftex.def Info: AdenineCKexperiment.png used on input line 526.
+(pdftex.def)             Requested size: 302.80594pt x 175.25163pt.
+
+
+LaTeX Warning: Float too large for page by 48.03938pt on input line 593.
+
+
+LaTeX Warning: Float too large for page by 48.03938pt on input line 657.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 65
+8.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 65
+8.
+
+
+LaTeX Warning: Reference `figure:MOs' on page 14 undefined on input line 658.
+
+
+LaTeX Warning: Reference `figure:Thymine' on page 14 undefined on input line 65
+8.
+
+
+LaTeX Warning: Reference `figure:Adenine' on page 14 undefined on input line 65
+9.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--556
+Underfull \hbox (badness 10000) in paragraph at lines 430--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--556
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 430--556
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 430--556
+Underfull \hbox (badness 10000) in paragraph at lines 430--660
 
  []
 
 File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [14 <./ThymineOKexperiment.png> <./ThymineNKexperiment.png> <./ThymineCKexperi
-ment.png>]
+
+
+LaTeX Warning: Reference `LastPage' on page 14 undefined on input line 660.
+
+[14 <./ThymineOKexperiment.png> <./ThymineNKexperiment.png> <./ThymineCKexperim
+ent.png>]
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+
+
+LaTeX Warning: Reference `LastPage' on page 15 undefined on input line 660.
+
+[15 <./g130.png> <./particleorbitals.png>]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
 
 <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [15 <./g130.png> <./particleorbitals.png>]
+
+
+LaTeX Warning: Reference `LastPage' on page 16 undefined on input line 660.
+
+[16]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+
+
+LaTeX Warning: Reference `LastPage' on page 17 undefined on input line 660.
+
+[17]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+
+
+LaTeX Warning: Reference `LastPage' on page 18 undefined on input line 660.
+
+[18]
+File: headers/LF.pdf Graphic file (type pdf)
+ <use headers/LF.pdf>
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
+(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
+File: headers/RF.pdf Graphic file (type pdf)
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
+(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
+
+
+LaTeX Warning: Reference `LastPage' on page 19 undefined on input line 660.
+
+[19 <./AdenineNKexperiment.png> <./AdenineCKexperiment.png>]
 File: headers/LF.pdf Graphic file (type pdf)
 
 <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [16]
+
+
+LaTeX Warning: Reference `LastPage' on page 20 undefined on input line 660.
+
+[20]
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
-(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
-File: headers/RF.pdf Graphic file (type pdf)
-
-<use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
-(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [17]
-File: headers/LF.pdf Graphic file (type pdf)
- <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
+Package pdftex.def Info: headers/LF.pdf used on input line 660.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
+Package pdftex.def Info: headers/RF.pdf used on input line 660.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [18]
-File: headers/LF.pdf Graphic file (type pdf)
 
-<use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 556.
-(pdftex.def)             Requested size: 173.26239pt x 9.0pt.
-File: headers/RF.pdf Graphic file (type pdf)
- <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 556.
-(pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [19 <./AdenineNspectra.png> <./AdenineCspectra.png>] (./OCDFT_PCCP.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 557--4
+
+LaTeX Warning: Reference `LastPage' on page 21 undefined on input line 660.
+
+[21] (./OCDFT_PCCP.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 661--4
 
  []
 
@@ -1028,9 +1535,11 @@ File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
 Package pdftex.def Info: headers/RF.pdf used on input line 4.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [20]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+
+
+LaTeX Warning: Reference `LastPage' on page 22 undefined on input line 4.
+
+[22]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no … in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
@@ -1042,14 +1551,17 @@ Missing character: There is no … in font ptmr7t!
 Missing character: There is no Ì in font ptmr7t!
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 201.
+Package pdftex.def Info: headers/LF.pdf used on input line 239.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
-
-<use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 201.
+ <use headers/RF.pdf>
+Package pdftex.def Info: headers/RF.pdf used on input line 239.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [21]
+
+
+LaTeX Warning: Reference `LastPage' on page 23 undefined on input line 239.
+
+[23]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
@@ -1065,39 +1577,61 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 File: headers/LF.pdf Graphic file (type pdf)
  <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 454.
+Package pdftex.def Info: headers/LF.pdf used on input line 490.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 454.
+Package pdftex.def Info: headers/RF.pdf used on input line 490.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [22]
+
+
+LaTeX Warning: Reference `LastPage' on page 24 undefined on input line 490.
+
+[24]
 Missing character: There is no Ì in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 )
 
+Package natbib Warning: There were undefined citations.
+
+
+Package lastpage Warning: Rerun to get the references right on input line 669.
+
+
 AED: lastpage setting LastPage
 File: headers/LF.pdf Graphic file (type pdf)
 <use headers/LF.pdf>
-Package pdftex.def Info: headers/LF.pdf used on input line 565.
+Package pdftex.def Info: headers/LF.pdf used on input line 669.
 (pdftex.def)             Requested size: 173.26239pt x 9.0pt.
 File: headers/RF.pdf Graphic file (type pdf)
  <use headers/RF.pdf>
-Package pdftex.def Info: headers/RF.pdf used on input line 565.
+Package pdftex.def Info: headers/RF.pdf used on input line 669.
 (pdftex.def)             Requested size: 90.33727pt x 7.02621pt.
- [23] (./OCDFT_PCCP.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+
+LaTeX Warning: Reference `LastPage' on page 25 undefined on input line 669.
+
+[25] (./OCDFT_PCCP.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 10098 strings out of 493315
- 173827 string characters out of 6137904
- 270933 words of memory out of 5000000
- 13322 multiletter control sequences out of 15000+600000
+ 10095 strings out of 493315
+ 173824 string characters out of 6137904
+ 278353 words of memory out of 5000000
+ 13321 multiletter control sequences out of 15000+600000
  55668 words of font info for 110 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,14n,43p,2726b,559s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,14n,43p,2726b,631s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1111,10 +1645,10 @@ mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2013/texmf-dist
 /utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmbi8a.p
 fb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on OCDFT_PCCP.pdf (23 pages, 2555005 bytes).
+Output written on OCDFT_PCCP.pdf (25 pages, 2790767 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
+ 879 PDF objects out of 1000 (max. 8388607)
+ 564 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
