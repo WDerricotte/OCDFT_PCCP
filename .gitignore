@@ -1,5 +1,5 @@
 *.aux
 *.bbl
 *.log
-*.pdf
+OCDFT_PCCP.pdf
 *.synctex.gz
