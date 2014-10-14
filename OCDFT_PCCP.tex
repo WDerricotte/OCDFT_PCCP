@@ -181,40 +181,69 @@ We demonstrate the potential of this new method with computations of the gas-pha
 
 
 \section{Theory}
-In this section we provide a brief summary of orthogonality constrained density functional theory along with the necessary extension to multiple excited states (for the full details of the OCDFT derivation we refer the reader to Ref.\citenum{evangelista_orthogonality_2013}) OCDFT is a time-independent variational formulation of DFT that builds upon the approach developed by Ayers, Levy, and Nagy.\cite{ayers_time-independent_2012} OCDFT supplements this formulation by implementing a Kohn-Sham (KS) scheme in which the KS energy functional is augmented with an orthogonality constraint between the ground state and excited state wavefunctions
+In this section we provide a brief summary of orthogonality constrained density functional theory along with the necessary extension to multiple excited states (for the full details of the OCDFT derivation we refer the reader to Ref.\citenum{evangelista_orthogonality_2013}).
+OCDFT builds upon the time-independent variational DFT approach developed by Ayers, Levy, and Nagy.\cite{ayers_time-independent_2012}
+Starting from this theory, it is possible to introduce a generalization of the Kohn--Sham scheme that enables us to express variational excited state density functionals in terms of $\phi^{(n)}$, the occupied orbitals of electronic states $n$.
+To each electronic state $\Psi_n$,  corresponds an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the exact density $\rho^{(n)}$.
+In addition, we assume that the auxiliary wave functions are orthogonal, that is:
+\begin{equation}\label{eq:orthogonality_condition}
+\braket[1]{\Phi^{(m)}}{\Phi^{(n)}} = \delta_{mn}.
+\end{equation}
+This condition can be imposed without loss of generality, avoids the excited state wave functions from collapsing down to the ground state solution, and effectively transfers some of the complexity of the excited state density functionals to the kinetic energy operator.
+Nevertheless, this variational Kohn--Sham scheme involves energy functionals [$E^{(n)}$] that contain exchange-correlation contributions [$E^{(n)}_{\rm xc}$] that are \textit{specific} for each excited state, and differ in general from the ground state functional.
+In OCDFT, we approximate $E^{(n)}_{\rm xc}$ with the ground state exchange-correlation functional, $E^{(0)}_{\rm xc}$.
+The resulting functional for excited state $n$ is given by:
+\begin{equation}
+E^{(n)}[\{\phi^{(n)}_i\}]= -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\nabla^2\ket[1]{\phi_i^{(n)}} + 
+\int d \mathbf{r} \, v(\mathbf{r}) \rho^{(n)}(\mathbf{r}) + J[\rho^{(n)}] + E^{(0)}_{\rm xc}[\rho^{(n)}]. 
+\end{equation}
+
+Minimization of the $E^{(n)}[\{\phi^{(n)}_i\}]$ with respect to the occupied orbitals for state $n$ can be performed with a modified self-consistent-field algorithm.\cite{evangelista_orthogonality_2013}
+In the case of the first excited ($n = 1$), it is possible to show that the orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] implies that $\Phi^{(1)}$ has a special structure.
+Writing $\Phi^{(1)}$ as an antisymmetrized product of orbitals:
 \begin{align}
-\braket[1]{\Phi^{(\text{1})}}{\Phi} &= 0 ,
-\end{align} 
-where $\Phi^{(1)}$ is a Slater determinant wavefunction representing the first excited state built in the KS spin orbital basis \{$\phi_i^{(1)}$\} and $\Phi$ is the ground state determinant. Imposing this constraint  introduces an explicit hole orbital ($\phi^{(1)}_h$) and particle orbital ($\phi^{(1)}_p$) for the excited state. Where $\phi^{(1)}_h$ represents the orbital in the occupied space that the electron was promoted from and $\phi^{(1)}_p$ represents the orbital in the virtual space that the electron now occupies in the excited configuration. These orbitals naturally satisfy the following conditions 
-\begin{align}
-\hat{Q}\phi_h^{(1)} &= 0 , \\
-\hat{P}\phi_p^{(1)} &= 0 ,
+\ket[1]{\Phi^{(0)}} = \ket[1]{\phi^{(0)}_1 \phi^{(0)}_2 \cdots \phi^{(0)}_{N-1} \phi^{(0)}_N},\\
+\ket[1]{\Phi^{(1)}} = \ket[1]{\phi^{(1)}_1 \phi^{(1)}_2 \cdots \phi^{(1)}_{N-1} \phi^{(1)}_{\rm p}},
 \end{align}
-where $\hat{P}$ and $\hat{Q}$ are projections onto the occupied and virtual space of $|\Phi \rangle$ respectively. By restricting the space spanned by $\phi^{(1)}_h$ and $\phi^{(1)}_p$, equations 2 and 3 are enforcing the fact that an electron can not be promoted from a virtual orbital or promoted to an occupied orbital. The projection operators are designed to span over the entire occupied and virtual space by taking the total summation of the outer products of every orbital contained in the set.
+where we identified the last orbital as a special \textit{particle} orbital: $\phi^{(1)}_N = \phi^{(1)}_{\rm p}$.
+$\phi^{(1)}_{\rm p}$ must spans the virtual space of the ground state determinant and satisfies the condition $\hat{P}^{(0)}\phi_p^{(1)} = 0$, where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(1)}}\bra[1]{\phi_i^{(1)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$.
+The orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] also implies the existence of a \textit{hole} orbital, $\phi^{(1)}_{\rm h}$, that must similarly satisfy the condition $\hat{Q}^{(0)}\phi_{\rm h}^{(1)} = 0$, where $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$, is a projection operator onto the virtual space.
+The occupied orbitals $\phi^{(1)}_1 \phi^{(1)}_2 \cdots \phi^{(1)}_{N-1}$ must be restricted to a space complementary to the hole orbital $\phi_{\rm h}^{(1)}$ (see Fig.~\ref{fig:projection}).
+
+The conditions that determine $\phi^{(1)}_{\rm h}$ and $\phi^{(1)}_{\rm p}$ can be enforced via Lagrangian multipliers.
+%Minimization of the OCDFT functional yields a set of three eigenvalue equations:
+Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$, $\phi^{(1)}_{\rm h}$, and $\phi^{(1)}_{\rm p}$ to zero results in a set of stationary conditions that lead to the following eigenvalue equation:
 \begin{align}
-\hat{P} &= \sum_i^{\text{occ}} |\phi_i\rangle \langle \phi_i| , \\
-\hat{Q} &= \sum_a^{\text{vir}} |\phi_a\rangle \langle \phi_a| .
+\label{eq:one_state_occ_eq}
+(1 - \hat{P}^{(1)}_{\rm h/p})\hat{f}^{(1)} (1 - \hat{P}^{(1)}_{\rm h/p})|\phi_i^{(1)}\rangle &= \epsilon^{(1)}_i |\phi_i^{(1)}\rangle,\\
+\label{eq:one_state_part_eq}
+\hat{Q}^{(0)}(1-\hat{P}_s^{(1)}) \hat{f}^{(1)} (1-\hat{P}_s^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle ,\\
+\label{eq:one_state_hole_eq}
+\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_h^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle.
 \end{align}
-The orthogonality condition is enforced explicitly for the hole orbital through the use of Lagrange multipliers. The resulting Lagrangian minimizes the excited state energy with respect to the orthogonality constraints
+Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_part_eq} and \eqref{eq:one_state_hole_eq} determine the particle and hole orbitals.
+The projection operators involved in the OCDFT equations are defined as:
 \begin{align}
-\nonumber \mathcal{L}^{(1)}[\{\phi_i^{(1)}\}, \phi^{(1)}_{\text{h}}] = &E^{(1)}_{\text{KS}}[\{\phi_i^{(1)}\}] + \sum_a^{\text{vir}} \lambda_a \langle \phi^{(1)}_{\text{h}}|\phi_a\rangle  \\ 
-&- \sum_{pq} \epsilon^{(1)}_{pq} (\langle \phi^{(1)}_{p}|\phi_q^{(1)}\rangle - \delta_{pq}) ,
+\hat{P}^{(1)}_{\rm h/p} &= \hat{P}^{(1)}_{\rm h} + \hat{P}^{(1)}_{\rm p} = 
+\ket[1]{\phi^{(1)}_{\rm h}}\bra[1]{\phi^{(1)}_{\rm h}}
++\ket[1]{\phi^{(1)}_{\rm p}}\bra[1]{\phi^{(1)}_{\rm p}},\\
+\hat{P}^{(1)}_{\rm s} &= \hat{P}^{(1)} - \hat{P}^{(1)}_{\rm p},\\
+\hat{Q}^{(1)}_{\rm s} &= \hat{Q}^{(1)} - \hat{P}^{(1)}_{\rm h},
 \end{align}
-The second term of the Lagrangian explicitly enforces the orthogonality constraint between the hole orbital and the ground state virtual set that was introduced in equation 2, while the last term enforces the general orbital orthogonality condition between the excited state orbitals. E$^{(1)}_{\text{KS}}[\{\phi_i^{(1)}\}]$ is the standard KS energy functional for the excited state. Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$ and $\phi^{(1)}_h$ to zero results in a set of stationary conditions that lead to the following eigenvalue equation:
-\begin{align}
-\hat{P}(1-\hat{Q_s}) \hat{f} |\phi_h^{(1)}\rangle &= \epsilon_h |\phi_h^{(1)}\rangle ,
-\end{align}
-where $\hat{Q}_s$ is the projection onto the orbitals that are in the virtual space but not involved in the excitation, we refer to such orbitals as ``spectators''. 
-%and  $\epsilon_h^{(1)}$ is the energy eigenvalue of the KS Hamiltonian with respect to the hole orbital basis $\{\phi_h^{(1)}\}$.
-These projection operators have an intuitive identity that  for any excited state $k$, $\hat{P}$ and $\hat{Q}$  must sum to unity.
-\begin{align}
-\hat{P}^{(k)} + \hat{Q}^{(k)} = 1 .
-\end{align}
-\begin{figure}
-\includegraphics[scale=0.35]{Figure1.pdf}
-\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
-\end{figure}
-This identity reveals the physical significance of the $1 - \hat{Q}_s$ operator that appears in equation 7, as it can be interpreted as the projection onto the entire excitation space for a given state, a visual representation of this is shown in Figure 1. The algorithm detailed in equation 7 constrains the hole orbital basis, thus we refer to it as the constrained hole (CH) algorithm. It is possible to extend this formulation to multiple excited states by simply removing the hole belonging to the previous excited state from the spectator space
+where the subscript ``s'' represents orbitals that are not involved in the excitation, which we refer to as spectator orbitals.
+See Fig.~\ref{fig:projection} for a graphical representation of the projection operators.
+
+How do we do core orbitals?
+
+How do we generalize this to multiple excitations?
+
+How do we get transition dipole moments?
+
+How do we compute contribution of various orbitals.
+
+
+
+It is possible to extend this formulation to multiple excited states by simply removing the hole belonging to the previous excited state from the spectator space
 \begin{align}
 %\notag (1-\hat{Q}) (1 - \hat{Q}_s)\hat{f} |\phi_{\text{h}}^{\text{(1)}}\rangle &= \epsilon^{\text{(1)}}_{\text{h}} |\phi_{\text{h}}^{\text{(1)}}\rangle \\
 %\notag (1-\hat{Q}) (1 - \hat{Q}_s - (\hat{P}^{(1)}_{\text{h}}))\hat{f} |\phi_{\text{h}}^{\text{(2)}}\rangle &= \epsilon^{\text{(2)}}_{\text{h}} |\phi_{\text{h}}^{\text{(2)}}\rangle \\ 
@@ -381,9 +410,9 @@ It has been concluded that varying HF exchange parameters can vastly improve the
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.15]{ThymineOKexperiment.png}\\
-\includegraphics[scale=0.15]{ThymineNKexperiment.png} \\
-\includegraphics[scale=0.15]{ThymineCKexperiment.png}
+%\includegraphics[scale=0.15]{ThymineOKexperiment.png}\\
+%\includegraphics[scale=0.15]{ThymineNKexperiment.png} \\
+%\includegraphics[scale=0.15]{ThymineCKexperiment.png}
 \caption{Core excited states for thymine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a Full Width at Half Maximum (FWHM) of 0.3 eVs of the (a) oxygen K-edge, (b) nitrogen K-edge, and (c) carbon K-edge. Experimental spectra is from reference [CITE].}
 \label{figure:Thymine}
 \end{figure}
@@ -594,8 +623,8 @@ The position of spectral features computed with OCDFT are in excellent agreement
 \end{comment}
  \ Figure \ref{figure:Thymine} shows the oxygen, nitrogen, and carbon K-edge computed with OCDFT compared to NEXAS experiments done on gas-phase thymine performed by Plekan et al. [CITE] In this work, they also performed second-order algebraic-diagrammatic construction [ADC(2)] calculations to aid their experiment. Even while employing this highly sophisticated wavefunction method, in order to achieve optimal agreement with the experimental data they shifted the calculated spectra by a uniform value of -2.52 eV. Here we present spectra that have been computed using OCDFT and have not been shifted from their calculated value.
 \begin{figure}[!ht]
-\includegraphics[scale=0.20]{AdenineNKexperiment.png} \\
-\includegraphics[scale=0.20]{AdenineCKexperiment.png}
+%\includegraphics[scale=0.20]{AdenineNKexperiment.png} \\
+%\includegraphics[scale=0.20]{AdenineCKexperiment.png}
 \caption{Core excited states for adenine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a FWHM of 0.2 eVs of the (a) nitrogen K-edge and (b) carbon K-edge.}
 \label{figure:Adenine}
 \end{figure}
