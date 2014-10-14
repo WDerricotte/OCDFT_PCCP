@@ -354,27 +354,30 @@ It has been concluded that varying HF exchange parameters can vastly improve the
 \label{figure:Thymine}
 \end{figure}
 \subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
-
+\begin{figure}
+\centering
+\includegraphics[scale =0.5]{ThymineVirtuals.png}
+\end{figure}
 \begin{table}
 \centering
-    \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
+    \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
     \hline
     \hline
   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
   \hline
-  Assignment & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
+  $\phi_h$ & $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
   \hline
-   O$_2$ $\rightarrow$ $\pi_2^*$ & 531.05 & 1.000 &  A & 531.4
+   O$_2$ & 81.5$\%$$\phi_{\pi^*_1}$ + 13.0$\%$$\phi_{\pi^*_2}$& 531.05 & 1.000 &  A & 531.4
    \vspace{2mm}\\
-   O$_1$ $\rightarrow$ $\pi_1^*$ & 532.08 & 0.968 &  B & 532.3 
+   O$_1$ & 65.8$\%$$\phi_{\pi^*_2}$ + 26.8$\%$$\phi_{\pi^*_1}$ & 532.08 & 0.968 &  B & 532.3 
    \vspace{2mm}\\
-   O$_1$ $\rightarrow$ $\pi_2^*$ & 533.38 & 0.146 & \multirow{2}{*}{ B$^{\prime}$} \\
+   O$_1$ & 62.8$\%$$\phi_{\pi^*_2}$ + 26.8$\%$$\phi_{\pi^*_1}$  & 533.38 & 0.146 & \multirow{2}{*}{ B$^{\prime}$} \\
    O$_2$ $\rightarrow$ $\pi_1^*$ & 533.75 & 0.162 &  \multirow{9}{*}{C} & \multirow{9}{*}{535.7}
    \vspace{2mm}\\
-   O$_1$ $\rightarrow$ 3s & 534.74 & 0.008 \\
+   O$_1$ $\rightarrow$ $\sigma$ & 534.74 & 0.008 \\
    O$_2$ $\rightarrow$ 3s & 534.85 & 0.042 \\
    O$_2$ $\rightarrow$ 3p & 535.28 & 0.020\\
-   O$_1$ $\rightarrow$ 3p & 535.46 & 0.098\\
+   O$_1$ $\rightarrow$ $\pi$ & 535.46 & 0.098\\
    O$_2$ $\rightarrow$ 3p & 535.53 & 0.085\\
    O$_1$ $\rightarrow$ 3p & 536.12 & 0.222\\
    O$_2$ $\rightarrow$ 4p & 536.24 & 0.103\\
@@ -390,6 +393,40 @@ It has been concluded that varying HF exchange parameters can vastly improve the
    O$_1$ $\rightarrow$ 5p & 538.49 & 0.058 & \ D$^{\prime}$\\
    \hline
   \end{tabular}
+      \caption{Calculated and experimental thymine core excitation energies in eV are shown in the table. All excitations originate from the 1s orbital on the specified atom. \\
+  $^{\ddagger}$Experimental value for this transition is inconclusive, value shown here was calculated using ADC(2)}
+  \label{figure:MOs}
+  \end{table}
+   \begin{table}
+ \centering
+     \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
+     \hline
+     \hline
+   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \hline
+ $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
+   \hline
+   81.5$\%$ 33A  +   13.0$\%$ 34A  & 531.03 & 0.915 \\
+   62.5$\%$ 33A  +   32.2$\%$ 34A  & 531.18 & 1.000 \\
+   65.8$\%$ 34A  +   26.8$\%$ 33A  & 532.09 & 0.896 \\
+   78.1$\%$ 34A  +   16.8$\%$ 33A  & 533.75 & 0.143 \\
+   78.7$\%$ 35A  +   14.3$\%$ 37A  & 534.74 & 0.009 \\
+   67.1$\%$ 35A  +   26.4$\%$ 37A  & 534.87 & 0.041 \\
+   69.1$\%$ 37A  +   13.7$\%$ 36A  & 535.24 & 0.011 \\
+   46.8$\%$ 37A  +   28.9$\%$ 35A  & 535.28 & 0.017 \\
+   58.8$\%$ 36A  +   14.5$\%$ 38A  & 535.53 & 0.063 \\
+   61.2$\%$ 36A  +   14.7$\%$ 37A  & 535.54 & 0.078 \\
+   78.3$\%$ 39A  +   10.6$\%$ 44A  & 535.92 & 0.107 \\
+   70.1$\%$ 38A  +   14.0$\%$ 36A  & 536.16 & 0.100 \\
+   67.9$\%$ 38A  +   15.6$\%$ 36A  & 536.24 & 0.092 \\
+   86.3$\%$ 39A  +   7.2$\%$ 34A  & 536.35 & 0.048 \\
+   42.4$\%$ 42A  +   35.1$\%$ 40A  & 536.95 & 0.111 \\
+   44.3$\%$ 41A  +   24.3$\%$ 40A  & 537.02 & 0.023 \\
+   61.5$\%$ 40A  +   14.0$\%$ 38A  & 537.21 & 0.021 \\
+   47.1$\%$ 40A  +   30.8$\%$ 42A  & 537.54 & 0.025 \\
+   43.1$\%$ 42A  +   33.8$\%$ 41A  & 537.67 & 0.065 \\
+   58.5$\%$ 41A  +   10.4$\%$ 43A  & 538.26 & 0.048 \\
+    \end{tabular}
       \caption{Calculated and experimental thymine core excitation energies in eV are shown in the table. All excitations originate from the 1s orbital on the specified atom. \\
   $^{\ddagger}$Experimental value for this transition is inconclusive, value shown here was calculated using ADC(2)}
   \label{figure:MOs}
@@ -421,7 +458,8 @@ It has been concluded that varying HF exchange parameters can vastly improve the
 \end{comment}
 \subsubsection{Thymine}
   \begin{figure}[ht!]
-  \includegraphics[scale=0.60]{g130.png} \includegraphics[scale=0.4]{particleorbitals.png}
+  \centering
+  \includegraphics[scale=0.60]{g130.png}
   \caption{(Left) Optimized geometry and numbering scheme for thymine. Atoms are numbered based on the Hartree-Fock energy of their respective 1s orbitals starting with the highest energy core (O$_1$). The top number (in red) is the calculated bond length/angle computed at the B3LYP level of theory, while the bottom number (in black) shows values from the experimental crystal structure.[CITE] (Right) Relevant $\pi^*$ particle orbitals for thymine}
   \end{figure}
   \ In this section the O, N, and C core excitation spectra of thymine will be predicted using OCDFT in tandem with B3LYP.  A basis set of triple zeta quality (def2-TZVP) was employed in the calculation of all core-excitations. Peak intensities were approximated by taking the transition dipole moments ($\mu_i$) and calculating an oscillator strength ($f_{osc} $) for each transition ($\omega_{i}$)
