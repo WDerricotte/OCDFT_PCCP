@@ -149,9 +149,7 @@ NEXAS has been successfully applied to large biological systems, \cite{hua_refin
 \begin{figure}
 \centering
 \includegraphics[width=8.8cm]{NEXASIllustration.pdf}
-\caption{Example diagram of a X-ray photoabsorption spectra (XAS).  The near edge, located in the low energy region, consists of core excitations to valence orbitals.  These transitions reveals electronic structure information about the excited atom. The high energy region of the spectra is called the extended X-ray absorption fine structure (EXAFS), and consists of the highest lying excitations of core level electrons to the continuum. The photoelectron interacts with the surrounding environment revealing geometrical information about the excited atom. The current work specifically focuses on the XANES region.   
-%The low energy region (near edge) consists of the X-ray absorption near-edge structure (XANES).  XANES which is composed of core excitations to valence MOs and reveals electronic structure information about the excited atom. The high energy region of the spectra is called the extended X-ray absorption fine structure (EXAFS), and consists of the highest lying excitations of core level electrons to the continuum. The photoelectron interacts with the surrounding environment revealing geometrical information about the excited atom. The current work specifically focuses on the XANES region.
-}
+\caption{Example diagram of a X-ray photoabsorption spectra (XAS).  The near edge, located in the low energy region, consists of core excitations to valence orbitals.  These transitions reveals electronic structure information about the excited atom. The high energy region of the spectra is called the extended X-ray absorption fine structure (EXAFS), and consists of the highest lying excitations of core level electrons to the continuum. The photoelectron interacts with the surrounding environment revealing geometrical information about the excited atom. The current work specifically focuses on the XANES region.}
 \label{fig:nexas-illustration}
 \end{figure}
 
@@ -233,7 +231,28 @@ The projection operators involved in the OCDFT equations are defined as:
 where the subscript ``s'' represents orbitals that are not involved in the excitation, which we refer to as spectator orbitals.
 See Fig.~\ref{fig:projection} for a graphical representation of the projection operators.
 
-How do we do core orbitals?
+In OCDFT computations of valence excited states, the hole orbital is assumed to be the solution of Eq.~\eqref{eq:one_state_hole_eq} with the highest value of $\epsilon^{(1)}_{\rm h}$.  Similarly, the particle orbital corresponds to the lowest eigenvalue of Eq.~\eqref{eq:one_state_part_eq}.
+In order to compute core-excited states, we modify OCDFT to select hole orbitals with the smallest values of $\epsilon^{(1)}_{\rm h}$.
+
+\begin{figure}
+\includegraphics[width=16cm]{Figure2.pdf}
+\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
+\label{fig:projection}
+\end{figure}
+
+In principle, OCDFT can be generalized to compute an arbitrary number of excited states.  However, for each additional excited state, a new set of conditions must be imposed that guarantees mutual orthogonality  between all the states while simultaneously minimizing the energy.
+While this appears to be a viable solution, it would undoubtedly lead to a more elaborate minimization procedure.
+In this work we take advantage of the localized nature of core orbitals and impose exact orthogonality onto the set of orbitals.
+
+
+  For example, we require that for state $\Phi_n$ at least one orbital ${\phi^{(n)}_j}$ is orthogonal to the occupied orbitals of all lower states $\Phi_m$ ($m < n$):
+\begin{align}
+\braket[1]{\phi^{(m)}_i}{\phi^{(n)}_{\rm p}} &= 0 \;\;\; \forall i \\
+\braket[1]{\phi^{(m)}_a}{\phi^{(n)}_{\rm h}} &= 0 \;\;\; \forall a
+\end{align}
+
+a different approach that imposes exact orthogonality but relaxes the requirement of 
+
 
 How do we generalize this to multiple excitations?
 
@@ -256,6 +275,13 @@ Using this method extends the CH algorithm to allow the calculation of any excit
 \epsilon^{\text{(1)}}_{\text{h}} \le \epsilon^{\text{(2)}}_{\text{h}} \le \epsilon^{\text{(3)}}_{\text{h}} \le ... \le \epsilon^{\text{(k)}}_{\text{h}} .
 \end{align}
 Because of this, in order for the MCHP algorithm to obtain the energy for the $k^{\text{th}}$ excited state, it must first project out all holes related to excited states 1 $\rightarrow$ $(k-1)$.
+
+\begin{figure}
+\includegraphics[scale=0.35]{Figure1.pdf}
+\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
+\label{fig:projection}
+\end{figure}
+
 
 \section{Computational Details}
 OCDFT was used to compute 40 unique core-excitations from a test set of 13 molecules. Its accuracy was assessed by comparing it to experimental data from gas-phase NEXAS experiments.\cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} Excitations from 1s orbitals are considered for all multi-electron atoms in each molecule, in addition to excitations from 2p orbitals for second row elements. All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set\cite{weigend_balanced_2005,weigend_accurate_2006} available in the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012} Optimized geometries and excitation energies were computed consistently using the same functional.
