@@ -3,7 +3,6 @@
 %Copyright The Royal Society of Chemistry 2010
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %\documentclass[8.5pt,twoside,twocolumn]{article}
 \documentclass[12pt]{article}
 %\oddsidemargin -1.2cm
@@ -284,23 +283,33 @@ Because of this, in order for the MCHP algorithm to obtain the energy for the $k
 
 
 \section{Computational Details}
-OCDFT was used to compute 40 unique core-excitations from a test set of 13 molecules. Its accuracy was assessed by comparing it to experimental data from gas-phase NEXAS experiments.\cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} Excitations from 1s orbitals are considered for all multi-electron atoms in each molecule, in addition to excitations from 2p orbitals for second row elements. All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set\cite{weigend_balanced_2005,weigend_accurate_2006} available in the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012} Optimized geometries and excitation energies were computed consistently using the same functional.
-\\ \\
-The inclusion of scalar relativistic effects are a common practice when studying excitations of core electrons.\cite{maganas_l-edge_2014,debeer_george_calibration_2010,bauer_herfd-xas_2014,ankudinov_sensitivity_2002} It was rigorously proven by Levy \cite{levy_excitation_1995} that the excitation energy, $\omega$, can be expressed in terms of ground state KS orbital energies ($\epsilon$) in the following way
+OCDFT core-excited states were computed using a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
+All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set.\cite{weigend_balanced_2005,weigend_accurate_2006}  Optimized geometries and excitation energies were computed consistently using the same functional.
+\textbf{fix :}In order to show this, we will compute core-excited states using two standard hybrid functionals, B3LYP (20\% HF exchange) and PBE0(25\% HF exchange). As well as a pure functional, BLYP(no HF exchange).
+\textbf{Which functionals?  Briefly summarize and add citations.}
+
+The inclusion of scalar relativistic effects is a common practice when studying excitations of core electrons.\cite{maganas_l-edge_2014,debeer_george_calibration_2010,bauer_herfd-xas_2014,ankudinov_sensitivity_2002}
+Work by Desclaux et al. \cite{desclaux_relativistic_1971} shows that the largest orbital effect when solving the relativistic hartree-fock equations is the contraction of the 1s orbital, the corresponding energy correction ($\Delta\epsilon_{\text{1s}}$) can be approximated by the energy difference between a nonrelativistic (NR) and relativistic (R) orbital energies:
 \begin{align}
-\omega = \epsilon_{\text{p}} - \epsilon_{\text{h}} + \Delta \nu_{\text{xc}} 
+\Delta\epsilon_{\text{1s}} = \epsilon_{\text{1s}}^{\text{R}} - \epsilon_{\text{1s}}^{\text{NR}}.
 \end{align}
-Where the p and h subscripts denote the particle and hole orbitals involved in the excitation and $\Delta \nu_{\text{xc}} $ is the potential difference between the ground state and the excited state. Work by Desclaux et al. \cite{desclaux_relativistic_1971} shows that the largest orbital effect when solving the relativistic hartree-fock equations is the contraction of the 1s orbital, this contraction ($\gamma^{\text{1s}}$) can be approximated by observing the energy reduction of the orbital between a nonrelativistic (NR) and relativistic (R) calculation as shown in Equation 12
+The relativistic orbital energies were obtained using the Douglass-Kroll Hess (DKH) Hamiltonian.\cite{douglas_quantum_1973,hess_applicability_1985, hess_relativistic_1986}
+For excitations involving 1s orbitals, we approximate the relativistic excitation energy ($\omega^{\rm R}$) as the sum of the non relativistic excitation energy ($ \omega^{\rm NR}$) minus $\Delta\epsilon_{\text{1s}}$:
 \begin{align}
-\gamma^{\text{1s}} = \epsilon_{\text{1s}}^{\text{R}} \  - \epsilon_{\text{1s}}^{\text{NR}}.
+\omega^{\rm R} = \omega^{\rm NR} - \Delta\epsilon_{\text{1s}}.
 \end{align}
-The relativistic orbital energies were obtained using the Douglass-Kroll Hess (DKH) Hamiltonian \cite{douglas_quantum_1973,hess_applicability_1985, hess_relativistic_1986}, and then the subsequent $\gamma^{\text{1s}}$ is applied directly to the excitation energy
-\begin{align}
-\omega = \epsilon_{\text{p}} - \epsilon_{\text{h}} + \Delta \nu_{\text{xc}} + \gamma^{\text{1s}} .
-\end{align}
-The relativistic correction for first row 1s core orbitals are negligibly small (C, N, and O 1s contractions are approximately 0.1, 0.2, and 0.3 eV respectively). Relativistic corrections for the 1s orbitals of the second row nuclei ranged from 3.8 eV (Si) to 10.1 eV (Cl). Excitations from 2p orbitals of second row elements are negligible (max 0.05 eV) and were not applied to the final results. \\
-The treatment of core-excited states in highly symmetric molecules presents a unique challenge for conventional DFT functionals that are based on the local density approximation (LDA). The existence of symmetry equivalent atoms becomes problematic for both pure and hybrid functionals due to the approximate treatment of exchange and correlation which introduces a self-interaction error.\cite{lundberg_quantifying_2005} A classic example of this problem is the dissociation of the H$_2^+$ ion, where at large distances, standard functionals artificially stabilize a state of delocalized density because of the decrease in self-interaction.\cite{bally_incorrect_1997} The interaction between core excitations on equivalent atomic centers is weak, and thus these excitations are inherently local. To obtain a state where the core hole is localized, we utilize a wavefunction with broken spatial and spin symmetry for all molecules with symmetry equivalent atoms in the test set (N$_2$, C$_2$H$_2$, and Cl$_2$).
+Relativistic corrections for the 1s orbitals of the second row nuclei range from 3.8 eV (Si) to 10.1 eV (Cl). 
+In the case of first row 1s core orbitals, $\Delta\epsilon_{\text{1s}}$ is negligible (C, N, and O 1s corrections are about 0.1, 0.2, and 0.3 eV, respectively).  Similarly, excitations from 2p orbitals of second row elements are negligible (max 0.05 eV) and were not applied to the final results.
+
+The treatment of core-excited states in highly symmetric molecules presents a unique challenge for functionals based on the local density approximation (LDA). The existence of symmetry equivalent atoms becomes problematic for both pure and hybrid functionals due to the approximate treatment of exchange and correlation which introduces a self-interaction error.\cite{bally_incorrect_1997,lundberg_quantifying_2005}
+\textbf{Add : for highly symmetric molecules we study both with and without symmetry}
+To obtain a state where the core hole is localized, we utilize a wavefunction with broken spatial and spin symmetry mixing the coefficients of the alpha and beta orbitals.
+
+ for all molecules with symmetry equivalent atoms in the test set (N$_2$, C$_2$H$_2$, and Cl$_2$).
+
 \section{Results and Discussion}
+OCDFT was used to compute 40 unique core-excitations from a test set of 13 molecules. Its accuracy was assessed by comparing it to experimental data from gas-phase NEXAS experiments.\cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} 
+Excitations from 1s orbitals are considered for all multi-electron atoms in each molecule, in addition to excitations from 2p orbitals for second row elements. 
 The MAEs of OCDFT over the abridged test set are shown in Table \ref{table:OverallPerformance}, considering 12 unique basis set and functional combinations. A direct comparison of the accuracy of OCDFT and TDDFT compared to experimental core-excitation energies are shown in Figure \ref{figure:Hist}. A breakdown of individual excitations computed with OCDFT and TDDFT are compared to their experimental assignments in Tables \ref{table:FirstRow} and \ref{table:SecondRow}. Table \ref{table:FirstRow} displays excitations from first row atoms, while Table \ref{table:SecondRow} shows excitations from second row atoms. We observe a distinct relationship between the amount of hole/particle orbital overlap and the accuracy of the computations, this relationship is explained in Section 4.3 and further analyzed in Figure \ref{figure:scatter}. Finally we close by computing the NEXAS spectra of two nucleobases, adenine and thymine. The nitrgen, carbon, and oxygen edges for Thymine can be found in Figure \ref{figure:Thymine} while the carbon and nitrogen edges of Adenine are found in Figure \ref{figure:Adenine}. Spectra resulting from inner-shell ionizations are commonly referred to as K, L, or M edges depending on which core-shell is involved in the excitation. This nomenclature is simply derived from the Barkla labeling scheme for X-ray series, and we will routinely employ it to refer to specific spectra.
 \subsection{Overall Performance}
 The performance of OCDFT on the full test set of first and second row core excitations with different functionals and basis sets is shown in Table \ref{table:OverallPerformance}. The data shows no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree-Fock (HF) exchange present in the functional. Even the BLYP functional, shows comparable accuracy to its hybrid counterparts. BLYP often outperforms PBE0 and yields similar MAEs as B3LYP across all basis sets. The Karlsruhe family of basis sets give the most accurate result, while the correlation consistent (cc) basis sets also perform well, however are slightly less accurate than the Karlsruhe basis sets.
