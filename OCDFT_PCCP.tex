@@ -158,7 +158,7 @@ Calculations of NEXAS spectra are challenging, and require computational methods
 
 TDDFT is a rigorous extension of the DFT ground-state formalism,\cite{runge_density-functional_1984} and it is regarded as the method of choice to treat electronic excited states within a density functional framework.
 %Within the framework of density functional theory, TDDFT is regarded as the method of choice to treat electronic excited states because it is a rigorous extension of the ground-state formalism.\cite{runge_density-functional_1984}
- When applied in conjunction with frequency-independent exchange-correlation potentials, TDDFT yields accurate excitation energies for low-lying excited states. For example, the TDDFT benchmark study of Silva-Junior and co-workers\cite{silva-junior_benchmarks_2008} on 28 organic molecules, showed that singlet and triplet excitation energies can be calculated with a mean average error (MAE) of 0.27 eV and 0.44 eV, respectively. However, Besley et al.\cite{besley_self-consistent-field_2009} showed that TDDFT core excitations computed with conventional exchange-correlation functionals grossly underestimate experimental results, yielding a MAE of 20.2 eV.  Given the difficulties encountered by TDDFT in computing charge-transfer excited states\cite{dreuw_failure_2004} and the self interaction error that afflicts traditional density functionals, this failure is to be expected.
+ When applied in conjunction with frequency-independent exchange-correlation potentials, TDDFT yields accurate excitation energies for low-lying excited states. For example, the TDDFT benchmark study of Silva-Junior and co-workers\cite{silva-junior_benchmarks_2008} on 28 organic molecules, showed that singlet and triplet excitation energies can be calculated with a mean average error (MAE) of 0.27 eV and 0.44 eV, respectively. However, Besley et al.\cite{besley_self-consistent-field_2009} showed that TDDFT core excitations computed with conventional exchange-correlation functionals grossly underestimate experimental results, yielding a MAE of 20.2 eV. It is customary to remedy this deficiency of TDDFT by shifting the position of computed spectra by an amount that minimizes the difference between the computational and experimental peak features. For example, a study done by DeBeer, Petrenko, and Neese\cite{debeer_george_prediction_2008} showed that it is necessary shift the TDDFT Fe near-edge spectra of different iron complexes by 171.3 eV in order to correct the spectra. Given the difficulties encountered by TDDFT in computing charge-transfer excited states\cite{dreuw_failure_2004} and the self interaction error that afflicts traditional density functionals, this failure is to be expected.
 Work by Peach et al. \cite{peach_excitation_2008} suggests that there is a direct correlation between the accuracy of TDDFT and the degree of spatial overlap ($\Lambda$) between the occupied and virtual orbitals involved in the excitation. Low orbital overlap is a characteristic feature of both charge transfer excitations and core excitations, with the relationship between accuracy and orbital overlap being persistent through core excitations as well. \cite{besley_time-dependent_2009}
 The inaccuracy of TDDFT for excitations with low values of $\Lambda$ has been attributed to the incorrect asymptotic behavior of the exchange-correlation potential and self-interaction error.\cite{peach_excitation_2008}
 
@@ -279,7 +279,8 @@ Using this method extends the CH algorithm to allow the calculation of any excit
 Because of this, in order for the MCHP algorithm to obtain the energy for the $k^{\text{th}}$ excited state, it must first project out all holes related to excited states 1 $\rightarrow$ $(k-1)$.
 
 \begin{figure}
-\includegraphics[scale=0.35]{Figure1.pdf}
+\centering
+\includegraphics[scale=0.40]{Figure1.pdf}
 \caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
 \label{fig:projection}
 \end{figure}
@@ -287,7 +288,7 @@ Because of this, in order for the MCHP algorithm to obtain the energy for the $k
 
 \section{Computational Details}
 OCDFT core-excited states were computed using a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
-All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set.\cite{weigend_balanced_2005,weigend_accurate_2006}  Optimized geometries and excitation energies were computed consistently using the same functional. The OCDFT excitation energies reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals and the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)[cite Woon, D.,  Dunning, T. H., Jr. (1995). Gaussian-Basis Sets for Use in Correlated Molecular Calculations .5. Core-Valence Basis-Sets for Boron through Neon. The Journal of Chemical Physics, 103(11), 4572Ð4585.]
+All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set.\cite{weigend_balanced_2005,weigend_accurate_2006}  Optimized geometries and excitation energies were computed consistently using the same functional. The OCDFT excitation energies reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals and the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)[cite Woon, D.,  Dunning, T. H., Jr. (1995). Gaussian-Basis Sets for Use in Correlated Molecular Calculations .5. Core-Valence Basis-Sets for Boron through Neon. The Journal of Chemical Physics, 103(11), 4572ï¿½4585.]
 and the Karlsruhe valence polarized basis sets\cite{weigend_balanced_2005,weigend_accurate_2006} (def2-$X$ZVP, $X$ = T,Q).
 TDDFT calculations were performed at the B3LYP level of theory with the def2-TZVP basis set for the sake of comparison. All TDDFT calculations were executed in the ORCA software package\cite{neese_orca_2012}.
 
@@ -314,9 +315,11 @@ To obtain a state where the core hole is localized, we utilize a wavefunction wi
 %OCDFT was used to compute 40 unique core-excitations from a test set of 13 molecules. Its accuracy was assessed by comparing it to experimental data from gas-phase NEXAS experiments.\cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} 
 %Excitations from 1s orbitals are considered for all multi-electron atoms in each molecule, in addition to excitations from 2p orbitals for second row elements. 
 %The MAEs of OCDFT over the test set are shown in Table \ref{table:OverallPerformance}, considering 12 unique basis set and functional combinations. A direct comparison of the accuracy of OCDFT and TDDFT compared to experimental core-excitation energies are shown in Figure \ref{figure:Hist}. A breakdown of individual excitations computed with OCDFT and TDDFT are compared to their experimental assignments in Tables \ref{table:FirstRow} and \ref{table:SecondRow}. Table \ref{table:FirstRow} displays excitations from first row atoms, while Table \ref{table:SecondRow} shows excitations from second row atoms. We observe a distinct relationship between the amount of hole/particle orbital overlap and the accuracy of the computations, this relationship is explained in Section 4.3 and further analyzed in Figure \ref{figure:scatter}. Finally we close by computing the NEXAS spectra of two nucleobases, adenine and thymine. The nitrgen, carbon, and oxygen edges for Thymine can be found in Figure \ref{figure:Thymine} while the carbon and nitrogen edges of Adenine are found in Figure \ref{figure:Adenine}. Spectra resulting from inner-shell ionizations are commonly referred to as K, L, or M edges depending on which core-shell is involved in the excitation. This nomenclature is simply derived from the Barkla labeling scheme for X-ray series, and we will routinely employ it to refer to specific spectra.
-\subsection{Overall Performance}
-The performance of OCDFT on the full test set of first and second row core excitations with different functionals and basis sets is shown in Table \ref{table:OverallPerformance}. The data shows no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree-Fock (HF) exchange present in the functional. Even the BLYP functional, shows comparable accuracy to its hybrid counterparts. BLYP often outperforms PBE0 and yields similar MAEs as B3LYP across all basis sets. The Karlsruhe family of basis sets give the most accurate result, while the correlation consistent (cc) basis sets also perform well, however are slightly less accurate than the Karlsruhe basis sets.
+First we present evidence that OCDFT is an accurate method for the computation of core-excited states. This is proven by benchmarking OCDFT over a test set of 40 unique core excited states over 13 different molecules.
+The molecules that formulate the test are chosen such that excitations are considered from both first row atoms (CO, H$_2$CO, N$_2$O, N$_2$, HCN, CH$_4$, C$_2$H$_4$) and second row atoms (SiH$_4$, PH$_3$, H$_2$S, SO$_2$, HCl, Cl$_2$). A breakdown of individual excitations computed with OCDFT and TDDFT are compared to their experimental assignments in Tables \ref{table:FirstRow} and \ref{table:SecondRow}. Table \ref{table:FirstRow} displays excitations from first row atoms, while Table \ref{table:SecondRow} shows excitations from second row atoms.
+The performance of OCDFT on the full test set of first and second row core excitations with different functionals and basis sets is shown in Table \ref{table:OverallPerformance}. The data shows no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree--Fock (HF) exchange present in the functional. Even the BLYP functional, which contains no HF exchange, shows comparable accuracy to its hybrid counterparts. BLYP often outperforms PBE0 and yields similar MAEs as B3LYP across all basis sets. The Karlsruhe family of basis sets yields results that are in better agreement with the experimental excitation energies.
 \begin{table}[!ht]
+\centering
     \begin{tabular}{l@{\hskip 0.5in}lll}
     \hline
     \hline
@@ -327,36 +330,27 @@ def2-TZVP & 1.0 & 1.0 & 0.9 \\
 def2-QZVP & 1.0 & 1.0 & 1.4 \\
 cc-pCVTZ & 1.3 & 1.3 & 1.6 \\
 cc-pCVQZ & 1.5 & 1.5 & 1.7 \\
+\hline
+\hline
 \end{tabular}
     \caption{Mean absolute error in the core-excited states calculated using OCDFT on a test set of 35 different core excited states from 13 different molecules.}
     \label{table:OverallPerformance}
 \end{table}
 \\ \\ 
-The average error of OCDFT is commensurate to wavefunction methods that have been used to treat core-excited states. Asmuruf and Besley\cite{asmuruf_calculation_2008} reported an average error of 1.2 eV for SOS-CIS(D) applied to a set of excitations similar to the ones used in the present study. While Coriani et al.\cite{coriani_coupled-cluster_2012} reported errors of less than 0.9 eV when applying coupled cluster response theory to a set of carbon, nitrogen, and neon core excitations. These methods are still not as accurate as computations done on valence excitations, which were shown to have a mean average error of 0.14 eV in a recent extensive TD-DFT benchmark when using conventional CI or DFT methods. \cite{jacquemin_extensive_2009} 
+The average error of OCDFT is commensurate to that of wavefunction methods for core-excited states. For example, Asmuruf and Besley\cite{asmuruf_calculation_2008} reported an average error of 1.2 eV for SOS-CIS(D) applied to a set of excitations similar to the ones used in the present study. While Coriani et al.\cite{coriani_coupled-cluster_2012} reported errors of less than 0.9 eV when applying coupled cluster response theory to a set of carbon, nitrogen, and neon core excitations. 
 \\ \\
-A full comparison of the accuracy of OCDFT and TDDFT in tandem with the B3LYP functional and def2-QZVP basis applied to first row and second row core excitations is shown in Fig. \ref{figure:Hist}. OCDFT performs very well, peaking at an error close to zero and its largest error being $-$3.7 eVs. On the contrary, TDDFT performs rather poorly, peaking at an error close to $-$15 eVs and its largest error being $-$53.6 eVs. To understand why OCDFT outperforms TDDFT, we will compare the singlet excitation energy expression of CIS to TDDFT. Similar analyses have been done on variational DFT \cite{ziegler_implementation_2012} and TDDFT \cite{casida_charge-transfer_2000}. The excitation energy for TDDFT differs from the CIS excitation energy by a term that includes nonlocal integrals that rely on both the hole and particle functions simulataneously
-\begin{align}
- \nonumber \omega^{\text{TDDFT}}_s = \ &\omega^{\text{CIS}}_s + (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
-\end{align}
-where $\nu_i^x$ is the exchange potential and $a$ is a parameter that weights the relative amount of DFT and HF exchange. The nonlocal $\hat{J}_{\text{ph}}$ coulomb repulsion integral is problematic and leads to a poor description of the coulombic attraction that exists between a positively charged hole and a negatively charged particle. Thus, it can not naturally describe core excitations, and relies instead on the varying of the $a$ parameter to increase accuracy. The improved performance of OCDFT for core excited states is largely due to the local nature of the integrals involved. The excitation energy for OCDFT differs from CIS by a term that is composed of integrals that are localized on either the hole or the particle, which guarantees it will be exact for low orbital overlap systems
-\begin{align}
-\nonumber \omega^{\text{OCDFT}}_s = \ &\omega^{\text{CIS}}_s + (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}} \\
-&+ \frac{1}{2} (\text{hh}|\hat{f}_x|\text{hh}) +\frac{1}{2} (\text{pp}|\hat{f}_x|\text{pp})] ,
-\end{align}
-where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{i}}|^2 \ d\tau$ are the exchange kernel integrals. The local nature of the integrals in this term provide a better approximation to exact exchange. This is a direct consequence of the orthogonality condition imposed between the ground and excited states, resulting in a term that is much more adept at handling systems with low orbital overlap.
+A full comparison of the accuracy of OCDFT and TDDFT in tandem with the B3LYP functional and def2-QZVP basis applied to first row and second row core excitations is shown in Fig. \ref{figure:Hist}. OCDFT performs very well,  yielding an error distribution peaked near zero and a maximum error of $-$3.7 eV. On the contrary, TDDFT performs rather poorly. Even with relativistic corrections included it underestimates the excitation energies, on average, by 15 eV with a maximum error of $-$53.6 eV.
 \begin{figure}[!ht]
-\includegraphics[scale=0.17]{TDDFT_OCDFT_histogram.pdf}
+\centering
+\includegraphics[scale=0.25]{TDDFT_OCDFT_histogram.pdf}
 \caption{Histogram showing the distribution of the error in the computed core excited states. All calculations were done using the B3LYP functional and the def2-QZVP basis set. The red filled bar is OCDFT while the empty blue bar is TDDFT.}
 \label{figure:Hist}
 \end{figure}
 \\ \\
-Fig. \ref{figure:Hist} hints at a specific difficulty of conventional TDDFT. Notice the gap, roughly 15 eV wide, that exists between the two clusters of TDDFT data. This gap exists because TDDFT becomes sharply more inaccurate when dealing with second row core excitations, even when relativistic corrections are included. All of the TDDFT errors that are higher in magnitude than -20 eVs can be attributed to core excitations involving 1s orbitals located on second row nuclei. This dramatic drop in accuracy suggests that it is helpful to consider first row and second row core excitations seaparately to highlight the distinctive challenges that arise in each case.
-\subsection{First-Row Core Excitations}
-\noindent Table \ref{table:FirstRow} shows valence and Rydberg excited states in which the core orbital is localized on the 1s orbital of a first row element (C, N, or O). Excitation energies were calculated using TDDFT and OCDFT in tandem with the B3LYP functional and basis sets of quadruple zeta quality. TDDFT produces a mean absolute error of 11.6 eVs compared to experiment, and as discussed earlier, this is consistent with previous studies that used TDDFT with a conventional hybrid functional.\cite{besley_self-consistent-field_2009} OCDFT calculations under the same conditions yield a mean absolute error of 0.4 eV. To put this error into perspective, it can be compared to the performance of TDDFT with the BH$^{0.58}$LYP functional,\cite{besley_time-dependent_2009} a reparameterization of the BHLYP functional that has been augmented to include 58\% HF exchange, 39\% B88 exchange, and 8\% Slater exchange. When applied to a test set similar to those in Figure \ref{table:FirstRow}, BH$^{0.58}$LYP yielded a mean average error of 0.8 eVs. A comparable level of accuracy was achieved by OCDFT without altering the inherent amount of HF exchange present in the functional.
-\\ \\
-It is customary to remedy the deficiency of TDDFT by shifting the position of the computed spectra by an amount that minimizes the difference between the computational and experimental peak features. In the case of the first row elements, this would imply shifting the TDDFT spectra by about 10 eV and using an even larger shift when dealing with heavier atoms. For example, a study done by DeBeer, Petrenko, and Neese\cite{debeer_george_prediction_2008} showed that it is necessary shift the TDDFT Fe near-edge spectra of different iron complexes by 171.3 eV in order to correct the spectra. For OCDFT the computed excitation energies are in good agreement with experiment, making these corrective shifts unnecessary.
+Fig. \ref{figure:Hist} hints at a specific difficulty of conventional TDDFT. Notice the gap, roughly 15 eV wide, that exists between the two clusters of TDDFT data. This gap exists because TDDFT becomes sharply more inaccurate when dealing with second row core excitations, even when relativistic corrections are included. All of the TDDFT excitation energies that have an absolute error greater than 20 eV can be attributed to core excitations involving 1s orbitals located on second row nuclei. This dramatic difference in accuracy suggests that it is helpful to separately analyze first row and second row core excitations to highlight the distinctive challenges that arise in each case.
+\noindent Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s orbital localized on first row elements (C, N, or O). Excitation energies were calculated using TDDFT and OCDFT in tandem with the B3LYP functional and basis sets of quadruple zeta quality. TDDFT produces a mean absolute error of 11.6 eV compared to experiment, and as discussed earlier, this result is consistent with previous studies that used TDDFT with conventional hybrid functionals,\cite{besley_self-consistent-field_2009} OCDFT calculations under the same conditions yield a mean absolute error of 0.4 eV. To put this error into perspective, it can be compared to the performance of TDDFT with the BH$^{0.58}$LYP functional,\cite{besley_time-dependent_2009} a reparameterization of the BHLYP functional that has been augmented to include 58\% HF exchange, 39\% B88 exchange, and 8\% Slater exchange. When applied to a test set of first row core excitations similar to those in Figure \ref{table:FirstRow}, BH$^{0.58}$LYP yielded a mean average error of 0.8 eVs. A comparable level of accuracy was achieved by OCDFT without altering the inherent amount of HF exchange present in the functional. It is also gratifying to see that the OCDFT MAE for this set of first row core excited states is comparable to the MAE obtained for valence excited states (0.3 eV reported in Ref. \citenum{evangelista_orthogonality_2013})
 \\ \\ 
-\begin{table*}[t]
+\begin{table}[!ht]
     \centering
     \begin{tabular}{lll@{\hskip 0.6in}llHH}
     \hline
@@ -393,20 +387,20 @@ It is customary to remedy the deficiency of TDDFT by shifting the position of th
     \caption{Calculated core excitation energies for excitations involving 1s electrons of first-row atoms. Computations were performed using the B3LYP density functional and def2-QZVP basis set, the values reported here are the deviations from the experimental value in electron volts (eV). Mean Absolute Error (MAE) is reported for each method. \\
     $^{\dagger}$For N$_2$O the subscript c and t stand center and tail nitrogen respectively.}
      \label{table:FirstRow}
-     \end{table*}
-\subsection{Second Row Core Excitations: Importance of Orbital Overlap}
-When computing core excited states of second row nuclei TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV, even when the DKH relativistic corrections are included. Previous work by Tozer et al.\cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
+     \end{table}
+\subsection{Importance of Orbital Overlap}
+When computing core excited states of second row nuclei, TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV, even when the DKH relativistic corrections are included. Previous work by Tozer et al.\cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
 \begin{figure}[ht]
-\includegraphics[scale=0.17]{scatterNEW.pdf}
+\includegraphics[scale=0.30]{scatterNEW.pdf}
 \caption{Scatterplot displaying the excitation energy error as a function of orbital overlap. Excitation energies were calculated using the B3LYP functional and def2-QZVP basis set. The overlap integrals were computed with numerical grid integration making use of the Gaussian cube files produced by in Psi4 OCDFT calculations. Grids were calculated with a double zeta basis set and 0.1 grid spacing.}
 \label{figure:scatter}
 \end{figure}
-core hole and valence particle orbitals have little overlap. The overlap between the hole and particle orbital ($\Lambda_{hp}$) is defined by the following integral:
+core hole and valence particle orbitals have little overlap. Following Tozer et al.\cite{peach_excitation_2008} ,we define the overlap between the hole and particle orbital ($\Lambda_{hp}$) for any excited state $n$ as the integral:
 \begin{align}
-\Lambda_{hp} = &\int |\phi_h (\bf{r})||\phi_p (\bf{r})| \ d\bf{r} \\ &\text{where} \ 0 \leq \Lambda_{hp} \leq 1 , \nonumber
+\Lambda_{hp} = &\int |\phi^{(n)}_{\rm h} (\bf{r})||\phi^{(n)}_{\rm p} (\bf{r})| \ \rm d\bf{r} ,
 \end{align}
-which describes the amount of overlap between the two orbitals involved. Figure \ref{figure:scatter} displays the effect that a decrease in orbital overlap has on the accuracy of the excitation energy computed with OCDFT and TDDFT. The vertical dashed line at 0.12 separates the low overlap region (containing exclusively excitations from second row 1s core orbitals) from the higher overlap region (containing exclusively excitations from first row 1s and second row 2p core orbitals). The scatterplot clearly shows that OCDFT is less sensitive to variations in the overlap. Transitioning from the low overlap region to the high overlap region the MAE increases by only 1.5 eV for OCDFT, while in the case of TDDFT the error increases drastically by 35.9 eV.\\ \\
-\begin{table*}[t]
+where $\Lambda_{hp}$ ranges 0 to 1. Figure \ref{figure:scatter} reports the distribution of excited states as a function of the error and the overlap in OCDFT and TDDFT. This highlights the effect that a decrease in orbital overlap has on the accuracy of the excitation energy computed with OCDFT and TDDFT. The vertical dashed line at 0.12 separates the low overlap region (containing exclusively excitations from second row 1s core orbitals) from the higher overlap region (containing exclusively excitations from first row 1s and second row 2p core orbitals). The scatterplot clearly shows that OCDFT is less sensitive to variations in the overlap. Transitioning from the low overlap region to the high overlap region the MAE increases by only 1.5 eV for OCDFT, while in the case of TDDFT the absolute error increases drastically by 35.9 eV.\\
+\begin{table*}[!ht]
     \centering
     \begin{tabular}{lll@{\hskip 0.6in}llHH}
     \hline
@@ -440,21 +434,23 @@ which describes the amount of overlap between the two orbitals involved. Figure 
 \begin{comment}
 Multiple studies have concluded that the shortcoming of traditional density functionals is not the treatment of long-range interaction, but instead it is the incorrect description of the core region that leads to inaccuracy. [CITE] This problem was specifically addressed by the SRC-BLYP functional \cite{besley_time-dependent_2009} which is a flexible functional that increases the amount of Hartree-Fock exchange at short range and is identical to the long range corrected CAM-BLYP at long range. 
 \end{comment}
-It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. 
-\begin{figure}[t]
+\\
+It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. To understand why OCDFT outperforms TDDFT, we will compare the singlet excitation energy expression of CIS to TDDFT. Similar analyses have been done on variational DFT \cite{ziegler_implementation_2012} and TDDFT \cite{casida_charge-transfer_2000}. For a model consisting of one electron in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) the TDDFT and CIS excitation energy differ approximately as The excitation energy for TDDFT differs from the CIS excitation energy by a term that includes nonlocal integrals that rely on both the hole and particle functions simulataneously
+\begin{align}
+ \nonumber \omega^{\text{TDDFT}}_s - \ &\omega^{\text{CIS}}_s \cong (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
+\end{align}
+where $\nu_{\rm p}^x$ and $\nu_{\rm h}^x$ are the exchange potential for orbitals p and h respectively, and $a$ is a parameter that weights the relative amount of DFT and HF exchange. when $a \neq 1$, the coulomb repulsion integral ($J_{\text{ph}}$) causes TDDFT to incorrectly describe charge transfer excitations. Thus, it can not naturally describe core excitations, and relies instead on the varying of the $a$ parameter to increase accuracy. The improved performance of OCDFT for core excited states is largely due to the local nature of the integrals involved. The excitation energy for OCDFT differs from CIS by a term that is composed of integrals that are localized on either the hole or the particle, which guarantees it will be exact for low orbital overlap systems
+\begin{align}
+\nonumber \omega^{\text{OCDFT}}_s = \ &\omega^{\text{CIS}}_s + (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}} \\
+&+ \frac{1}{2} (\text{hh}|\hat{f}_x|\text{hh}) +\frac{1}{2} (\text{pp}|\hat{f}_x|\text{pp})] ,
+\end{align}
+where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{i}}|^2 \ d\tau$ are the exchange kernel integrals. The local nature of the integrals in this term provide a better approximation to exact exchange. This is a direct consequence of the orthogonality condition imposed between the ground and excited states, resulting in a term that is much more adept at handling systems with low orbital overlap.
+\subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
+\begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.45]{adenineThymineNumbering3D.png}
 \caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree-Fock orbital energy of their 1s core orbital. }
 \end{figure}
-\begin{figure}[!ht]
-\centering
-%\includegraphics[scale=0.15]{ThymineOKexperiment.png}\\
-%\includegraphics[scale=0.15]{ThymineNKexperiment.png} \\
-%\includegraphics[scale=0.15]{ThymineCKexperiment.png}
-\caption{Core excited states for thymine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a Full Width at Half Maximum (FWHM) of 0.3 eVs of the (a) oxygen K-edge, (b) nitrogen K-edge, and (c) carbon K-edge. Experimental spectra is from reference [CITE].}
-\label{figure:Thymine}
-\end{figure}
-\subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
 \begin{figure}
 \centering
 \includegraphics[scale =0.5]{ThymineVirtuals.png}
@@ -675,6 +671,14 @@ It has been concluded that varying HF exchange parameters can vastly improve the
   \includegraphics[scale=0.60]{g130.png}
   \caption{(Left) Optimized geometry and numbering scheme for thymine. Atoms are numbered based on the Hartree-Fock energy of their respective 1s orbitals starting with the highest energy core (O$_1$). The top number (in red) is the calculated bond length/angle computed at the B3LYP level of theory, while the bottom number (in black) shows values from the experimental crystal structure.[CITE] (Right) Relevant $\pi^*$ particle orbitals for thymine}
   \end{figure}
+  \begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.15]{ThymineOKexperiment.png}\\
+\includegraphics[scale=0.15]{ThymineNKexperiment.png} \\
+\includegraphics[scale=0.15]{ThymineCKexperiment.png}
+\caption{Core excited states for thymine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a Full Width at Half Maximum (FWHM) of 0.3 eVs of the (a) oxygen K-edge, (b) nitrogen K-edge, and (c) carbon K-edge. Experimental spectra is from reference [CITE].}
+\label{figure:Thymine}
+\end{figure}
   \ In this section the O, N, and C core excitation spectra of thymine will be predicted using OCDFT in tandem with B3LYP.  A basis set of triple zeta quality (def2-TZVP) was employed in the calculation of all core-excitations. Peak intensities were approximated by taking the transition dipole moments ($\mu_i$) and calculating an oscillator strength ($f_{osc} $) for each transition ($\omega_{i}$)
   \begin{align}
   f_{osc} = \frac{2}{3} (\mu_x^2 + \mu_y^2 + \mu_z^2) \omega_{i}
