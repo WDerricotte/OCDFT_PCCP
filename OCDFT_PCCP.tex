@@ -287,18 +287,23 @@ Because of this, in order for the MCHP algorithm to obtain the energy for the $k
 
 \section{Computational Details}
 OCDFT core-excited states were computed using a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
-All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set.\cite{weigend_balanced_2005,weigend_accurate_2006}  Optimized geometries and excitation energies were computed consistently using the same functional. The OCDFT excitation energies reported in this study were computed at the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 [CITE], and BLYP[CITE] level of theory. TDDFT calculations were performed at the B3LYP level of theory with the def2-TZVP basis set for the sake of comparison. All TDDFT calculations were executed in the ORCA software package\cite{neese_orca_2012}.
+All structures were optimized using the Karlsruhe triple zeta valence polarization (def2-TZVP) basis set.\cite{weigend_balanced_2005,weigend_accurate_2006}  Optimized geometries and excitation energies were computed consistently using the same functional. The OCDFT excitation energies reported in this study were computed at the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 [CITE], and BLYP[CITE] level of theory using the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)
+[cite Woon, D.,  Dunning, T. H., Jr. (1995). Gaussian-Basis Sets for Use in Correlated Molecular Calculations .5. Core-Valence Basis-Sets for Boron through Neon. The Journal of Chemical Physics, 103(11), 4572Ð4585.]
+and the Karlsruhe valence polarized basis sets\cite{weigend_balanced_2005,weigend_accurate_2006} (def2-$X$ZVP, $X$ = T,Q).
+
+. TDDFT calculations were performed at the B3LYP level of theory with the def2-TZVP basis set for the sake of comparison. All TDDFT calculations were executed in the ORCA software package.\cite{neese_orca_2012}
 
 It is mandatory to consider relativistic effects when studying excitations of core electrons.\cite{maganas_l-edge_2014,debeer_george_calibration_2010,bauer_herfd-xas_2014,ankudinov_sensitivity_2002}
 %Work by Desclaux et al. \cite{desclaux_relativistic_1971} shows that the largest orbital effect when solving the relativistic hartree-fock equations is the contraction of the 1s orbital, the corresponding energy correction ($\Delta\epsilon_{\text{1s}}$) can be approximated by 
-In this work, the excitation energies computed in OCDFT and TDDFT utilize relativistic orbital energies calculated with the Douglass-Kroll Hess (DKH) Hamiltonian,\cite{douglas_quantum_1973,hess_applicability_1985, hess_relativistic_1986} where $\Delta\epsilon_{\text{1s}}$ is the energy difference between the ground-state nonrelativistic (NR) and relativistic (R) energies of the 1s orbital:
-\begin{align}
-\Delta\epsilon_{\text{1s}} = \epsilon_{\text{1s}}^{\text{R}} - \epsilon_{\text{1s}}^{\text{NR}},
-\end{align}
 For excitations involving 1s orbitals, we approximate the relativistic excitation energy ($\omega^{\rm R}$) as the sum of the nonrelativistic excitation energy ($ \omega^{\rm NR}$) minus a correction $\Delta\epsilon_{\text{1s}}$:
 \begin{align}
 \omega^{\rm R} = \omega^{\rm NR} - \Delta\epsilon_{\text{1s}} ,
 \end{align}
+where $\Delta\epsilon_{\text{1s}}$ is the energy difference between the ground-state nonrelativistic (NR) and relativistic (R) Kohn--Sham energies of the 1s orbital:
+\begin{align}
+\Delta\epsilon_{\text{1s}} = \epsilon_{\text{1s}}^{\text{R}} - \epsilon_{\text{1s}}^{\text{NR}}.
+\end{align}
+In this work, the excitation energies computed in OCDFT and TDDFT utilize relativistic orbital energies calculated with the Douglass-Kroll Hess (DKH) Hamiltonian.\cite{douglas_quantum_1973,hess_applicability_1985, hess_relativistic_1986} 
 Relativistic corrections for the 1s orbitals of the second row nuclei range from 3.8 eV (Si) to 10.1 eV (Cl). 
 In the case of first row 1s core orbitals, $\Delta\epsilon_{\text{1s}}$ is negligible (C, N, and O 1s corrections are about 0.1, 0.2, and 0.3 eV, respectively).  Similarly, excitations from 2p orbitals of second row elements are negligible (max 0.05 eV) and were not applied to the final results.
 
