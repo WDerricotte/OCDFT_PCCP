@@ -257,12 +257,7 @@ a different approach that imposes exact orthogonality but relaxes the requiremen
 
 
 How do we generalize this to multiple excitations? \\
-Peak intensities for all spectra were approximated using the transition dipole moments ($\mu_{\rm x,y,z}$) and calculating an oscillator strength ($f_{\rm osc} $) for each transition ($\omega_{i}$)
-  \begin{align}
-  \label{eq:oscillator_strength}
-  f_{\rm osc} = \frac{2}{3} (\mu_x^2 + \mu_y^2 + \mu_z^2) \omega_{i}
-  \end{align}
-Eq.~\eqref{eq:oscillator_strength} yields the absolute oscillator strength ($f_{\rm abs}$) for a given transition. The intensity of the spectra is then scaled relative to the most intense peak, we will refer to these scaled values as the ``relative oscillator strength'' ($f_{\rm rel}$). The spectral profile is represented by convoluted gaussians centered around the frequency of each calculated transition, each gaussian has a FWHM between 0.1 - 0.4 eV in order to simulate natural spectroscopic broadening effects. \\
+Dipole moments?\\
 How do we compute contribution of various orbitals.
 
 
@@ -313,6 +308,13 @@ The treatment of core-excited states in molecules with symmetry equivalent atoms
 Instead, the symmetry unrestricted solution may consists of core holes localized on  each individual atom. 
 For all molecules with symmetry equivalent atoms (N$_2$, C$_2$H$_2$, and Cl$_2$) we studied both the symmetry restricted and unrestricted solutions.
 To obtain a state where the core hole is localized, we utilize a wavefunction with broken spatial and spin symmetry mixing the coefficients of the alpha and beta orbitals.
+\\
+The calculations of the NEXAS spectra of adenine and thymine were performed at the def2-TZVP/B3LYP level of theory. Peak intensities were approximated by taking the transition dipole moments ($\mu_i$) and calculating an oscillator strength ($f_{osc} $) for each transition ($\omega_{i}$)
+  \begin{align}
+  \label{osc}
+  f_{osc} = \frac{2}{3} (\mu_x^2 + \mu_y^2 + \mu_z^2) \omega_{i}
+  \end{align}
+Eq. \eqref{osc} yields the absolute oscillator strength ($f_{abs}$) for a given transition. The intensity of the spectra is then scaled relative to the most intense peak, we will refer to these scaled values as the ``relative oscillator strength'' ($f_{rel}$). The peaks are represented by convoluted gaussians centered around the frequency of each calculated transition, each gaussian has a FWHM between 0.1 - 0.4 eV in order to simulate natural spectroscopic broadening effects.  The geometry was optimized at the B3LYP level of theory and shows reasonable agreement with the experimental crystal structure reported by Raymond Gerdil. [CITE]
 
 \section{Results and Discussion}
 %OCDFT was used to compute 40 unique core-excitations from a test set of 13 molecules. Its accuracy was assessed by comparing it to experimental data from gas-phase NEXAS experiments.\cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} 
@@ -646,7 +648,7 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
    \caption{Calculated and experimental thymine carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: thymine_k_carbon}
  \end{table}
-  Nucleobases are vastly important molecules that play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray experiments on nucleobases were largely scattering and diffraction based techniques[CITE], it wasn't until 1992 that the first near-edge absorption experiments were performed by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} In this study they selectively characterized the nitrogen environment and revealed the useful sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  A wide array of computational methods have been used to compute the near-edge structure of these molecules, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. Due to TDDFT's consistent underestimation of core excitation energies, it is a very limited tool for studying these types of molecules. Although it can be useful in predicting energy gaps or other relative trends[CITE], It must rely on experimental results in order to obtain any quantitatively useful excitation energies.
+  Nucleobases are vastly important molecules that play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray experiments on nucleobases were largely scattering and diffraction based techniques[CITE], it wasn't until 1992 that the first near-edge absorption experiments were performed by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} In this study they selectively characterized the nitrogen environment and revealed the useful sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  A wide array of computational methods have been used to compute the near-edge structure of these molecules, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE].
   \begin{comment}
   \begin{table}[ht]
     \renewcommand{\arraystretch}{0.01}
