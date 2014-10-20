@@ -439,7 +439,7 @@ where $\Lambda_{hp}$ ranges 0 to 1. Figure \ref{figure:scatter} reports the dist
 Multiple studies have concluded that the shortcoming of traditional density functionals is not the treatment of long-range interaction, but instead it is the incorrect description of the core region that leads to inaccuracy. [CITE] This problem was specifically addressed by the SRC-BLYP functional \cite{besley_time-dependent_2009} which is a flexible functional that increases the amount of Hartree-Fock exchange at short range and is identical to the long range corrected CAM-BLYP at long range. 
 \end{comment}
 
-It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. To understand why OCDFT outperforms TDDFT, we will compare the singlet excitation energy expression of CIS to TDDFT. Similar analyses have been done on variational DFT \cite{ziegler_implementation_2012} and TDDFT \cite{casida_charge-transfer_2000}. For a model consisting of one electron in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) the TDDFT and CIS excitation energy differ approximately as:
+It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. To understand why OCDFT outperforms TDDFT, we will consider a model consisting of one electron in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) and compare the TDDFT and OCDFT excitation energies to that of CIS, since CIS is exact for a one electron model. Similar analyses have been done on variational DFT \cite{ziegler_implementation_2012} and TDDFT \cite{casida_charge-transfer_2000}. The TDDFT and CIS excitation energies for our one electron model differ approximately as:
 \begin{align}
 \label{eq:TDDFT_CIS}
  \nonumber \omega^{\text{TDDFT}}_s - \ &\omega^{\text{CIS}}_s \cong (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
@@ -459,26 +459,30 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
 \begin{figure}
 \centering
 \includegraphics[scale =0.5]{ThymineVirtuals.png}
+\caption{Relevant virtual orbitals for thymine numbered in order based on orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
 \end{figure}
  \begin{table}
  \centering
      \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
    \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     O$_2$
- &   81.8$\%$ $\pi_1^*$  & 531.05 & 1.000 \\
+ &   81.8$\%$ $\pi_1^*$  & 531.05 & 1.000 & A  & 531.4
+ \vspace{0.1in}\\
     O$_1$
- &   64.0$\%$ $\pi_2^*$  & 532.08 & 0.968 \\
+ &   64.0$\%$ $\pi_2^*$  & 532.08 & 0.968 & B & 532.3
+ \vspace{0.1in}\\
     O$_1$
- &   71.2$\%$ $\pi_1^*$  & 533.38 & 0.146 \\
+ &   71.2$\%$ $\pi_1^*$  & 533.38 & 0.146 & \multirow{2}{*}{B$^{\prime}$} & \multirow{2}{*}{$\approx$ 533.8}  \\
     O$_2$
- &   78.3$\%$ $\pi_2^*$  & 533.75 & 0.162 \\
+ &   78.3$\%$ $\pi_2^*$  & 533.75 & 0.162 
+ \vspace{0.1in}\\
     O$_1$
- &   77.0$\%$ $\rm D_1$  & 534.74 & 0.008 \\
+ &   77.0$\%$ $\rm D_1$  & 534.74 & 0.008  & \multirow{9}{*}{C} & \multirow{9}{*}{535.7} \\
     O$_2$
  &   65.9$\%$ $\rm D_1$  & 534.85 & 0.042 \\
     O$_2$
@@ -494,9 +498,10 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
     O$_2$
  &   86.3$\%$ $\rm D_4$  & 536.34 & 0.052 \\
     O$_1$
- &   76.3$\%$ $\rm D_2$  & 536.60 & 0.039 \\
+ &   76.3$\%$ $\rm D_2$  & 536.60 & 0.039 
+ \vspace{0.1in}\\
     O$_2$
- &   44.4$\%$ $\rm D_6$  & 537.02 & 0.024 \\
+ &   44.4$\%$ $\rm D_6$  & 537.02 & 0.024 & \multirow{6}{*}{D} & \multirow{6}{*}{537.1} \\
     O$_1$
  &   83.5$\%$ $\rm D_4$  & 537.10 & 0.047 \\
     O$_2$
@@ -506,7 +511,8 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
     O$_2$
  &   44.0$\%$ 42-A  & 537.67 & 0.073 \\
     O$_1$
- &   43.6$\%$ $\rm D_5$  & 537.72 & 0.036 \\
+ &   43.6$\%$ $\rm D_5$  & 537.72 & 0.036 
+ \vspace{0.1in}\\
     O$_1$
  &   70.7$\%$ $\rm D_6$  & 538.49 & 0.058 \\
    \end{tabular}
@@ -518,24 +524,27 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
      \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
    \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     N$_4$
- &   81.8$\%$ $\pi_1^*$  & 401.18 & 1.000 \\
+ &   81.8$\%$ $\pi_1^*$  & 401.18 & 1.000 & \multirow{2}{*}{A} & \multirow{2}{*}{401.7} \\
     N$_3$
- &   64.0$\%$ $\pi_2^*$  & 401.76 & 0.805 \\
+ &   64.0$\%$ $\pi_2^*$  & 401.76 & 0.805 
+ \vspace{0.1in}\\
     N$_4$
- &   78.3$\%$ $\pi_2^*$  & 402.50 & 0.087 \\
+ &   78.3$\%$ $\pi_2^*$  & 402.50 & 0.087 & \multirow{3}{*}{B} & \multirow{3}{*}{402.7}\\
     N$_3$
  &   77.0$\%$ $\rm D_1$  & 403.09 & 0.863 \\
     N$_4$
- &   65.9$\%$ $\rm D_1$  & 403.33 & 0.765 \\
+ &   65.9$\%$ $\rm D_1$  & 403.33 & 0.765 
+ \vspace{0.1in}\\
     N$_4$
- &   44.1$\%$ $\rm D_3$  & 404.17 & 0.912 \\
+ &   44.1$\%$ $\rm D_3$  & 404.17 & 0.912 & C & 404.1 
+ \vspace{0.1in}\\
     N$_4$
- &   60.8$\%$ $\rm D_2$  & 404.94 & 0.144 \\
+ &   60.8$\%$ $\rm D_2$  & 404.94 & 0.144 & \multirow{7}{*}{D} & \multirow{6}{*}{405.5}\\
     N$_3$
  &   69.5$\%$ $\rm D_3$  & 405.09 & 0.374 \\
     N$_4$
@@ -548,20 +557,6 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
  &   71.2$\%$ $\pi_1^*$  & 405.67 & 0.490 \\
     N$_3$
  &   76.3$\%$ $\rm D_2$  & 405.76 & 0.177 \\
-    N$_3$
- &   83.5$\%$ $\rm D_4$  & 406.01 & 0.549 \\
-    N$_4$
- &   44.4$\%$ $\rm D_6$  & 406.48 & 0.729 \\
-    N$_3$
- &   35.6$\%$ 42-A  & 406.48 & 0.879 \\
-    N$_4$
- &   63.7$\%$ $\rm D_5$  & 406.90 & 0.372 \\
-    N$_4$
- &   44.0$\%$ 42-A  & 407.01 & 0.031 \\
-    N$_3$
- &   43.6$\%$ $\rm D_5$  & 407.01 & 0.214 \\
-    N$_3$
- &   70.7$\%$ $\rm D_6$  & 407.32 & 1.000 \\
  \end{tabular}
   \caption{Calculated and experimental thymine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: thymine_k_nitrogen}
@@ -571,16 +566,18 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
      \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
    \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     C$_8$
- &   92.1$\%$ $\pi_1^*$  & 284.90 & 0.372 \\
+ &   92.1$\%$ $\pi_1^*$  & 284.90 & 0.372 & A & 284.9  
+ \vspace{0.1in} \\
     C$_7$
- &   95.9$\%$ $\pi_1^*$  & 285.98 & 0.698 \\
+ &   95.9$\%$ $\pi_1^*$  & 285.98 & 0.698 & B & 285.9
+ \vspace{0.1in} \\
     C$_9$
- &   75.4$\%$ $\pi_2^*$  & 286.56 & 0.036 \\
+ &   75.4$\%$ $\pi_2^*$  & 286.56 & 0.036 & \multirow{5}{*}{C} & \multirow{5}{*}{287.8} \\
     C$_8$
  &   97.6$\%$ $\pi_2^*$  & 287.33 & 0.171 \\
     C$_6$
@@ -588,9 +585,10 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
     C$_9$
  &   89.9$\%$ $\pi_1^*$  & 287.92 & 0.117 \\
     C$_8$
- &   48.1$\%$ $\rm D_3$  & 288.19 & 0.006 \\
+ &   48.1$\%$ $\rm D_3$  & 288.19 & 0.006 
+ \vspace{0.1in} \\
     C$_9$
- &   87.7$\%$ $\rm D_1$  & 288.46 & 0.229 \\
+ &   87.7$\%$ $\rm D_1$  & 288.46 & 0.229 & \multirow{9}{*}{D} & \multirow{9}{*}{289.4} \\
     C$_8$
  &   53.9$\%$ $\rm D_1$  & 288.94 & 0.037 \\
     C$_9$
@@ -606,15 +604,17 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
     C$_9$
  &   63.1$\%$ $\pi_3^*$  & 289.26 & 0.333 \\
     C$_9$
- &   49.5$\%$ $\rm D_2$  & 289.31 & 0.375 \\
+ &   49.5$\%$ $\rm D_2$  & 289.31 & 0.375 
+ \vspace{0.1in}\\
     C$_8$
  &   67.1$\%$ $\rm D_2$  & 289.67 & 0.082 \\
     C$_8$
  &   77.0$\%$ $\rm D_4$  & 289.68 & 0.105 \\
     C$_6$
- &   78.3$\%$ $\pi_2^*$  & 289.94 & 0.135 \\
+ &   78.3$\%$ $\pi_2^*$  & 289.94 & 0.135 
+ \vspace{0.1in}\\
     C$_9$
- &   75.4$\%$ $\rm D_4$  & 290.14 & 0.023 \\
+ &   75.4$\%$ $\rm D_4$  & 290.14 & 0.023 & \multirow{6}{*}{E} &  \multirow{6}{*}{290.7} \\
     C$_8$
  &   33.3$\%$ $\rm D_5$  & 290.31 & 0.119 \\
     C$_5$
@@ -624,7 +624,8 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
     C$_7$
  &   71.6$\%$ $\rm D_3$  & 290.44 & 0.050 \\
     C$_7$
- &   41.5$\%$ $\rm D_2$  & 290.54 & 0.041 \\
+ &   41.5$\%$ $\rm D_2$  & 290.54 & 0.041 
+ \vspace{0.1in}\\
     C$_8$
  &   38.1$\%$ $\rm D_6$  & 290.80 & 0.093 \\
     C$_9$
@@ -645,7 +646,7 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
    \caption{Calculated and experimental thymine carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: thymine_k_carbon}
  \end{table}
-  The nucleobases are vastly important organic molecules that play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early theoretical studies characterized the electronic structure of the base pairs using low-level methodologies, such as Huckel theory [CITE] and linear combination of atomic orbitals (LCAO)-SCF methods [CITE]. Early X-ray experiments on nucleobases were largely scattering and diffraction based techniques[CITE], it wasn't until 1992 that the first near-edge absorption experiments were performed by Sudipa Mitra Kirtley et al.[CITE] In this study they selectively characterized the nitrogen environment and revealed the useful sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to their surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications.  A wide array of computational methods have been used to compute the near-edge structure of these molecules, including: restricted active space SCF (RASSCF)[CITE], improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT[CITE], $\Delta$MP2[CITE], equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. Due to TDDFT's consistent underestimation of core excitation energies, it is a very limited tool for studying these types of molecules. Although it can be useful in predicting energy gaps or other relative trends[CITE], It must rely on experimental results in order to obtain any quantitatively useful excitation energies.
+  Nucleobases are vastly important molecules that play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray experiments on nucleobases were largely scattering and diffraction based techniques[CITE], it wasn't until 1992 that the first near-edge absorption experiments were performed by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} In this study they selectively characterized the nitrogen environment and revealed the useful sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  A wide array of computational methods have been used to compute the near-edge structure of these molecules, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. Due to TDDFT's consistent underestimation of core excitation energies, it is a very limited tool for studying these types of molecules. Although it can be useful in predicting energy gaps or other relative trends[CITE], It must rely on experimental results in order to obtain any quantitatively useful excitation energies.
   \begin{comment}
   \begin{table}[ht]
     \renewcommand{\arraystretch}{0.01}
@@ -673,8 +674,8 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
 \subsubsection{Thymine}
   \begin{figure}[ht!]
   \centering
-  \includegraphics[scale=0.60]{g130.png}
-  \caption{(Left) Optimized geometry and numbering scheme for thymine. Atoms are numbered based on the Hartree-Fock energy of their respective 1s orbitals starting with the highest energy core (O$_1$). The top number (in red) is the calculated bond length/angle computed at the B3LYP level of theory, while the bottom number (in black) shows values from the experimental crystal structure.[CITE] (Right) Relevant $\pi^*$ particle orbitals for thymine}
+  \includegraphics[scale=0.50]{g130.png}
+  \caption{Optimized geometry and numbering scheme for thymine. Atoms are numbered based on the Khon--Sham orbital energy of their respective 1s orbitals starting with the minimum energy core (O$_1$). The top number (in red) is the calculated bond length ($\AA$)/angle (degrees) computed at the B3LYP level of theory, while the bottom number (in black) shows values from the experimental crystal structure.[CITE]}
   \end{figure}
   \begin{figure}[!ht]
 \centering
@@ -689,91 +690,7 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
   f_{osc} = \frac{2}{3} (\mu_x^2 + \mu_y^2 + \mu_z^2) \omega_{i}
   \end{align}
 Equation 15 yields the absolute oscillator strength ($f_{abs}$) for a given transition. The intensity of the spectra is then scaled relative to the most intense peak, we will refer to these scaled values as the ``relative oscillator strength'' ($f_{rel}$). The peaks are represented by convoluted gaussians centered around the frequency of each calculated transition, each gaussian has a FWHM between 0.1 - 0.4 eV in order to simulate natural spectroscopic broadening effects.  The geometry was optimized at the B3LYP level of theory and shows reasonable agreement with the experimental crystal structure reported by Raymond Gerdil. [CITE] The largest deviation from the experimental structure , with regard to bond length is 0.03 $\AA$, while the bond angles agree within 3$^{\circ}$. Table \ref{figure:MOs} displays all O, N, and C core-excitation energies, their absolute oscillator strength, and the experimental peak assignments/excitation energies. The authors would like to emphasize that the computed OCDFT spectra shown have not been shifted from their original value, the calculated energies displayed in this section are direct solutions of our OCDFT implementation. \\
-Figure \ref{figure:Thymine}a displays the experimental and theoretical spectra of thymine at the oxygen K-edge. The low energy regime of the oxygen K-edge is dominated by two high intensity peaks, both resulting from distinct core-valence excitations. Peak A results from the transition O$_2$ $\rightarrow$ $\pi^*_2$, while Peak B results from the transition O$_1$ $\rightarrow$ $\pi^*_1$ with a peak intensity that is roughly equal to that of Peak A. Experimentally, Peaks A and B are centered at 531.4 eV and 532.3 eV respectively, these excitation energies are predicted well by OCDFT to within 0.3 eV of the experimental peak assignments. The  O$_2$ $\rightarrow$ $\pi_2^*$ transition is predicted as the peak of highest intensity with an f$_{abs}$ of 0.016031, these results are consistent with the ADC(2) analysis performed by Plekan et al. The shoulder feature B$^{\prime}$ is composed of O$_1$ $\rightarrow$ $\pi^*_2$ and O$_2$ $\rightarrow$ $\pi^*_1$ and is predicted by OCDFT to have a fairly strong oscillator strength. This shoulder feature is completely absent from the ADC(2) spectra. However, a more recent study by Wenzel, Wormit, and Dreuw [CITE] uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile. Excitations of weaker intensity are characteristic of the higher energy regime of the K-Edge and presents itself in many other situations [CITE], multiple experiments have attributed the weak intensities in this region to mixing of core-valence excited states with Rydberg excited states of similar energy.[CITE] This strong mixing causes the character of each individual excitation to be spread out over several different final states, resulting in highly disordered peaks of weak intensity. The dissonance in this region of the spectra makes it difficult to classify specific transitions experimentally. OCDFT results show that Peak C is largely composed of a mixture of 3s, 3p, and 4p Rydberg excitations within an energy interval of 534.7 to 536.4 eV. While the majority of the contributions to Peak D, are 4s and 4p excitations all with f$_{\text{rel}}$ $<$ 0.1. Peaks C and D both contain $\pi^*_3$ character, however the contributions from these resonances are weak and overshadowed by multiple Rydberg transitions in both cases. A small shoulder D$^{\prime}$ resulting from an excitation of O$_1$ $\rightarrow$ 5p is predicted by our method and is consistent with the tailing motif at the end of the spectra. \\
-\begin{table}
-\centering
-    \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
-    \hline
-    \hline
-  \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
-  \hline
-  Assignment & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
-  \hline
-   N$_4$ $\rightarrow$ $\pi_2^*$ & 401.18 & 1.000 &  \multirow{2}{*}{A} &\multirow{2}{*}{401.7}\\
-   N$_3$ $\rightarrow$ $\pi_2^*$ & 401.76 & \ 0.805
-   \vspace{2mm}\\
-   N$_4$ $\rightarrow$ $\pi_1^*$ & 402.50 & 0.087 & \multirow{3}{*}{B} & \multirow{3}{*}{402.7}\\
-   N$_3$ $\rightarrow$ 3s & 403.09 & 0.863\\
-   N$_4$ $\rightarrow$ 3s & 403.33 & \ 0.765 
-   \vspace{2mm}\\
-   N$_4$ $\rightarrow$ 3p & 404.17 & 0.912 & C & 404.1 
-   \vspace{2mm}\\
-   N$_4$ $\rightarrow$ 4p & 404.94 & 0.144 & \multirow{6}{*}{D} & \multirow{6}{*}{405.5}\\
-   N$_3$ $\rightarrow$ 3p & 405.09 & 0.373\\
-   N$_4$ $\rightarrow$ $\pi_3^*$ & 405.31 & 0.864\\
-   N$_3$ $\rightarrow$ 3s & 405.41 & 0.333\\
-   N$_4$ $\rightarrow$ 4p & 405.61 & 0.183\\
-   N$_3$ $\rightarrow$ $\pi_1^*$& 405.66 & 0.490\\
-   N$_3$ $\rightarrow$ 4p & 405.76 & 0.177\\
-   \hline
-  \end{tabular}
-      \caption{Calculated and experimental thymine core excitation energies in eV are shown in the table. All excitations originate from the 1s orbital on the specified atom. \\
-  $^{\ddagger}$Experimental value for this transition is inconclusive, value shown here was calculated using ADC(2)}
-  \label{figure:MOs}
-  \end{table}
-The nitrogen K-edge pictured in Figure \ref{figure:Thymine}b is characterized by four distinct spectral peaks. Unlike the oxygen spectra, the two lowest energy $\pi^*$ excitations merge into a single band (Peak A), rather than producing two distinct peaks. These lowest energy contributions to Peak A are excitations from N$_3$ and N$_4$ to $\pi^*_2$, OCDFT predicts their excitation energies to be 401.76 eV and 401.18 eV respectively. The experimental peak maximum is at 401.7 eV, which agrees well with the gaussian profile shown in the OCDFT spectra. Rydberg transitions from the N$_3$ and N$_4$ to 3s are the dominant resonances contributing to the character of peak B, along with a valence excitation N$_4$ $\rightarrow$ $\pi^*_1$ predicted at 402.50 eV. This agrees well with the experimental peak assignment at 402.7 eV. A very intense N$_4$ $\rightarrow$ 3p transition accounts for the peak at 404.1 eV, OCDFT simulates this peak perfectly with a gaussian centered at 404.17 eV. Peak D is the amalgamation of two $\pi^*$ resonances and multiple Rydberg states with the $\pi^*$ resonances being the transitions of strongest intensity. Excitation energies of these $\pi^*$ resonances agree well with the experimental peak assignment at 405.5 eV, with N$_4$ $\rightarrow$ $\pi^*_3$ at 405.31 eV and N$_3$ $\rightarrow$ $\pi^*_1$ at 405.66 eV. The shape of the OCDFT spectra is more consistent with the experimental excitation manifold than the ADC(2) spectra. The two peaks A and B have clear, distinct maxima which are produced well quantitatively with ADC(2) (after applying a uniform shift of -2.59 eV to the spectra), strong $\pi^*$ resonances are reported near both experimental peak maxima. However, the contour of the peak is inconsistent with the experimental manifold. The ADC(2) spectra blends into one large spectral band over the interval from 401.0 eV to 404.5 eV encompassing very closely spaced Rydberg and $\pi^*$ transitions, all with relatively high oscillator strengths. The extremely tight spacings and high intensities of these transitions seem to be present even in the updated CVS-ADC(2) results. The OCDFT spectra doest not suffer from this single band issue, as the $\pi^*$ resonances in peak A are well separated from the strong 3s Rydberg transitions in peak B by more than 1.0 eV. The agreement of these results with experiment, suggest that this picture of well-separated $\pi^*$ and Rydberg resonances is more congruous with reality. However, a more detailed study into the nitrogen core excitation manifold of thymine would be required prove this to be true, and is outside of the scope of this current study.
-\begin{table}
- \centering
-     \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
-     \hline
-     \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
-   \hline
-   Assignment & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
-   \hline
- C$_8$ $\rightarrow$ $\pi^*_2$ & 284.90 & 0.372 & A & 284.9 \vspace{2mm}\\
- C$_7$ $\rightarrow$ $\pi^*_2$ & 285.98 & 0.698 &  \multirow{2}{*}{B} & \multirow{2}{*}{285.9}\\
- C$_9$ $\rightarrow$ $\pi^*_2$ & 286.56 & 0.036 \vspace{2mm}\\
- C$_8$ $\rightarrow$ $\pi^*_1$ & 287.33 & 0.171 & \multirow{3}{*}{C} & \multirow{3}{*}{287.8} \\
- C$_6$ $\rightarrow$ $\pi^*_3$& 287.68 & 0.792 \\
- C$_9$ $\rightarrow$ 3s & 287.92 & \ 0.117 
- \vspace{2mm}\\
- C$_8$ $\rightarrow$ 3p& 288.19 & 0.006 & \ \ \multirow{2}{*}{D} & \multirow{2}{*}{288.4}
- \\
- C$_9$ $\rightarrow$ $\pi^*_3$ & 288.46 & 0.229 &
- \vspace{2mm}\\
- C$_8$ $\rightarrow$ 3p & 288.94 & 0.037 &\multirow{7}{*}{\ \ E} & \multirow{7}{*}{289.4} \\
- C$_9$ $\rightarrow$ 4p & 289.01 & 0.158 \\
- C$_7$ $\rightarrow$ 4p & 289.06 & 0.289 \\
- C$_5$ $\rightarrow$ $\pi^*_1$ & 289.14 & 1.000 \\
- C$_8$ $\rightarrow$ 4s & 289.17 & 0.017 \\
- C$_7$ $\rightarrow$ $\pi^*_2$ & 289.22 & 0.001 \\
- C$_9$ $\rightarrow$ 4p & 289.26 & 0.333 \\
- C$_9$ $\rightarrow$ 4p & 289.31 & \ 0.375 
- \vspace{2mm}\\
- C$_8$ $\rightarrow$ 5s & 289.67 & 0.082& \multirow{3}{*}{\ \ \ E$^{\prime}$} \\
- C$_8$ $\rightarrow$ $\pi^*_3$ & 289.68 & 0.105 \\
- C$_6$ $\rightarrow$ $\pi^*_1$ & 289.94 & 0.135 \vspace{2mm}\\
- C$_9$ $\rightarrow$ 5s & 290.14 & 0.023& \multirow{7}{*}{\ \ \ \ F} & & \multirow{7}{*}{290.7}  \\
- C$_8$ $\rightarrow$ 5p & 290.31 & 0.119 \\
- C$_5$ $\rightarrow$ $\pi^*_2$ & 290.33 & 0.029 \\
- C$_9$ $\rightarrow$ 5p & 290.43 & 0.047 \\
- C$_7$ $\rightarrow$ 4s & 290.44 & 0.050 \\
- C$_7$ $\rightarrow$ 4p & 290.54 & 0.041 \\
- C$_8$ $\rightarrow$ 5p & 290.80 & 0.093 
- \vspace{2mm}\\
- C$_9$ $\rightarrow$ 5p & 291.12 & 0.076& \multirow{7}{*}{\ \ \ \ F$^{\prime}$}\\
- C$_8$ $\rightarrow$ 5p & 291.13 & 0.024 \\
- C$_7$ $\rightarrow$ 5p & 291.42 & 0.018 \\
- C$_7$ $\rightarrow$ $\pi^*_3$ & 291.44 & 0.001 \\
- C$_9$ $\rightarrow$ 5p & 291.45 & 0.289 \\
- C$_6$ $\rightarrow$ 3p & 291.59 & 0.036 \\
- C$_7$ $\rightarrow$ 5p & 291.83 & 0.055 \\
-   \end{tabular}
-      \caption{Calculated and experimental thymine core excitation energies in eV are shown in the table. All excitations originate from the 1s orbital on the specified atom. \\
-  $^{\ddagger}$Experimental value for this transition is inconclusive, value shown here was calculated using ADC(2)}
-  \label{figure:MOs}
-  \end{table}
+Figure \ref{figure:Thymine}a displays the experimental and theoretical spectra of thymine at the oxygen K-edge. The low energy regime of the oxygen K-edge is dominated by two high intensity peaks, both resulting from distinct core-valence excitations. Peak A results from the transition O$_2$ $\rightarrow$ $\pi^*_2$, while Peak B results from the transition O$_1$ $\rightarrow$ $\pi^*_1$ with a peak intensity that is roughly equal to that of Peak A. Experimentally, Peaks A and B are centered at 531.4 eV and 532.3 eV respectively, these excitation energies are predicted well by OCDFT to within 0.3 eV of the experimental peak assignments. The  O$_2$ $\rightarrow$ $\pi_2^*$ transition is predicted as the peak of highest intensity with an f$_{abs}$ of 0.016031, these results are consistent with the ADC(2) analysis performed by Plekan et al. The shoulder feature B$^{\prime}$ is composed of O$_1$ $\rightarrow$ $\pi^*_2$ and O$_2$ $\rightarrow$ $\pi^*_1$ and is predicted by OCDFT to have a fairly strong oscillator strength. This shoulder feature is completely absent from the ADC(2) spectra. However, a more recent study by Wenzel, Wormit, and Dreuw [CITE] uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile. Excitations of weaker intensity are characteristic of the higher energy regime of the K-Edge and presents itself in many other situations [CITE], multiple experiments have attributed the weak intensities in this region to mixing of core-valence excited states with Rydberg excited states of similar energy.[CITE] This strong mixing causes the character of each individual excitation to be spread out over several different final states, resulting in highly disordered peaks of weak intensity. The dissonance in this region of the spectra makes it difficult to classify specific transitions experimentally. OCDFT results show that Peak C is largely composed of a mixture of 3s, 3p, and 4p Rydberg excitations within an energy interval of 534.7 to 536.4 eV. While the majority of the contributions to Peak D, are 4s and 4p excitations all with f$_{\text{rel}}$ $<$ 0.1. Peaks C and D both contain $\pi^*_3$ character, however the contributions from these resonances are weak and overshadowed by multiple Rydberg transitions in both cases. A small shoulder D$^{\prime}$ resulting from an excitation of O$_1$ $\rightarrow$ 5p is predicted by our method and is consistent with the tailing motif at the end of the spectra. \\ K-edge pictured in Figure \ref{figure:Thymine}b is characterized by four distinct spectral peaks. Unlike the oxygen spectra, the two lowest energy $\pi^*$ excitations merge into a single band (Peak A), rather than producing two distinct peaks. These lowest energy contributions to Peak A are excitations from N$_3$ and N$_4$ to $\pi^*_2$, OCDFT predicts their excitation energies to be 401.76 eV and 401.18 eV respectively. The experimental peak maximum is at 401.7 eV, which agrees well with the gaussian profile shown in the OCDFT spectra. Rydberg transitions from the N$_3$ and N$_4$ to 3s are the dominant resonances contributing to the character of peak B, along with a valence excitation N$_4$ $\rightarrow$ $\pi^*_1$ predicted at 402.50 eV. This agrees well with the experimental peak assignment at 402.7 eV. A very intense N$_4$ $\rightarrow$ 3p transition accounts for the peak at 404.1 eV, OCDFT simulates this peak perfectly with a gaussian centered at 404.17 eV. Peak D is the amalgamation of two $\pi^*$ resonances and multiple Rydberg states with the $\pi^*$ resonances being the transitions of strongest intensity. Excitation energies of these $\pi^*$ resonances agree well with the experimental peak assignment at 405.5 eV, with N$_4$ $\rightarrow$ $\pi^*_3$ at 405.31 eV and N$_3$ $\rightarrow$ $\pi^*_1$ at 405.66 eV. The shape of the OCDFT spectra is more consistent with the experimental excitation manifold than the ADC(2) spectra. The two peaks A and B have clear, distinct maxima which are produced well quantitatively with ADC(2) (after applying a uniform shift of -2.59 eV to the spectra), strong $\pi^*$ resonances are reported near both experimental peak maxima. However, the contour of the peak is inconsistent with the experimental manifold. The ADC(2) spectra blends into one large spectral band over the interval from 401.0 eV to 404.5 eV encompassing very closely spaced Rydberg and $\pi^*$ transitions, all with relatively high oscillator strengths. The extremely tight spacings and high intensities of these transitions seem to be present even in the updated CVS-ADC(2) results. The OCDFT spectra doest not suffer from this single band issue, as the $\pi^*$ resonances in peak A are well separated from the strong 3s Rydberg transitions in peak B by more than 1.0 eV. The agreement of these results with experiment, suggest that this picture of well-separated $\pi^*$ and Rydberg resonances is more congruous with reality. However, a more detailed study into the nitrogen core excitation manifold of thymine would be required prove this to be true, and is outside of the scope of this current study.
   \\ \\
    The shape of the carbon K-edge displayed in Figure \ref{figure:Thymine}c is governed by four strong $\pi^*$ resonances. Unique to the carbon K-edge is the fact that the strongest transition is not the lowest energy $\pi^*$ resonance, the C$_5$ $\rightarrow$ $\pi_1^*$ transition is a relatively high energy excitation and produces the strongest peak intensity, despite close proximity to several Rydberg states. Peak A at 284.9 eV is the result of the transition C$_8$ $\rightarrow$ $\pi_2^*$, the position of this peak is predicted exactly by OCDFT. A slightly stronger transition at 285.9 eV is mostly due to a  C$_7$ $\rightarrow$ $\pi_2^*$ transition, with small contribution from another $pi_2^*$ resonance originating resulting from an excitation from the C$_9$ core. Peaks C and D have experimental peak maxima at 287.8 eV and 288.4 eV respectively, and blend together to form one band. Both contributions to the spectral band are represented well by OCDFT. The most prominent contributor to Peak C is the excitation from C$_6$ $\rightarrow$ $\pi^*_3$, while Peak D is the result of a C$_9$ $\rightarrow$ $\pi^*_3$. Peak E is mostly a fusion of Rydberg transitions, however these transitions have relatively weak intensities compared to the dominant $\pi_1^*$ character present in the region. There is also $\pi^*_2$ character here, however the oscillator strength of this transition is very small compared to the Rydberg contributions. A small shoulder E$^{\prime}$ is present at the base of peak E, and is mostly due to a weak transition from C$_6$ $\rightarrow$ $\pi_1^*$.  Rydberg states dominate the rest of the spectra, and are provide the strongest contributions to Peak F and the shoulder feature at F$^{\prime}$.
 \\ \\
@@ -782,25 +699,26 @@ The position of spectral features computed with OCDFT are in excellent agreement
 \end{comment}
  \ Figure \ref{figure:Thymine} shows the oxygen, nitrogen, and carbon K-edge computed with OCDFT compared to NEXAS experiments done on gas-phase thymine performed by Plekan et al. [CITE] In this work, they also performed second-order algebraic-diagrammatic construction [ADC(2)] calculations to aid their experiment. Even while employing this highly sophisticated wavefunction method, in order to achieve optimal agreement with the experimental data they shifted the calculated spectra by a uniform value of -2.52 eV. Here we present spectra that have been computed using OCDFT and have not been shifted from their calculated value.
 \begin{figure}[!ht]
-%\includegraphics[scale=0.20]{AdenineNKexperiment.png} \\
-%\includegraphics[scale=0.20]{AdenineCKexperiment.png}
+\centering
+\includegraphics[scale=0.20]{AdenineNKexperiment.png} \\
+\includegraphics[scale=0.20]{AdenineCKexperiment.png}
 \caption{Core excited states for adenine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a FWHM of 0.2 eVs of the (a) nitrogen K-edge and (b) carbon K-edge.}
 \label{figure:Adenine}
 \end{figure}
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.50]{AdenineVirtuals.png} \\
-\caption{Core excited states for adenine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a FWHM of 0.2 eVs of the (a) nitrogen K-edge and (b) carbon K-edge.}
+\caption{Relevant virtual orbitals for adenine numbered in order based on orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
 \label{figure:Adenine} 
 \end{figure}
 \subsubsection{Adenine} \ Figure \ref{figure:Adenine}a displays the nitrogen k-edge of adenine computed with OCDFT. The most dominant feature of the spectra, Peak A, is experimentally classified at 399.5 eV, our calculations show that this feature is a result of core-valence excitations originating from three of the four nitrogens on the purine ring system (N$_4$, N$_3$, N$_5$). The largest contributor being a transition from N$_5$ $\rightarrow$ $\pi_2^*$ predicted at 399.42, which agrees well with the experimental classification for the peak. An apparent shoulder feature with fairly weak oscillator strength is present in the experimental spectra in the region from 399.8 - 400.4 eV. We represent this feature well, with two weak $\pi^*$ resonances resulting from the two nitrogens on the six-membered ring. A few rising shoulder features are shown in the experimental spectra in the region from 401.0 eV - 401.3 eV, OCDFT predicts a N$_3$ $\rightarrow$ $\pi^*$ transition in this region with a relative oscillator strength of 0.109. Peak B is a mixture of transition to $\pi^*$ orbitals as well as diffuse orbitals. The prominent contributors are $\pi^*$ resonances with the N$_1$ $\rightarrow$ $\pi^*$ being the most intense at 401.81 eV. This is commensurate to the experimental peak assignment at 401.9, the peak height relative to peak A is also in good agreement with experiment. The experimental spectra shows a relatively weak resonance around 403.0 (peak C). Previous ADC(2) studies were unable to fully resolve this feature, and reported a spectra that merge peaks B$^{\prime}$, B, and C into a single band structure. The OCDFT spectra represents these peakswell , as separated spectral features, in compliance with the experimental structure. We predict that the dominant contributor to peak C is a transition from N$_2$ $\rightarrow$ D$_6$, the intensity of which, that rivals the strongest transition (f$_{\rm rel}$ = 0.918). This peak intensity is contrary to the experimental spectra which shows peak C  as a superposition of weak transitions. The highest energy transitions are all weak transitions to mostly orbitals of diffuse character. The experimental spectra shows that these transitions get more intense as they appraoch 405.0 eV, which is represented well in our calculations. \\
-The experimental carbon k-edge for adenine is dominated by a large single band with three distinct resonances in the low energy regime. Figure \ref{figure:Adenine}a displays the carbon k-edge of adenine computed with OCDFT in comparison to the experimental results. The theoretical spectra shows peaks A and B, blending together into a single band, the experimental spectra shows these peaks at similar intensities, with peak B being slightly more intense, this is represented well in our calculated spectra. Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.46 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting it's dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. However, the oscillator strength is inconsistent with experimental peak intensities, according to the experimental results this peak should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak (f$_{rel}$ $<$ 0.09).
+The experimental carbon k-edge for adenine is dominated by a large single band with three distinct resonances in the low energy regime. Figure \ref{figure:Adenine}a displays the carbon k-edge of adenine computed with OCDFT in comparison to the experimental results. The theoretical spectra shows peaks A and B, blending together into a single band, the experimental spectra shows these peaks at similar intensities, with peak B being slightly more intense, this is represented well in our calculated spectra. Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.46 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting it's dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. However, the oscillator strength is inconsistent with experimental peak intensities, according to the experimental results this peak should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not given experimental peak assignments due to the low intensities of the transitions involved. Peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak (f$_{rel}$ $<$ 0.09). 
  \begin{table}
  \centering
      \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
    \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
@@ -888,6 +806,8 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
  &   91.9$\%$ 46-A  & 404.79 & 0.253 \\
     N$_2$
  &   56.6$\%$ $\rm D_2$  & 404.97 & 0.115 \\
+ \hline
+ \hline
    \end{tabular}
    \caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
  \label{fig: adenine_k_nitrogen}
@@ -897,27 +817,27 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
      \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline
-   \multicolumn{3}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
+   \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
    \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     C$_{10}$
- &   92.6$\%$ $\pi_2^*$  & 286.32 & 0.298 & \multirow{2}{*}{A} \\
+ &   92.6$\%$ $\pi_2^*$  & 286.32 & 0.298 & \multirow{2}{*}{A} & \multirow{2}{*}{286.4}\\
     C$_9$
  &   81.0$\%$ $\pi_1^*$  & 286.46 & 0.936 
  \vspace{0.1in}\\
     C$_{10}$
- &   92.4$\%$ $\pi_1^*$  & 286.71 & 0.260 &  \multirow{2}{*}{B} \\
+ &   92.4$\%$ $\pi_1^*$  & 286.71 & 0.260 &  \multirow{2}{*}{B} &  \multirow{2}{*}{286.8} \\
     C$_7$
  &   82.1$\%$ $\pi_1^*$  & 286.86 & 0.893 
  \vspace{0.1in}\\
     C$_6$
- &   69.3$\%$ $\pi_1^*$  & 287.27 & 1.000 &  \multirow{2}{*}{C}\\
+ &   69.3$\%$ $\pi_1^*$  & 287.27 & 1.000 &  \multirow{2}{*}{C} &  \multirow{2}{*}{287.4}\\
     C$_8$
  &   63.7$\%$ $\pi_1^*$  & 287.41 & 0.961 
  \vspace{0.1in}\\
     C$_8$
- &   81.6$\%$ $\pi_2^*$  & 287.86 & 0.000 &  \multirow{3}{*}{C$^{\prime}$} \\
+ &   81.6$\%$ $\pi_2^*$  & 287.86 & 0.000 &  \multirow{3}{*}{C$^{\prime}$} &  \multirow{3}{*}{$\approx$ 288.0}\\
     C$_{10}$
  &   34.7$\%$ $\pi_3^*$  & 287.93 & 0.092 \\
     C$_9$
@@ -925,7 +845,7 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
  & 288.02 & 0.026 
  \vspace{0.1in}\\
     C$_6$
- &   74.8$\%$ $\pi_2^*$  & 288.78 & 0.008 & \multirow{5}{*}{D} \\
+ &   74.8$\%$ $\pi_2^*$  & 288.78 & 0.008 & \multirow{5}{*}{D} & \multirow{5}{*}{289.0} \\
     C$_{10}$
  &   56.7$\%$ $\pi_3^*$  & 288.89 & 0.006 \\
     C$_7$
@@ -954,7 +874,7 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
  &   87.2$\%$ $\rm D_2$  & 290.15 & 0.035 
  \vspace{0.1in}\\
     C$_7$
- &   94.8$\%$ $\pi_3^*$  & 290.36 & 0.086 \\
+ &   94.8$\%$ $\pi_3^*$  & 290.36 & 0.086  & \multirow{8}{*}{G} \\
     C$_{10}$
  &   91.1$\%$ $\rm D_6$  & 290.37 & 0.020 \\
     C$_{10}$
@@ -969,6 +889,8 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
  &   56.6$\%$ $\rm D_2$  & 290.77 & 0.064 \\
     C$_9$
  &   61.7$\%$ $\rm D_6$  & 290.94 & 0.018 \\
+ \hline
+ \hline
    \end{tabular}
       \caption{Calculated and experimental adenine carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: adenine_k_nitrogen}
