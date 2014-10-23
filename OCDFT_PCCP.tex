@@ -5,12 +5,12 @@
 
 %\documentclass[8.5pt,twoside,twocolumn]{article}
 \documentclass[12pt]{article}
-%\oddsidemargin -1.2cm
-%\evensidemargin -1.2cm
-%\textwidth 18cm
-\oddsidemargin -0.2cm
+\oddsidemargin -1.2cm
 \evensidemargin -1.2cm
-\textwidth 16cm
+\textwidth 18cm
+%\oddsidemargin -0.2cm
+%\evensidemargin -1.2cm
+%\textwidth 16cm
 \headheight 1.0in
 \topmargin -3.5cm
 \textheight 22cm
@@ -33,7 +33,7 @@
 \usepackage{multicol}
 \usepackage{array}
 \usepackage{lineno}
-\setlength\linenumbersep{1cm}
+\setlength\linenumbersep{0.5cm}
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 \pagestyle{fancy}
 
@@ -137,7 +137,7 @@ First published on the web Xth XXXXXXXXXX 200X}}}
 \noindent \normalsize{Orthogonality Constrained Density Functional Theory (OCDFT) is used to compute excited states relevant to core-level spectroscopy, specifically the high lying excited states crucial to simulate near-edge X-ray absorption spectra (NEXAS). Density functional techniques that employ conventional exchange-correlation (XC) functionals routinely underestimate these excited states. This underestimation necessitates an artificial shift in the resulting spectra in order to make a comparison with experimental data. Here, we prove that OCDFT can accurately compute core excitation energies using conventional density functionals by assessing it's performance over a benchmarking test set of 40 core excitations. We utilize standard XC functionals (B3LYP, BLYP, PBE0), and compare these results with experimental data and time dependent density functional theory computations. We reveal the latent ability of OCDFT by simulating the gas-phase near-edge spectra of adenine and thymine. Our computations are consistent with previous NEXAS studies performed on these molecules and show dominant $\pi^*$ character mixed with definitive Rydberg transitions. The experimentally observed peak intensities are in excellent agreement with our calculated oscillator strengths, showing that OCDFT can accurately compute transition dipole moments.}
 \vspace{0.5cm}
 
-  \doublespacing
+\doublespacing
 \section{Introduction}
 The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
 The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
@@ -278,14 +278,13 @@ Because of this, in order for the MCHP algorithm to obtain the energy for the $k
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.40]{Figure1.pdf}
+\includegraphics[width=8.8cm]{Figure1.pdf}
 \caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
 \label{fig:projection}
 \end{figure}
 
-
 \section{Computational Details}
-OCDFT core-excited states were computed using a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012} The OCDFT excitation energies reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals, the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)\cite{woon_gaussian_1995-1}
+Our OCDFT for core-excited states was implemented as a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012} The OCDFT excitation energies reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals, using the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)\cite{woon_gaussian_1995-1}
 and the Karlsruhe valence polarized basis sets (def2-$X$ZVP, $X$ = T,Q).\cite{weigend_balanced_2005,weigend_accurate_2006} All geometries were optimized at the same level of theory as the given excitation energy.
 TDDFT calculations were performed at the B3LYP level of theory with the def2-TZVP basis set for the sake of comparison. All TDDFT calculations were performed with the ORCA software package\cite{neese_orca_2012}.
 
@@ -347,7 +346,7 @@ The average error of OCDFT is commensurate to that of wavefunction methods for c
 A full comparison of the accuracy of OCDFT and TDDFT core-excitations computed at the B3LYP/def2-TZVP level of theory are shown in Fig. \ref{figure:Hist}. OCDFT performs very well,  yielding an error distribution peaked near zero and a maximum error of $-$3.7 eV. On the contrary, TDDFT performs rather poorly, underestimating the excitation energies, on average, by 15 eV with a maximum error of $-$53.6 eV. A common source of error in the calculation of core excited states is the inadequate treatment of relativistic effects. It is crucial that we reiterate that all excitation energies were computed using the DKH relativistic Hamiltonian, thus the underestimation of the excitation energies by TDDFT is not solely a product of relativistic effects.\cite{saue_relativistic_2011}
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.30]{NEW_histogram.png}
+\includegraphics[width=8.8cm]{NEW_histogram.png}
 \caption{Histogram showing the distribution of the error in the computed core excited states. All calculations were done using the B3LYP functional and the def2-QZVP basis set. The red filled bar is OCDFT while the empty blue bar is TDDFT.}
 \label{figure:Hist}
 \end{figure}
@@ -358,8 +357,9 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
 \noindent Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s orbital localized on first row elements (C, N, or O). TDDFT produces a mean absolute error of 11.6 eV compared to experiment, and as discussed earlier, this result is consistent with previous studies that used TDDFT with conventional hybrid functionals,\cite{besley_self-consistent-field_2009} OCDFT calculations yield a mean absolute error of 0.4 eV. To put this error into perspective, it can be compared to the performance of TDDFT with the BH$^{0.58}$LYP functional,\cite{besley_time-dependent_2009} a reparameterization of the BHLYP functional that has been augmented to include 58\% HF exchange, 39\% B88 exchange, and 8\% Slater exchange. When applied to a test set of first row core excitations similar to those in Figure \ref{table:FirstRow}, BH$^{0.58}$LYP yielded a mean average error of 0.8 eVs. A comparable level of accuracy was achieved by OCDFT without altering the inherent amount of HF exchange present in the functional. It is also gratifying to see that the OCDFT MAE for this set of first row core excited states is comparable to the MAE obtained for valence excited states (0.3 eV reported in Ref. \citenum{evangelista_orthogonality_2013})
 \\ \\ 
 \begin{table}[!ht]
+\small
     \centering
-    \begin{tabular}{lll@{\hskip 0.6in}llHH}
+    \begin{tabular*}{8.8cm}{lll@{\hskip 0.6in}llHH}
     \hline
     \hline
      Molecule & Excitation                     & Exp.&TDDFT  &OCDFT          &     \\
@@ -390,7 +390,7 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
     ~         & C 1s $\rightarrow$ 3s            & 287.7 & -9.1 & -0.6 \vspace{2mm}  & -8.9    & -0.3 \\
     \hline
     ~         & MAE                            & ~     & 11.6      & 0.4   & 11.7     & 0.6   \\
-    \end{tabular}
+    \end{tabular*}
     \caption{Calculated core excitation energies for excitations involving 1s electrons of first-row atoms. Computations were performed using the B3LYP density functional and def2-QZVP basis set, the values reported here are the deviations from the experimental value in electron volts (eV). Mean Absolute Error (MAE) is reported for each method. \\
     $^{\dagger}$For N$_2$O the subscript c and t stand center and tail nitrogen respectively.}
      \label{table:FirstRow}
@@ -398,7 +398,8 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
 \subsection{Importance of Orbital Overlap}
 When computing core excited states of second row nuclei, TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV, even when the DKH relativistic corrections are included. Previous work by Tozer and coworkers \cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
 \begin{figure}[ht]
-\includegraphics[scale=0.30]{scatterNEW.pdf}
+\centering
+\includegraphics[width=8.8cm]{scatterNEW.pdf}
 \caption{Scatterplot displaying the excitation energy error as a function of orbital overlap. Excitation energies were calculated using the B3LYP functional and def2-QZVP basis set. The overlap integrals were computed with numerical grid integration making use of the Gaussian cube files produced by in Psi4 OCDFT calculations. Grids were calculated with a double zeta basis set and 0.1 grid spacing.}
 \label{figure:scatter}
 \end{figure}
@@ -456,23 +457,23 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
 \subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.45]{adenineThymineNumbering3D.png}
+\includegraphics[width=8.8cm]{adenineThymineNumbering3D.png}
 \caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree-Fock orbital energy of their 1s core orbital. }
 \end{figure}
-\begin{figure}
+\begin{figure*}
 \centering
-\includegraphics[scale =0.5]{ThymineVirtuals.png}
+\includegraphics[width=14cm]{ThymineVirtuals.png}
 \caption{Relevant virtual orbitals for thymine numbered in order based on orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
-\end{figure}
+\end{figure*}
   Nucleobases are vastly important molecules that play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray experiments on nucleobases were largely scattering and diffraction based techniques[CITE], it wasn't until 1992 that the first near-edge absorption experiments were performed by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} In this study they selectively characterized the nitrogen environment and revealed the useful sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  A wide array of computational methods have been used to compute the near-edge structure of these molecules, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. \\
 Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We will first present the reader with an overview the performance of OCDFT relative to the classified peak maxima from gas-phase NEXAS experiments done by Plekan et al. [CITE] on both molecules. This will be followed by an in-depth analysis of the spectral features simulated in OCDFT to see how well they match the experimental spectra, and which excitations contribute to each feature. Then we will compare our work to previous theoretical work done at the ADC(2) level of theory. \\
 \subsubsection{Overall Performance}
 \ The simulation of the thymine and adenine NEXAS spectra shown in Figs.\ref{figure:Thymine} and \ref{figure:Adenine} agree well with the experimental data. A common feature of NEXAS spectra is the appearance of multiple low-intensity transitions that appear in the higher energy regions. This is represented well by OCDFT as evidenced by the stick spectra shown in Figs. \ref{figure:Thymine} and \ref{figure:Adenine} where the higher energy regions are populated by multiple low intensity transitions. Tables \ref{table: thymine_k_oxygen} - \ref{table: adenine_k_carbon} showcase the computed OCDFT excitations, with their corresponding 1s hole orbital ($\phi_h$), particle orbital ($\phi_p$), and relative oscillator strengths. Each transition can be interpreted as an excitation from $\phi_h$ $\rightarrow$ $\phi_p$. The experimental energies reported are the peak maxima for each spectral feature, and can be approximated by the OCDFT transition in that region with the strongest oscillator strength. When using this as a comparison, OCDFT represents the thymine peak maxima with an average error of 0.3 eV, and that of adenine with an average error of 0.1 eV. We emphasize that the computed OCDFT spectra are obtained from unshifted excitation energies. 
   \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.15]{ThymineOKexperiment.png}\\
-\includegraphics[scale=0.15]{ThymineNKexperiment.png} \\
-\includegraphics[scale=0.15]{ThymineCKexperiment.png}
+\includegraphics[width=8.8cm]{ThymineOKexperiment.png}\\
+\includegraphics[width=8.8cm]{ThymineNKexperiment.png} \\
+\includegraphics[width=8.8cm]{ThymineCKexperiment.png}
 \caption{Core excited states for thymine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a Full Width at Half Maximum (FWHM) of 0.3 eVs of the (a) oxygen K-edge (FWHM = 0.3 eV), (b) nitrogen K-edge (FWHM = 0.3 eV), and (c) carbon K-edge (FWHM = 0.2 eV). Experimental spectra is from reference [CITE].}
 \label{figure:Thymine}
 \end{figure}
@@ -669,8 +670,8 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
  \end{table}
  \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.20]{AdenineNKexperiment.png} \\
-\includegraphics[scale=0.20]{AdenineCKexperiment.png}
+\includegraphics[width=8.8cm]{AdenineNKexperiment.png} \\
+\includegraphics[width=8.8cm]{AdenineCKexperiment.png}
 \caption{Core excited states for adenine computed using B3LYP functional and def2-TZVP basis set. Spectra is composed of convoluted Gaussians with a specified Full-Width at Half Maximum (FWHM) of the (a) nitrogen K-edge (FWHM = 0.2 eV) and (b) carbon K-edge (FWHM = 0.2 eV).}
 \label{figure:Adenine}
 \end{figure} 
@@ -777,12 +778,12 @@ The experimental carbon k-edge for adenine is dominated by a large single band w
  \label{fig: adenine_k_nitrogen}
  \end{table}
 \subsubsection{Adenine Carbon K-Edge}
-\begin{figure}[!ht]
+\begin{figure*}[!ht]
 \centering
-\includegraphics[scale=0.50]{AdenineVirtuals.png} \\
+\includegraphics[width=14cm]{AdenineVirtuals.png} \\
 \caption{Relevant virtual orbitals for adenine numbered in order based on orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
 \label{figure:Adenine} 
-\end{figure}
+\end{figure*}
 Figure \ref{figure:Adenine}b displays the carbon k-edge of adenine computed with OCDFT in comparison to the experimental results. The theoretical spectra shows peaks A and B, blending together into a single band, the experimental spectra shows these peaks at similar intensities, with peak B being slightly more intense, this is represented well in our calculated spectra. Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.46 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting it's dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. However, the oscillator strength is inconsistent with experimental peak intensities, according to the experimental results this peak should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not given experimental peak assignments due to the low intensities of the transitions involved. Peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak \\
  \begin{table}
  	\centering
