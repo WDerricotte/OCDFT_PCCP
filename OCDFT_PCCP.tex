@@ -16,6 +16,7 @@
 \textheight 22cm
 \usepackage[super,sort&compress,comma]{natbib} 
 \usepackage{mhchem}
+\usepackage{siunitx}
 \usepackage{times,mathptmx}
 % \usepackage{times}
 % feel free not to use mathptmx if it causes difficulties
@@ -362,36 +363,35 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
     \begin{tabular}{lll@{\hskip 0.6in}llHH}
     \hline
     \hline
-     Molecule & Excitation                     & Exp.&TDDFT  &OCDFT          &     \\
+     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Deviation From Exp. (eV)} \\ ~&~ &~   & TDDFT  & OCDFT\\
      \hline
-    ~         & ~                              &   & & & TDDFT    & OCDFT \\
-    \multirow{4}{*}{CO}        & C 1s $\rightarrow$ $\pi^*$     & 287.4 & -11.3     & -0.8  & -10.9    & \ 0.9   \\
-             & C 1s $\rightarrow$ 3s          & 292.4 & -10.5     & \ 0.9   & -10.8    & \ 1.2   \\
-             & O 1s $\rightarrow$  $\pi^*$    & 534.2 & -13.4     & -1.2  & -14.4    & -1.4   \\
-             & O 1s $\rightarrow$ 3s          & 538.9 & -13.0     & \ 0.2 \vspace{2mm}   & -13.9    & \ 0.3 \\ 
-    \multirow{4}{*}{H$_2$CO }     & C 1s $\rightarrow$ $\pi^*$     & 286.0   & -10.7     & -0.6  & -10.7    & -0.8   \\
-    ~         & C 1s $\rightarrow$ 3s          & 290.2 & -10.7     & -0.2   & -10.7    & -0.3   \\
-    ~         & O 1s $\rightarrow$ 3s          & 535.4 & -14.1     & -0.6   & -14.1    & -0.7   \\
-    ~         & O 1s $\rightarrow$  $\pi^*$    & 530.8 & -14.0    & -0.8 \vspace{2mm}   & -14.1    & -1.1  \\
-    \multirow{6}{*}{N$_2$O$^{\dagger}$}    &O 1s  $\rightarrow$ $\pi^*$ &  534.8 & -14.3 &  -1.0 & -14.3 & -1.3 \\
-    ~         &O 1s  $\rightarrow$ 3s &  536.7 & -13.6 &  -0.4 & -13.6 & -0.6 \\
-    ~         & N$_\text{c}$ 1s $\rightarrow$ 3s      & 407.5 & -12.1     & \ 0.6   & -12.6    & \ 0.6   \\
-    ~         & N$_\text{t}$ 1s $\rightarrow$ $\pi^*$ & 401.1 & -12.2     & -0.9  & -14.6    & \ 2.5   \\
-    ~         & N$_\text{t}$ 1s $\rightarrow$ 3s      & 404.0   & -11.5    & -0.4  \vspace{2mm} & -11.0    & -0.5  \\
-    \multirow{3}{*}{N$_2$}         &N 1s  $\rightarrow$ $\pi^*$ & 401.0 & -12.4 & -0.9 & -12.4 & -1.1 \\
-    ~         & N 1s  $\rightarrow$ 3s & 406.2 & -8.5 & 1.7 \vspace{2mm} & -7.2 & \ 2.7\\ 
-    \multirow{4}{*}{HCN}       & C 1s $\rightarrow$ $\pi^*$     & 286.4 & -10.6     & -0.5  & -10.6    & -0.7  \\
-    ~         & C 1s $\rightarrow$ 3s          & 289.1 & -9.9      & -0.1   & -9.9    & -0.3  \\
-    ~         & N 1s $\rightarrow$  $\pi^*$    & 399.7 & -12.0     & -0.8  & -12.0    & -1.0  \\
-    ~         & N 1s $\rightarrow$ 3s          & 401.8 & -10.4      & \ 0.2 \vspace{2mm}   & -10.4    & \ 0.0  \\
-    \multirow{2}{*}{CH$_4$}      & C 1s $\rightarrow$ 3p          & 288.0   & -10.1      & \ 0.1   & -10.1    & \ 0.0   \\
-    ~         & C 1s $\rightarrow$ 3s          & 287.1 & -10.8    & -0.5 \vspace{2mm}  & -10.8     & -0.6 \\ 
-        \multirow{2}{*}{C$_2$H$_2$}      & C 1s $\rightarrow$ $\pi^*$           & 285.8   & -10.5      & -0.1   & -10.4   & -0.7  \\
-    ~         & C 1s $\rightarrow$ 3s            & 287.7 & -9.1 & -0.6 \vspace{2mm}  & -8.9    & -0.3 \\
+    \multirow{4}{*}{CO}        & C 1s $\rightarrow$ $\pi^*$     & 287.4 & $-$11.3     & $-$0.8  & $-$10.9    & \ 0.9   \\
+             & C 1s $\rightarrow$ 3s          & 292.4 & $-$10.5     & \ 0.9   & $-$10.8    & \ 1.2   \\
+             & O 1s $\rightarrow$  $\pi^*$    & 534.2 & $-$13.4     & $-$1.2  & $-$14.4    & $-$1.4   \\
+             & O 1s $\rightarrow$ 3s          & 538.9 & $-$13.0     & \ 0.2 \vspace{2mm}   & $-$13.9    & \ 0.3 \\ 
+    \multirow{4}{*}{H$_2$CO }     & C 1s $\rightarrow$ $\pi^*$     & 286.0   & $-$10.7     & $-$0.6  & $-$10.7    & $-$0.8   \\
+    ~         & C 1s $\rightarrow$ 3s          & 290.2 & $-$10.7     & $-$0.2   & $-$10.7    & $-$0.3   \\
+    ~         & O 1s $\rightarrow$ 3s          & 535.4 & $-$14.1     & $-$0.6   & $-$14.1    & $-$0.7   \\
+    ~         & O 1s $\rightarrow$  $\pi^*$    & 530.8 & $-$14.0    & $-$0.8 \vspace{2mm}   & $-$14.1    & $-$1.1  \\
+    \multirow{6}{*}{N$_2$O$^{\dagger}$}    &O 1s  $\rightarrow$ $\pi^*$ &  534.8 & $-$14.3 &  $-$1.0 & $-$14.3 & $-$1.3 \\
+    ~         &O 1s  $\rightarrow$ 3s &  536.7 & $-$13.6 &  $-$0.4 & $-$13.6 & $-$0.6 \\
+    ~         & N$_\text{c}$ 1s $\rightarrow$ 3s      & 407.5 & $-$12.1     & \ 0.6   & $-$12.6    & \ 0.6   \\
+    ~         & N$_\text{t}$ 1s $\rightarrow$ $\pi^*$ & 401.1 & $-$12.2     & $-$0.9  & $-$14.6    & \ 2.5   \\
+    ~         & N$_\text{t}$ 1s $\rightarrow$ 3s      & 404.0   & $-$11.5    & $-$0.4  \vspace{2mm} & $-$11.0    & $-$0.5  \\
+    \multirow{3}{*}{N$_2$}         &N 1s  $\rightarrow$ $\pi^*$ & 401.0 & $-$12.4 & $-$0.9 & $-$12.4 & $-$1.1 \\
+    ~         & N 1s  $\rightarrow$ 3s & 406.2 & $-$8.5 & 1.7 \vspace{2mm} & $-$7.2 & \ 2.7\\ 
+    \multirow{4}{*}{HCN}       & C 1s $\rightarrow$ $\pi^*$     & 286.4 & $-$10.6     & $-$0.5  & $-$10.6    & $-$0.7  \\
+    ~         & C 1s $\rightarrow$ 3s          & 289.1 & $-$9.9      & $-$0.1   & $-$9.9    & $-$0.3  \\
+    ~         & N 1s $\rightarrow$  $\pi^*$    & 399.7 & $-$12.0     & $-$0.8  & $-$12.0    & $-$1.0  \\
+    ~         & N 1s $\rightarrow$ 3s          & 401.8 & $-$10.4      & \ 0.2 \vspace{2mm}   & $-$10.4    & \ 0.0  \\
+    \multirow{2}{*}{CH$_4$}      & C 1s $\rightarrow$ 3p          & 288.0   & $-$10.1      & \ 0.1   & $-$10.1    & \ 0.0   \\
+    ~         & C 1s $\rightarrow$ 3s          & 287.1 & $-$10.8    & $-$0.5 \vspace{2mm}  & $-$10.8     & $-$0.6 \\ 
+        \multirow{2}{*}{C$_2$H$_2$}      & C 1s $\rightarrow$ $\pi^*$           & 285.8   & $-$10.5      & $-$0.1   & $-$10.4   & $-$0.7  \\
+    ~         & C 1s $\rightarrow$ 3s            & 287.7 & $-$9.1 & $-$0.6 \vspace{2mm}  & $-$8.9    & $-$0.3 \\
     \hline
     ~         & MAE                            & ~     & 11.6      & 0.4   & 11.7     & 0.6   \\
     \end{tabular}
-    \caption{Calculated core excitation energies for excitations involving 1s electrons of first-row atoms. Computations were performed using the B3LYP density functional and def2-QZVP basis set, the values reported here are the deviations from the experimental value in electron volts (eV). Mean Absolute Error (MAE) is reported for each method. \\
+    \caption{Core excitation energies for molecules containing first-row atoms. Computations were performed using the B3LYP density functional and def2-QZVP basis set. The OCDFT and TDDFT results reported here are the deviations from the experimental value in eV. Mean Absolute Error (MAE) is reported for each method. \\
     $^{\dagger}$For N$_2$O the subscript c and t stand center and tail nitrogen respectively.}
      \label{table:FirstRow}
      \end{table}
@@ -415,23 +415,23 @@ where $\Lambda_{hp}$ ranges from 0 to 1. Figure \ref{figure:scatter} reports the
      Molecule & Excitation                     & Exp.& TDDFT & OCDFT   &     \\
      \hline
     ~         & ~                              &   &     &  & TDDFT    & OCDFT \\
-    \multirow{2}{*}{SiH$_4$}        & Si 1s $\rightarrow$ $\sigma^*$     & 1842.5 & -38.4    & -1.8  & -38.9    & -2.3   \\
-             & Si 2p $\rightarrow$ $\sigma^*$ & 102.8 & -4.8 & 0.6 \vspace{2mm}   & -4.1    & 1.5 \\
-    \multirow{2}{*}{PH$_3$ }     & P 1s $\rightarrow$ $\sigma^*$ & 2145.8   & -44.1     & -2.9  & -44.1    & -3.2   \\
-    ~         & P 2p $\rightarrow$ $\sigma^*$          & 132.3 & -5.1     & 0.7  \vspace{2mm} & -5.1    & 0.0 \\
-    \multirow{4}{*}{H$_2$S}    &S 1s  $\rightarrow$ $\sigma^*$ &  2473.1 & -48.3 &  -3.0 & -48.3 & -3.8 \\
-    ~         &S 1s  $\rightarrow$ 4p &  2476.3 & -52.1 &  -1.5 & -52.1 & -0.6 \\
-    ~         & S 2p $\rightarrow$ $\sigma^*$ & 164.5 & -5.1    & 0.8  & -5.1    & 0.4  \\
-    ~         & S 2p $\rightarrow$ 4s      & 166.5 &  -7.1    & -0.7 \vspace{2mm}   & -7.1    & -1.0 \\
-    \multirow{3}{*}{SO$_2$}         &S 1s  $\rightarrow$ $\pi^*$ & 2473.8 & -50.1 & -3.7 & -51.3 & -4.5 \\
-    ~         & S 1s  $\rightarrow$ 4p & 2478.4 & -49.3 & -2.4 & -50.4 & -3.2 \\
-    ~         & S 2p $\rightarrow$ 4s      & 171.3 & -8.3     & -1.5 \vspace{2mm}   & -8.2    & -1.9 \\
-    \multirow{3}{*}{HCl}       & Cl 1s $\rightarrow$ $\sigma^*$     & 2823.9 & -53.8     & -2.3  & -55.4    & -4.7  \\
-    ~         & Cl 1s $\rightarrow$ 4p          & 2827.8 & -52.1      & -0.7   & -52.7    & -1.7  \\
-    ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 201.0 & -6.1 & 0.8 \vspace{2mm}  & -6.1    & 0.3 \\
-    \multirow{3}{*}{Cl$_2$}      & Cl 1s $\rightarrow$ $\sigma^*$          & 2821.3   & -53.6      & -1.6   & -55.3    & -3.6   \\
-    ~         & Cl 1s $\rightarrow$ 4p          & 2828.5 & -51.7    & 0.9  & -53.5     & -0.2  \\
-        ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 198.7 & -5.7     & -0.8 \vspace{2mm} & -5.8    & -0.3\\
+    \multirow{2}{*}{SiH$_4$}        & Si 1s $\rightarrow$ $\sigma^*$     & 1842.5 & $-$38.4    & $-$1.8  & $-$38.9    & $-$2.3   \\
+             & Si 2p $\rightarrow$ $\sigma^*$ & 102.8 & $-$4.8 & 0.6 \vspace{2mm}   & $-$4.1    & 1.5 \\
+    \multirow{2}{*}{PH$_3$ }     & P 1s $\rightarrow$ $\sigma^*$ & 2145.8   & $-$44.1     & $-$2.9  & $-$44.1    & $-$3.2   \\
+    ~         & P 2p $\rightarrow$ $\sigma^*$          & 132.3 & $-$5.1     & 0.7  \vspace{2mm} & $-$5.1    & 0.0 \\
+    \multirow{4}{*}{H$_2$S}    &S 1s  $\rightarrow$ $\sigma^*$ &  2473.1 & $-$48.3 &  $-$3.0 & $-$48.3 & $-$3.8 \\
+    ~         &S 1s  $\rightarrow$ 4p &  2476.3 & $-$52.1 &  $-$1.5 & $-$52.1 & $-$0.6 \\
+    ~         & S 2p $\rightarrow$ $\sigma^*$ & 164.5 & $-$5.1    & 0.8  & $-$5.1    & 0.4  \\
+    ~         & S 2p $\rightarrow$ 4s      & 166.5 &  $-$7.1    & $-$0.7 \vspace{2mm}   & $-$7.1    & $-$1.0 \\
+    \multirow{3}{*}{SO$_2$}         &S 1s  $\rightarrow$ $\pi^*$ & 2473.8 & $-$50.1 & $-$3.7 & $-$51.3 & $-$4.5 \\
+    ~         & S 1s  $\rightarrow$ 4p & 2478.4 & $-$49.3 & $-$2.4 & $-$50.4 & $-$3.2 \\
+    ~         & S 2p $\rightarrow$ 4s      & 171.3 & $-$8.3     & $-$1.5 \vspace{2mm}   & $-$8.2    & $-$1.9 \\
+    \multirow{3}{*}{HCl}       & Cl 1s $\rightarrow$ $\sigma^*$     & 2823.9 & $-$53.8     & $-$2.3  & $-$55.4    & $-$4.7  \\
+    ~         & Cl 1s $\rightarrow$ 4p          & 2827.8 & $-$52.1      & $-$0.7   & $-$52.7    & $-$1.7  \\
+    ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 201.0 & $-$6.1 & 0.8 \vspace{2mm}  & $-$6.1    & 0.3 \\
+    \multirow{3}{*}{Cl$_2$}      & Cl 1s $\rightarrow$ $\sigma^*$          & 2821.3   & $-$53.6      & $-$1.6   & $-$55.3    & $-$3.6   \\
+    ~         & Cl 1s $\rightarrow$ 4p          & 2828.5 & $-$51.7    & 0.9  & $-$53.5     & $-$0.2  \\
+        ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 198.7 & $-$5.7     & $-$0.8 \vspace{2mm} & $-$5.8    & $-$0.3\\
     \hline
     ~         & MAE                            & ~     & 31.6      & 1.6   & 32.0     & 2.0   \\
     \end{tabular}
@@ -442,14 +442,15 @@ where $\Lambda_{hp}$ ranges from 0 to 1. Figure \ref{figure:scatter} reports the
 Multiple studies have concluded that the shortcoming of traditional density functionals is not the treatment of long-range interaction, but instead it is the incorrect description of the core region that leads to inaccuracy. [CITE] This problem was specifically addressed by the SRC-BLYP functional \cite{besley_time-dependent_2009} which is a flexible functional that increases the amount of Hartree-Fock exchange at short range and is identical to the long range corrected CAM-BLYP at long range. 
 \end{comment}
 
-It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. To understand why OCDFT outperforms TDDFT, we will consider a model consisting of one electron in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) and compare the TDDFT and OCDFT excitation energies to that of CIS, since CIS is exact for a one electron model. Similar analyses have been done on variational DFT \cite{ziegler_implementation_2012} and TDDFT \cite{casida_charge-transfer_2000}. The TDDFT and CIS excitation energies for our one electron model differ approximately as:
+It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{nakata_time-dependent_2006} however, here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange. \\
+To understand why OCDFT outperforms TDDFT, we will consider a model consisting of one electron in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) and compare the TDDFT and OCDFT excitation energies to that of CIS, since, in this case, CIS is exact. Similar analyses have been reported for variational DFT \cite{ziegler_implementation_2012} and TDDFT. \cite{casida_charge-transfer_2000} For a functional containing a given fraction ($a$) of HF exchange, TDDFT and CIS excitation energies for our one electron model differ approximately by:
 \begin{align}
 \label{eq:TDDFT_CIS}
- \nonumber \omega^{\text{TDDFT}}_s - \ &\omega^{\text{CIS}}_s \cong (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
+ \nonumber \omega^{\text{TDDFT}}_s - \ \omega^{\text{CIS}}_s &\cong (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
 \end{align}
-where $\nu_{\rm h}^x$ and $\nu_{\rm p}^x$ are the exchange potentials [$\nu_{\rm h/p}^x = (\phi_{\rm h/p}|\nu_x|\phi_{\rm h/p})$] for orbitals p and h respectively, and $a$ is a parameter that weights the relative amount of DFT and HF exchange. When $a \neq 1$, the term in Eq. ~\ref{eq:TDDFT_CIS} contains three local integrals $\nu_{\rm h}^x$, $\nu_{\rm p}^x$, and $J_{\text{hh}}$. However, the coulomb repulsion integral between the hole and particle orbitals ($J_{\text{ph}}$) is nonlocal and causes TDDFT to incorrectly describe charge transfer excitations. This nonlocality hampers TDDFT's treatment of core excitations as well, and relies instead on the varying of the $a$ parameter to increase accuracy. Ideally the difference  The improved performance of OCDFT for core excited states can be understood by investigating the local nature of the integrals involved. The excitation energy for OCDFT differs from CIS by a term that is composed of integrals that are localized on either the hole or the particle, which guarantees it will be exact for systems in which the overlap of $\phi_{\rm h}$ and $\phi_{\rm p}$ is small.
+where $\nu_{\rm h}^x$ and $\nu_{\rm p}^x$ are the exchange potentials [$\nu_{\rm h/p}^x = (\phi_{\rm h/p}|\nu_x|\phi_{\rm h/p})$] for orbitals p and h, respectively. When $a \neq 1$, the term in Eq. ~\ref{eq:TDDFT_CIS} contains three local integrals $\nu_{\rm h}^x$, $\nu_{\rm p}^x$, and $J_{\text{hh}}$. However, the coulomb repulsion integral between the hole and particle orbitals ($J_{\text{ph}}$) is nonlocal and causes TDDFT to incorrectly describe charge transfer excitations. This nonlocality hampers TDDFT's treatment of core excitations as well. The improved performance of OCDFT for core excited states can be understood by investigating the local nature of the integrals involved. The excitation energy for OCDFT differs from CIS by a term that is composed of integrals that are localized on either the hole or the particle, which allows for a better approximation of core excited states in which the overlap of $\phi_{\rm h}$ and $\phi_{\rm p}$ is small.
 \begin{align}
-\nonumber \omega^{\text{OCDFT}}_s - \ &\omega^{\text{CIS}}_s  \cong (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}} \\
+\nonumber \omega^{\text{OCDFT}}_s - \ \omega^{\text{CIS}}_s  &\cong (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}} \\
 &+ \frac{1}{2} (\text{hh}|\hat{f}_x|\text{hh}) +\frac{1}{2} (\text{pp}|\hat{f}_x|\text{pp})] ,
 \end{align}
 where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{i}}|^2 \ d\tau$ are the exchange kernel integrals. The local nature of the integrals in this term provide a better approximation to exact exchange. This is a direct consequence of the orthogonality condition imposed between the ground and excited states, resulting in a term that is much more adept at handling systems with low orbital overlap.
