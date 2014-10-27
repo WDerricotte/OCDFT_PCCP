@@ -140,7 +140,7 @@ First published on the web Xth XXXXXXXXXX 200X}}}
 
 %\doublespacing
 \section{Introduction}
-The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
+The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near-edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
 The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
 In particular, excitations from 1s orbitals are atom-specific and sensitive to the local chemical environment.
 Thus, NEXAS spectra can provide information about the chemical composition and the electronic structure of molecules.
@@ -155,7 +155,7 @@ NEXAS has been successfully applied to large biological systems, \cite{hua_refin
 
 As NEXAS experiments are becoming more feasible, there is a growing need to develop accurate theoretical approaches to aid the interpretation of experimental spectra.
 %In order for a method to properly replicate and analyze NEXAS spectra, it must demonstrate accuracy in describing core-electron excitations. 
-Calculations of NEXAS spectra are challenging, and require computational methods that explicitly account for the excitations of core-level electrons, orbital relaxation effects, and electron correlation. \cite{coriani_coupled-cluster_2012} Several theoretical approaches have been adapted to compute core-valence excitations, including: scaled-opposite-spin configuration interaction singles with perturbative doubles [SOS-CIS(D)],\cite{asmuruf_calculation_2008} second-order algebraic digrammatic construction [ADC(2)],\cite{schirmer_beyond_1982,trofimov_efficient_1995} multiple scattering X$_\alpha$ methods, \cite{sheehy_correlation_1989} a maximum overlap $\Delta$SCF approach, \cite{besley_self-consistent-field_2009} transition potential theory,\cite{triguero_calculations_1998} coupled-cluster response theory, \cite{coriani_coupled-cluster_2012} and time-dependent density functional theory (TDDFT).\cite{stener_time_2003} Among these methods TDDFT is a very attractive option because of its reduced computational cost and ability to calculate multiple excited states.
+Calculations of NEXAS spectra are challenging, and require computational methods that explicitly account for the excitations of core-level electrons, orbital relaxation effects, and electron correlation. \cite{coriani_coupled-cluster_2012} Several theoretical approaches have been adapted to compute core-valence excitations, including: scaled-opposite-spin configuration interaction singles with perturbative doubles [SOS-CIS(D)],\cite{asmuruf_calculation_2008} second-order algebraic digrammatic construction [ADC(2)],\cite{schirmer_beyond_1982,trofimov_efficient_1995} multiple scattering X$_\alpha$ methods, \cite{sheehy_correlation_1989} a maximum overlap $\Delta$SCF approach, \cite{besley_self-consistent-field_2009} transition potential theory,\cite{triguero_calculations_1998} coupled-cluster response theory, \cite{coriani_coupled-cluster_2012} and time-dependent density functional theory (TDDFT).\cite{stener_time_2003} Among these methods, TDDFT is perhaps the most attractive option because of its reduced computational cost and ability to calculate multiple excited states.
 
 TDDFT is a rigorous extension of the DFT ground-state formalism,\cite{runge_density-functional_1984} and it is regarded as the method of choice to treat electronic excited states within a density functional framework.
 %Within the framework of density functional theory, TDDFT is regarded as the method of choice to treat electronic excited states because it is a rigorous extension of the ground-state formalism.\cite{runge_density-functional_1984}
@@ -184,45 +184,62 @@ We demonstrate the potential of this new method with computations of the gas-pha
 \section{Theory}
 In this section we provide a brief summary of orthogonality constrained density functional theory along with the necessary extension to multiple excited states (for the full details of the OCDFT derivation we refer the reader to Ref.\citenum{evangelista_orthogonality_2013}).
 OCDFT builds upon the time-independent variational DFT approach developed by Ayers, Levy, and Nagy.\cite{ayers_time-independent_2012}
-Starting from this theory, it is possible to introduce a generalization of the Kohn--Sham scheme that enables us to express variational excited state density functionals in terms of $\phi^{(n)}$, the occupied orbitals of electronic states $n$.
-To each electronic state $\Psi_n$,  corresponds an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the exact density $\rho^{(n)}$.
+To each electronic state [$\Psi^{(n)}, n=0,1,\ldots$] of a $N$-electron system, we associate a density functional $E^{(n)}[\rho]$:
+\begin{equation}
+E^{(n)}[\rho] = \min_{
+\substack{
+\Psi \rightarrow \rho\\
+\Psi\bot\Psi^{(k)}
+}
+}
+\bra{\Psi}\hat{H}\ket{\Psi},
+\;\;\; k = 1,\ldots,n-1.
+\end{equation}
+$E^{(n)}[\rho]$ searches for the wave function that minimizes the energy subject to density constraint and at the same time enforces the orthogonality between $\Psi$ and the first $n-1$ \textit{exact} electronic states:
+
+OCDFT starts from the time-independent approach based on the functionals $E^{(n)}[\rho]$ to produce a computationally viable method.
+%with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$ 
+%Starting from this theory, it is possible to introduce a generalization of the Kohn--Sham scheme that enables us to express variational excited state density functionals in terms of $\phi^{(n)}$, the occupied orbitals of electronic states $n$.
+The first step consists in defining a generalized Kohn--Shame scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the exact density of state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
 In addition, we assume that the auxiliary wave functions are orthogonal, that is:
 \begin{equation}\label{eq:orthogonality_condition}
 \braket[1]{\Phi^{(m)}}{\Phi^{(n)}} = \delta_{mn}.
 \end{equation}
-This condition can be imposed without loss of generality, avoids the excited state wave functions from collapsing down to the ground state solution, and effectively transfers some of the complexity of the excited state density functionals to the kinetic energy operator.
+This condition can be imposed without loss of generality.  It avoids the excited state wave functions from collapsing down to the ground state solution, and effectively transfers some of the complexity of the excited state density functionals to the kinetic energy operator.
 Nevertheless, this variational Kohn--Sham scheme involves energy functionals [$E^{(n)}$] that contain exchange-correlation contributions [$E^{(n)}_{\rm xc}$] that are \textit{specific} for each excited state, and differ in general from the ground state functional.
-In OCDFT, we approximate $E^{(n)}_{\rm xc}$ with the ground state exchange-correlation functional, $E^{(0)}_{\rm xc}$.
+In OCDFT, we invoke an adiabatic approximation similar to the one used in TDDFT, and replace $E^{(n)}_{\rm xc}$ with the ground state exchange-correlation functional, $E^{(0)}_{\rm xc}$.
 The resulting functional for excited state $n$ is given by:
 \begin{equation}
-E^{(n)}[\{\phi^{(n)}_i\}]= -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\nabla^2\ket[1]{\phi_i^{(n)}} + 
-\int d \mathbf{r} \, v(\mathbf{r}) \rho^{(n)}(\mathbf{r}) + J[\rho^{(n)}] + E^{(0)}_{\rm xc}[\rho^{(n)}]. 
+\begin{split}
+E^{(n)}[\{\phi^{(n)}_i\}]=& -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\nabla^2\ket[1]{\phi_i^{(n)}} + 
+\int d \mathbf{r} \, v(\mathbf{r}) \rho^{(n)}(\mathbf{r})\\
+ &+ J[\rho^{(n)}] + E^{(0)}_{\rm xc}[\rho^{(n)}]. 
+\end{split}
 \end{equation}
-
 Minimization of the $E^{(n)}[\{\phi^{(n)}_i\}]$ with respect to the occupied orbitals for state $n$ can be performed with a modified self-consistent-field algorithm.\cite{evangelista_orthogonality_2013}
-In the case of the first excited ($n = 1$), it is possible to show that the orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] implies that $\Phi^{(1)}$ has a special structure.
-Writing $\Phi^{(1)}$ as an antisymmetrized product of orbitals:
-\begin{align}
-\ket[1]{\Phi^{(0)}} = \ket[1]{\phi^{(0)}_1 \phi^{(0)}_2 \cdots \phi^{(0)}_{N-1} \phi^{(0)}_N},\\
-\ket[1]{\Phi^{(1)}} = \ket[1]{\phi^{(1)}_1 \phi^{(1)}_2 \cdots \phi^{(1)}_{N-1} \phi^{(1)}_{\rm p}},
-\end{align}
-where we identified the last orbital as a special \textit{particle} orbital: $\phi^{(1)}_N = \phi^{(1)}_{\rm p}$.
-$\phi^{(1)}_{\rm p}$ must spans the virtual space of the ground state determinant and satisfies the condition $\hat{P}^{(0)}\phi_p^{(1)} = 0$, where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(1)}}\bra[1]{\phi_i^{(1)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$.
-The orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] also implies the existence of a \textit{hole} orbital, $\phi^{(1)}_{\rm h}$, that must similarly satisfy the condition $\hat{Q}^{(0)}\phi_{\rm h}^{(1)} = 0$, where $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$, is a projection operator onto the virtual space.
-The occupied orbitals $\phi^{(1)}_1 \phi^{(1)}_2 \cdots \phi^{(1)}_{N-1}$ must be restricted to a space complementary to the hole orbital $\phi_{\rm h}^{(1)}$ (see Fig.~\ref{fig:projection}).
 
-The conditions that determine $\phi^{(1)}_{\rm h}$ and $\phi^{(1)}_{\rm p}$ can be enforced via Lagrangian multipliers.
+In the case of the first excited ($n = 1$), it is possible to show that the orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] implies the existence of two special orbitals.
+These are the \textit{hole} [$\phi^{(1)}_{\rm h}$] and \textit{particle} [$\phi^{(1)}_{\rm p}$] orbitals, which are respectively unoccupied and occupied in the excited state wave function $\Phi^{(1)}$.
+These orbitals must satisfy the conditions:
+\begin{align}
+\label{eq:pq_conditions1}
+\hat{Q}^{(0)}\phi_{\rm h}^{(1)} = 0,\\
+\label{eq:pq_conditions2}
+\hat{P}^{(0)}\phi_p^{(1)} = 0,
+\end{align}
+where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(1)}}\bra[1]{\phi_i^{(1)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$, and $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$.
+Eqs.~\eqref{eq:pq_conditions1} and \eqref{eq:pq_conditions2} can be enforced via Lagrangian multipliers.
 %Minimization of the OCDFT functional yields a set of three eigenvalue equations:
 Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$, $\phi^{(1)}_{\rm h}$, and $\phi^{(1)}_{\rm p}$ to zero results in a set of stationary conditions that lead to the following eigenvalue equation:
 \begin{align}
 \label{eq:one_state_occ_eq}
 (1 - \hat{P}^{(1)}_{\rm h/p})\hat{f}^{(1)} (1 - \hat{P}^{(1)}_{\rm h/p})|\phi_i^{(1)}\rangle &= \epsilon^{(1)}_i |\phi_i^{(1)}\rangle,\\
-\label{eq:one_state_part_eq}
-\hat{Q}^{(0)}(1-\hat{P}_s^{(1)}) \hat{f}^{(1)} (1-\hat{P}_s^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle ,\\
 \label{eq:one_state_hole_eq}
-\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_h^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle.
+\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_h^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
+\label{eq:one_state_part_eq}
+\hat{Q}^{(0)}(1-\hat{P}_s^{(1)}) \hat{f}^{(1)} (1-\hat{P}_s^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle.
 \end{align}
-Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_part_eq} and \eqref{eq:one_state_hole_eq} determine the particle and hole orbitals.
+Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_part_eq} and \eqref{eq:one_state_hole_eq} determine the hole and particle orbitals.
 The projection operators involved in the OCDFT equations are defined as:
 \begin{align}
 \hat{P}^{(1)}_{\rm h/p} &= \hat{P}^{(1)}_{\rm h} + \hat{P}^{(1)}_{\rm p} = 
@@ -232,10 +249,27 @@ The projection operators involved in the OCDFT equations are defined as:
 \hat{Q}^{(1)}_{\rm s} &= \hat{Q}^{(1)} - \hat{P}^{(1)}_{\rm h},
 \end{align}
 where the subscript ``s'' represents orbitals that are not involved in the excitation, which we refer to as spectator orbitals.
-See Fig.~\ref{fig:projection} for a graphical representation of the projection operators.
-
+%See Fig.~\ref{fig:projection} for a graphical representation of the projection operators.
 In OCDFT computations of valence excited states, the hole orbital is assumed to be the solution of Eq.~\eqref{eq:one_state_hole_eq} with the highest value of $\epsilon^{(1)}_{\rm h}$.  Similarly, the particle orbital corresponds to the lowest eigenvalue of Eq.~\eqref{eq:one_state_part_eq}.
-In order to compute core-excited states, we modify OCDFT to select hole orbitals with the smallest values of $\epsilon^{(1)}_{\rm h}$.
+
+Our OCDFT approach for core-excited states introduces two new aspects.
+First, in order to compute core-excited states with OCDFT, we select hole orbitals with the smallest values of $\epsilon^{(1)}_{\rm h}$.
+However, this simple extension allows us only to compute one core-excited state for each irreducible representation.
+In principle, OCDFT can be generalized to compute an arbitrary number of excited states.  For each additional excited state, a new set of conditions must be imposed that guarantees mutual orthogonality  between all the states while simultaneously minimizing the energy.
+While this appears to be a viable solution, it would undoubtedly lead to a more elaborate minimization procedure.
+In this work we propose simplified orthogonality conditions which are based on imposing orthogonality conditions onto the hole and/or particle orbitals.
+For example, if the hole orbital for the second excited state [$\phi_{\rm h}^{(2)}$] is orthogonal to the previous hole and spans the occupied space of the ground state determinant:
+\begin{align}
+\braket[1]{\phi_{\rm h}^{(2)}}{\phi_{\rm h}^{(1)}} = 0,\\
+\hat{Q}^{(0)}\phi_{\rm h}^{(2)} = 0,
+\end{align}
+then the determinant $\Phi^{(2)}$ is orthogonal to $\Phi^{(0)}$ and $\Phi^{(1)}$.
+
+Suppose we are interested in the excited states that involve a given number of core orbitals ($n_{\rm c}$) and unoccupied orbitals ($n_{\rm u}$).
+For convenience we will label the excited state Kohn--Sham determinants with two indices, $i$ and $a$.  These approximately stand for the core and unoccupied orbital that are involved in an excited state.
+We identify the ground state 
+
+
 
 \begin{figure*}
 \centering
@@ -244,10 +278,7 @@ In order to compute core-excited states, we modify OCDFT to select hole orbitals
 \label{fig:projection}
 \end{figure*}
 
-In principle, OCDFT can be generalized to compute an arbitrary number of excited states.  However, for each additional excited state, a new set of conditions must be imposed that guarantees mutual orthogonality  between all the states while simultaneously minimizing the energy.
-While this appears to be a viable solution, it would undoubtedly lead to a more elaborate minimization procedure.
-In this work we take advantage of the localized nature of core orbitals and impose exact orthogonality onto the set of orbitals.
-
+Thus, the conditions considered here \textit{preserve strict orthogonality among all states}, but are not equivalent to the \textit{minimum} orthogonality conditions.
 
   For example, we require that for state $\Phi_n$ at least one orbital ${\phi^{(n)}_j}$ is orthogonal to the occupied orbitals of all lower states $\Phi_m$ ($m < n$):
 \begin{align}
@@ -325,13 +356,14 @@ Eq. \eqref{osc} yields the absolute oscillator strength ($f_{\rm abs}$) for a gi
 Our test set comprises molecules containing first-row (CO, H$_2$CO, N$_2$O, N$_2$, HCN, CH$_4$, C$_2$H$_4$) and second-row elements (SiH$_4$, PH$_3$, H$_2$S, SO$_2$, HCl, Cl$_2$). Individual excitation energies computed with OCDFT and TDDFT are compared to values from gas-phase NEXAS experiments \cite{puttner_vibrationally_1999,remmers_high-resolution_1992,chen_k-shell_1989,tronc_nitrogen_1980,tronc_carbon_1979,francis_studies_1994,adachi_vibronic_1999,hitchcock_k-shell_1979,domke_carbon_1990,nayandin_angle-resolved_2001,bodeur_single-and_1990} in Tables \ref{table:FirstRow} and \ref{table:SecondRow}. Table \ref{table:FirstRow} displays excitations from first row atoms, while Table \ref{table:SecondRow} shows excitations from second row atoms. \\ 
 \indent The three functionals considered in Table \ref{table:OverallPerformance} produce MAEs ranging from 0.9 eV $\rightarrow$ 1.7 eV, exhibiting that there is no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree--Fock (HF) exchange present in the functional. Even the BLYP functional, which contains no HF exchange, yields a MAE of 1.0 eV $\rightarrow$ 1.5 eV, which is comparable to the MAEs produced by it's hybrid counterparts. B3LYP produces errors in the range of 1.0 eV $\rightarrow$ 1.5 eV, while PBE0 produces errors in the range of 0.9 eV $\rightarrow$ 1.7 eV. BLYP outperforms PBE0 when employing three of the fours basis sets considered and yields similar MAEs as B3LYP. The Karlsruhe family of basis sets yields results that are in better agreement with the experimental excitation energies than the correlation consistent basis sets.
 \begin{table}[!ht]
+\small
 \centering
-    \begin{tabular}{l@{\hskip 0.5in}lll}
+    \begin{tabular}{lccc}
     \hline
     \hline
 Basis Set & \multicolumn{3}{c}{Mean Absolute Error (eV)}  \\
-\hline
 & BLYP & B3LYP & PBE0\\
+\hline
 def2-TZVP & 1.0 & 1.0 & 0.9 \\
 def2-QZVP & 1.0 & 1.0 & 1.4 \\
 cc-pCVTZ & 1.3 & 1.3 & 1.6 \\
