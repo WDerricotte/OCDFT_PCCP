@@ -3,8 +3,8 @@
 %Copyright The Royal Society of Chemistry 2010
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[8.5pt,twoside,twocolumn]{article}
-\documentclass[12pt]{article}
+\documentclass[8.5pt,twoside,twocolumn]{article}
+%\documentclass[12pt]{article}
 \oddsidemargin -1.2cm
 \evensidemargin -1.2cm
 \textwidth 18cm
@@ -117,7 +117,7 @@
 \setlength{\columnsep}{6.5mm}
 \setlength\bibsep{1pt}
 
-\linenumbers
+%\linenumbers
 \noindent\LARGE{\textbf{
 %Using Conventional Density Functionals to Simulate X-Ray Absorption Spectra: With Applications to Adenine and Thymine Photoabsorption Spectra
 Simulation of X-Ray Absorption Spectra with Orthogonality Constrained Density Functional Theory
@@ -138,7 +138,7 @@ First published on the web Xth XXXXXXXXXX 200X}}}
 \noindent \normalsize{Orthogonality Constrained Density Functional Theory (OCDFT) is used to compute excited states relevant to core-level spectroscopy, specifically the high lying excited states crucial to simulate near-edge X-ray absorption spectra (NEXAS). Density functional techniques that employ conventional exchange-correlation (XC) functionals routinely underestimate these excited states. This underestimation necessitates an artificial shift in the resulting spectra in order to make a comparison with experimental data. Here, we prove that OCDFT can accurately compute core excitation energies using conventional density functionals by assessing it's performance over a benchmarking test set of 40 core excitations. We utilize standard XC functionals (B3LYP, BLYP, PBE0), and compare these results with experimental data and time dependent density functional theory computations. We reveal the latent ability of OCDFT by simulating the gas-phase near-edge spectra of adenine and thymine. Our computations are consistent with previous NEXAS studies performed on these molecules and show dominant $\pi^*$ character mixed with definitive Rydberg transitions. The experimentally observed peak intensities are in excellent agreement with our calculated oscillator strengths, showing that OCDFT can accurately compute transition dipole moments.}
 \vspace{0.5cm}
 
-\doublespacing
+%\doublespacing
 \section{Introduction}
 The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
 The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
@@ -237,11 +237,12 @@ See Fig.~\ref{fig:projection} for a graphical representation of the projection o
 In OCDFT computations of valence excited states, the hole orbital is assumed to be the solution of Eq.~\eqref{eq:one_state_hole_eq} with the highest value of $\epsilon^{(1)}_{\rm h}$.  Similarly, the particle orbital corresponds to the lowest eigenvalue of Eq.~\eqref{eq:one_state_part_eq}.
 In order to compute core-excited states, we modify OCDFT to select hole orbitals with the smallest values of $\epsilon^{(1)}_{\rm h}$.
 
-\begin{figure}
+\begin{figure*}
+\centering
 \includegraphics[width=16cm]{Figure2.pdf}
 \caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
 \label{fig:projection}
-\end{figure}
+\end{figure*}
 
 In principle, OCDFT can be generalized to compute an arbitrary number of excited states.  However, for each additional excited state, a new set of conditions must be imposed that guarantees mutual orthogonality  between all the states while simultaneously minimizing the energy.
 While this appears to be a viable solution, it would undoubtedly lead to a more elaborate minimization procedure.
@@ -358,7 +359,7 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
 \noindent Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s orbital localized on first row elements (C, N, or O). TDDFT produces a mean absolute error of 11.6 eV compared to experiment, and as discussed earlier, this result is consistent with previous studies that used TDDFT with conventional hybrid functionals,\cite{besley_self-consistent-field_2009} OCDFT calculations yield a mean absolute error of 0.4 eV. To put this error into perspective, it can be compared to the performance of TDDFT with the BH$^{0.58}$LYP functional,\cite{besley_time-dependent_2009} a reparameterization of the BHLYP functional that has been augmented to include 58\% HF exchange, 39\% B88 exchange, and 8\% Slater exchange. When applied to a test set of first row core excitations similar to those in Figure \ref{table:FirstRow}, BH$^{0.58}$LYP yielded a mean average error of 0.8 eVs. A comparable level of accuracy was achieved by OCDFT without altering the inherent amount of HF exchange present in the functional. It is also gratifying to see that the OCDFT MAE for this set of first row core excited states is comparable to the MAE obtained for valence excited states (0.3 eV reported in Ref. \citenum{evangelista_orthogonality_2013})
 \\ \\ 
 \begin{table}[!ht]
-\footnotesize
+\small
     \centering
     \begin{tabular*}{8.8cm}{lllllHH}
     \hline
@@ -400,7 +401,7 @@ This dramatic difference in accuracy suggests that it is helpful to separately a
 When computing core excited states of second row nuclei, TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV, even when the DKH relativistic corrections are included. Previous work by Tozer and coworkers \cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
 \begin{figure}[ht]
 \centering
-\includegraphics[width=8.8cm]{scatterNEW.pdf}
+\includegraphics[width=8.8cm]{scatterNEWER2.pdf}
 \caption{Scatterplot displaying the excitation energy error as a function of orbital overlap. Excitation energies were calculated using the B3LYP functional and def2-QZVP basis set. The overlap integrals were computed with numerical grid integration making use of the Gaussian cube files produced by in Psi4 OCDFT calculations. Grids were calculated with a double zeta basis set and 0.1 grid spacing.}
 \label{figure:scatter}
 \end{figure}
