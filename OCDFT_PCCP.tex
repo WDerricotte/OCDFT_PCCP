@@ -267,49 +267,49 @@ For example, if the hole orbital for the second excited state [$\phi_{\rm h}^{(2
 \end{align}
 then the determinant $\Phi^{(2)}$ is orthogonal to $\Phi^{(0)}$ and $\Phi^{(1)}$.
 
+In the following we describe our constrained multiple hole/particle (CMHP) algorithm.
 Suppose we are interested in the excited states that involve a given number of core orbitals ($n_{\rm c}$) and unoccupied orbitals ($n_{\rm u}$).
 For convenience we will label the excited state Kohn--Sham determinants with two indices, $i$ and $a$.  These approximately stand for the core and unoccupied orbital that are involved in an excited state.
-We identify the ground state 
-
-
-
-\begin{figure*}
-\centering
-\includegraphics[width=16cm]{Figure2.pdf}
-\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
-\label{fig:projection}
-\end{figure*}
-
-Thus, the conditions considered here \textit{preserve strict orthogonality among all states}, but are not equivalent to the \textit{minimum} orthogonality conditions.
-
-  For example, we require that for state $\Phi_n$ at least one orbital ${\phi^{(n)}_j}$ is orthogonal to the occupied orbitals of all lower states $\Phi_m$ ($m < n$):
+Our algorithm starts with a ground-state DFT computation, which yields the determinant [$\Phi^{(0,0)}$].
+Next, we perform a sweep of $n_{\rm u}$ OCDFT computations, which produces a series of solutions:
+\begin{equation}
+\Phi^{(1,1)}, \Phi^{(1,2)}, \ldots, \Phi^{(1,n_{\rm u})}.
+\end{equation}
+These solutions are characterized by hole (particle) orbitals span the occupied (unoccupied) space of $\Phi^{(0,0)}$:
 \begin{align}
-\braket[1]{\phi^{(m)}_i}{\phi^{(n)}_{\rm p}} &= 0 \;\;\; \forall i \\
-\braket[1]{\phi^{(m)}_a}{\phi^{(n)}_{\rm h}} &= 0 \;\;\; \forall a
+\begin{cases}
+\hat{Q}^{(0)}\phi_{\rm h}^{(1,a)}\\
+\hat{P}^{(0)}\phi_{\rm p}^{(1,a)}
+\end{cases} &= 0,&\forall a \leq n_{\rm u},
+\end{align}
+and the particle orbitals are enforced to be orthogonal:
+\begin{align}
+\braket[1]{\phi^{(1,a)}_{\rm p}}{\phi^{(1,b)}_{\rm p}} &= \delta_{ab},&\forall a,b \leq n_{\rm u}.
 \end{align}
 
-a different approach that imposes exact orthogonality but relaxes the requirement of 
 
+In the following iteration of the CMHP algorithm we increase the core index by one and sweep again through a series of orthogonal particle orbitals:
+\begin{equation}
+\Phi^{(2,1)}, \Phi^{(2,2)}, \ldots, \Phi^{(2,n_{\rm u})},
+\end{equation}
+with:
+\begin{align}
+\begin{cases}
+\hat{Q}^{(0)}\phi_{\rm h}^{(2,a)}\\
+\hat{P}^{(0)}\phi_{\rm p}^{(2,a)}
+\end{cases} &= 0,&\forall a \leq n_{\rm u},
+\end{align}
+and in addition, we simultaneously enforce that:
+\begin{align}
+\braket[1]{\phi^{(2,a)}_{\rm p}}{\phi^{(2,b)}_{\rm p}} &= \delta_{ab},&\forall a,b \leq n_{\rm u},\\
+\braket[1]{\phi^{(1,1)}_{\rm h}}{\phi^{(2,a)}_{\rm h}} &=0,&\forall a \leq n_{\rm u}.
+\end{align}
+The last of these two conditions, impose orthogonality between the first core orbital of the first sweep, $\phi^{(1,1)}_{\rm h}$, and the second core orbital of each of the states determined during the current sweep, $\phi^{(2,a)}_{\rm h}$.
+The following steps of the CMHP algorithm proceeds along similar steps, adding after every sweep a new set of orthogonality conditions among the hole orbitals.
+We notice that the CMHP algorithm does \textit{preserve strict orthogonality among all states}, but is not equivalent to imposing \textit{minimum} orthogonality conditions.
 
-How do we generalize this to multiple excitations? \\
 Dipole moments?\\
 How do we compute contribution of various orbitals.
-
-
-
-It is possible to extend this formulation to multiple excited states by simply removing the hole belonging to the previous excited state from the spectator space
-\begin{align}
-%\notag (1-\hat{Q}) (1 - \hat{Q}_s)\hat{f} |\phi_{\text{h}}^{\text{(1)}}\rangle &= \epsilon^{\text{(1)}}_{\text{h}} |\phi_{\text{h}}^{\text{(1)}}\rangle \\
-%\notag (1-\hat{Q}) (1 - \hat{Q}_s - (\hat{P}^{(1)}_{\text{h}}))\hat{f} |\phi_{\text{h}}^{\text{(2)}}\rangle &= \epsilon^{\text{(2)}}_{\text{h}} |\phi_{\text{h}}^{\text{(2)}}\rangle \\ 
-%\notag (1-\hat{Q}) (1 - \hat{Q}_s - (\hat{P}^{(1)}_{\text{h}} + \hat{P}^{(2)}_{\text{h}}))\hat{f} |\phi_{\text{h}}^{\text{(3)}}\rangle &= \epsilon^{\text{(3)}}_{\text{h}} |\phi_{\text{h}}^{\text{(3)}}\rangle\\
-%\notag \vdots\\
-\hat{P}[1 - \hat{Q}_s - (\hat{P}^{(1)}_{\text{h}} + \hat{P}^{(2)}_{\text{h}} + ... +\hat{P}^{\text{(k-1)}}_{\text{h}})]\hat{f} |\phi_{\text{h}}^{\text{(k)}}\rangle &= \epsilon^{\text{(k)}}_{\text{h}} |\phi_{\text{h}}^{\text{(k)}}\rangle .
-\end{align}
-Using this method extends the CH algorithm to allow the calculation of any excited state ``$k$''. We refer to this as the multi-constrained hole projection (MCHP) algorithm. It is important to note here that the ordering of the energy eigenvalues is not arbitrary, they are ordered by increasing orbital energy
-\begin{align}
-\epsilon^{\text{(1)}}_{\text{h}} \le \epsilon^{\text{(2)}}_{\text{h}} \le \epsilon^{\text{(3)}}_{\text{h}} \le ... \le \epsilon^{\text{(k)}}_{\text{h}} .
-\end{align}
-Because of this, in order for the MCHP algorithm to obtain the energy for the $k^{\text{th}}$ excited state, it must first project out all holes related to excited states 1 $\rightarrow$ $(k-1)$.
 
 \begin{figure}
 \centering
@@ -382,7 +382,7 @@ The average error of OCDFT is commensurate to that of wavefunction methods for c
 A full comparison of the accuracy of OCDFT and TDDFT core-excitations computed at the B3LYP/def2-TZVP level of theory are shown in Fig. \ref{figure:Hist}. OCDFT performs very well,  yielding an error distribution peaked near zero and a maximum error of $-$3.7 eV. On the contrary, TDDFT performs rather poorly, underestimating the excitation energies, on average, by 15 eV with a maximum error of $-$53.6 eV. A common source of error in the calculation of core excited states is the inadequate treatment of relativistic effects. It is crucial that we reiterate that all excitation energies were computed using the DKH relativistic Hamiltonian, thus the underestimation of the excitation energies by TDDFT is not solely a product of relativistic effects.\cite{saue_relativistic_2011}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=8.8cm]{NEW_histogram.png}
+\includegraphics[width=8.8cm]{NEW_histogram2.pdf}
 \caption{Histogram showing the distribution of the error in the computed core excited states. All calculations were done using the B3LYP functional and the def2-QZVP basis set. The red filled bar is OCDFT while the empty blue bar is TDDFT.}
 \label{figure:Hist}
 \end{figure}
@@ -444,7 +444,7 @@ core hole and valence particle orbitals have little overlap. Following Tozer et 
 \Lambda_{hp} = &\int |\phi^{(n)}_{\rm h} (\bf{r})||\phi^{(\textit{n})}_{\rm p} (\bf{r})| \ \rm d\bf{r} ,
 \end{align}
 where $\Lambda_{hp}$ ranges from 0 to 1. Figure \ref{figure:scatter} reports the distribution of excited states as a function of the error and the overlap in OCDFT and TDDFT. This highlights the effect that a decrease in orbital overlap has on the accuracy of the excitation energy computed with OCDFT and TDDFT. The vertical dashed line at 0.12 separates the low overlap region (containing exclusively excitations from second row 1s core orbitals) from the higher overlap region (containing exclusively excitations from first row 1s and second row 2p core orbitals). The scatterplot clearly shows that OCDFT is less sensitive to variations in the overlap. Transitioning from the low overlap region to the high overlap region the MAE increases by only 1.5 eV for OCDFT, while in the case of TDDFT the absolute error increases drastically by 35.9 eV.\\
-\begin{table}[!ht]
+\begin{table}[!t]
 \footnotesize
     \centering
     \begin{tabular*}{8.8cm}{lllllHH}
@@ -495,17 +495,17 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
 \subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
   Nucleobases play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray studies of nucleobases consisted of scattering and diffraction experiments.[CITE] The first near-edge absorption experiments were performed in the 90s by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} These authors specifically targeted the nitrogen  core electrons andprobed the sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  At the same time a wide array of computational methods have been used to compute the near-edge structure of nucleobases, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. \\
 Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We will first present the reader with an overview of the performance of OCDFT relative to the gas-phase NEXAS experiments done by Plekan et al. [CITE] on both molecules. This will be followed by an in-depth analysis of the spectral features simulated in OCDFT to see how well they match the experimental spectra, and which excitations contribute to each feature. Then we will compare our work to previous studies employing the ADC(2) theory. Labeling of the atoms for adenine and thymine are shown in Fig. \ref{fig:numbering} and are numbered according to the Hartree--Fock orbital energies of their 1s core orbitals. The relevant virtual orbitals  for thymine are shown in Fig. \ref{fig:thyminevirtuals} and the adenine virtual orbitals are shown in Fig. \ref{figure:adeninevirtuals}.  The nitrgen, carbon, and oxygen edges for thymine can be found in Fig. \ref{figure:Thymine} while the carbon and nitrogen edges of adenine are found in Fig. \ref{figure:Adenine}. Spectra resulting from inner-shell ionizations are commonly referred to as K, L, or M edges depending on which core-shell is involved in the excitation. This nomenclature is simply derived from the Barkla labeling scheme for the X-ray series, and we will routinely employ it to refer to specific spectra. \\
-\begin{figure}[!t]
-\centering
-\includegraphics[width=8.8cm]{adenineThymineNumbering3D.png}
-\caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree-Fock orbital energy of their 1s core orbital. }
-\label{fig:numbering}
-\end{figure}
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=6.5cm]{adenineThymineNumbering3D.png}
+%\caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree-Fock orbital energy of their 1s core orbital. }
+%\label{fig:numbering}
+%\end{figure}
 \subsubsection{Overall Performance}
 \ The simulation of the thymine and adenine NEXAS spectra shown in Figs.\ref{figure:Thymine} and \ref{figure:Adenine} agree well with the experimental data. A common feature of NEXAS spectra is the appearance of multiple low-intensity transitions in the higher energy regions. This is represented well by OCDFT as evidenced by the stick spectra shown in Figs. \ref{figure:Thymine} and \ref{figure:Adenine} where the higher energy regions are populated by multiple low intensity transitions. Tables \ref{table: thymine_k_oxygen} -- \ref{table: adenine_k_carbon} showcase the computed OCDFT excitations, with their corresponding 1s hole orbital ($\phi_h$), particle orbital ($\phi_p$), and relative oscillator strengths. Each transition can be interpreted as a vertical excitation of the 1s core electron from the occupied orbital $\phi_h$ to the virtual orbital $\phi_p$. We will refer to each transition by referencing the atom where the hole orbital is localized and the particle orbital it is excited to (X$_i$ $\rightarrow$ $\phi_p$, where X = O, N, C and $i$ is the number corresponding to the atom label).  The experimental energies reported are the peak maxima for each spectral feature, and can be approximated by the OCDFT transition in that region with the strongest oscillator strength. When using peak maxima as a comparison, OCDFT represents the thymine spectra with an average error of 0.3 eV, and that of adenine with an average error of 0.1 eV. We emphasize that the computed OCDFT spectra are obtained from unshifted excitation energies. 
 \begin{figure}
 \centering
-\includegraphics[width=7.0cm]{ThymineVirtuals.png}
+\includegraphics[width=8.8cm]{ThymineVirtuals.png}
 \caption{Relevant virtual orbitals for thymine numbered in according to the orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is diffused  are labeled as D.}
 \label{fig:thyminevirtuals}
 \end{figure}
@@ -522,9 +522,14 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
    \begin{table}[!t]
    \footnotesize
  \centering
-     \begin{tabular}[width=8.8cm]{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
+     \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
      \hline
      \hline 
+     \multicolumn{6}{c}{
+% \parbox[c]{1em}{
+ \includegraphics[width=3.cm]{ThymineNumbering.png}
+ }\\
+ \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
@@ -598,9 +603,10 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
  &   30.5$\%$ $\rm D_4$  & 290.43 & 0.047 \\
     C$_7$
  &   71.6$\%$ $\rm D_3$  & 290.44 & 0.050 \\
-\hline
-\hline
-   \end{tabular}
+\hline\hline% \\
+%\hline
+%\hline
+   \end{tabular*}
          \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: thymine_k_oxygen}
    \end{table}
@@ -631,8 +637,10 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
  \begin{table}[!ht]
  \footnotesize
  \centering
-     \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
-     \hline
+     \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
+     \hline\hline
+     \multicolumn{6}{c}{
+ \includegraphics[width=3.5cm]{AdenineNumbering.png}}\\
      \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
@@ -684,10 +692,8 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
     C$_8$
  &   63.7$\%$ $\pi_1^*$  & 287.41 & 0.961 
  \vspace{0.05in}\\
-    C$_8$
- &   81.6$\%$ $\pi_2^*$  & 287.86 & 0.000 &  \multirow{3}{*}{C$^{\prime}$} &  \multirow{3}{*}{$\approx$ 288.0}\\
     C$_{10}$
- &   34.7$\%$ $\pi_3^*$  & 287.93 & 0.092 \\
+ &   34.7$\%$ $\pi_3^*$  & 287.93 & 0.092 & \multirow{2}{*}{C$^{\prime}$} &  \multirow{2}{*}{$\approx$ 288.0}\\
     C$_9$
  &   98.9$\%$ $\pi_2^*$
  & 288.02 & 0.026 
@@ -721,14 +727,15 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
  &   56.6$\%$ $\rm D_1$  & 290.77 & 0.064 \\
  \hline
  \hline
-   \end{tabular}
+   \end{tabular*}
    \caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
  \label{fig: adenine_k_nitrogen}
  \end{table}
 \subsubsection{Adenine Carbon K-Edge}
 \ Fig. \ref{figure:Adenine}b compares the OCDFT and experimental carbon K-edge of adenine. The experimental carbon K-edge for adenine is dominated by a large single band with three distinct resonances in the low energy regime. The theoretical spectra shows peaks A and B, blending together into a single band, the experimental spectra shows these peaks at similar intensities, with peak B being slightly more intense, this is represented well in our calculated spectra. Spectral positions for peaks A, B, and C are all in good agreement with experiment, 
 %Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.5 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting its dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. 
-however, the oscillator strength is inconsistent with experimental peak intensities. According to the experimental results, peak C should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not assigned due to their low intensities. OCDFT reveals that Peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak \\
+however, the oscillator strength is inconsistent with experimental peak intensities. According to the experimental results, peak C should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not assigned due to their low intensities. OCDFT reveals that Peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak 
+
 \subsubsection{Comparison With ADC(2) Calculations} \
 Previous theoretical studies performed using ADC(2) provide a good basis of comparison for the performance of the OCDFT spectra. Three key differences in the spectra are noted here. 
 The shoulder feature B$^{\prime}$ in the thymine oxygen K-Edge shown in Fig. \ref{figure:Thymine} is absent from the ADC(2) spectra[CITE]. However, a more recent study by Wenzel, Wormit, and Dreuw [CITE] uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile. \\ 
