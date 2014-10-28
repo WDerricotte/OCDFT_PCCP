@@ -501,7 +501,7 @@ where (ii$|\hat{f}_x|$ii) = $\int |\phi_{\text{i}}|^2\ \hat{f}_x\  |\phi_{\text{
 \begin{figure*}
 \centering
 \includegraphics[width=14cm]{ThymineVirtuals.png}
-\caption{Relevant virtual orbitals for thymine numbered in order based on orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
+\caption{Relevant virtual orbitals for thymine numbered in according to the orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is diffused  are labeled as D.}
 \label{fig:thyminevirtuals}
 \end{figure*}
   Nucleobases play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications [CITE]. Early X-ray studies of nucleobases consisted of scattering and diffraction experiments.[CITE] The first near-edge absorption experiments were performed in the 90s by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} These authors specifically targeted the nitrogen  core electrons andprobed the sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. Modern experiments have moved beyond simple characterization and aim to probe interactions with surfaces and other applications. [CITE]  At the same time a wide array of computational methods have been used to compute the near-edge structure of nucleobases, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF)[CITE], a complex polarization propagator method (CPP) [CITE], SIC-DFT,\cite{bolognesi_investigation_2009} $\Delta$MP2,\cite{shim_calibration_2011} equivalent core approximation (ECA) method[CITE], and algebraic diagrammatic construction [ADC(2)][CITE]. \\
@@ -521,11 +521,10 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
    \begin{table}
    \small
  \centering
-     \begin{tabular}{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
+     \begin{tabular}[width=8.8cm]{c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.22in}c@{\hskip 0.52in}c@{\hskip 0.22in}c@{\hskip 0.22in}c}
      \hline
      \hline 
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
-   \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     \multicolumn{6}{c}{\textbf{Oxygen K-Edge}} \vspace{0.05in}\\
@@ -546,9 +545,9 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
     O$_1$
  &   83.5$\%$ $\rm D_4$  & 537.10 & 0.047 & \multirow{3}{*}{D} & \multirow{3}{*}{537.1} \\
     O$_1$
- &   35.6$\%$ 42-A  & 537.45 & 0.054 \\
+ &   35.6$\%$ $\rm D_7$  & 537.45 & 0.054 \\
     O$_2$
- &   44.0$\%$ 42-A  & 537.67 & 0.073 \vspace{0.05in}\\
+ &   44.0$\%$ $\rm D_7$  & 537.67 & 0.073 \vspace{0.05in}\\
   \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
      N$_4$
  &   81.8$\%$ $\pi_1^*$  & 401.18 & 1.000 & \multirow{2}{*}{A} & \multirow{2}{*}{401.7} \\
@@ -604,7 +603,7 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
          \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
    \label{table: thymine_k_oxygen}
    \end{table}
-\subsubsection{Thymine Nitrogen K-Edge} \ The K-edge pictured in Figure \ref{figure:Thymine}b is characterized by four distinct spectral peaks. Unlike the oxygen spectra, the two lowest energy $\pi^*$ excitations merge into a single band (Peak A), rather than producing two distinct peaks. These lowest energy contributions to Peak A are excitations from N$_3$ and N$_4$ to $\pi^*_2$. OCDFT predicts their excitation energies to be 401.8 eV and 401.2 eV, respectively. The experimental peak maximum is at 401.7 eV, which agrees well with the gaussian profile shown in the OCDFT spectra. Rydberg transitions from the N$_3$ and N$_4$ to D$_1$ are the dominant resonances contributing to the character of peak B, along with a valence excitation N$_4$ $\rightarrow$ $\pi^*_1$ predicted at 402.5 eV. This agrees well with the experimental peak assignment at 402.7 eV. A very intense N$_4$ $\rightarrow$ 3p transition accounts for the peak at 404.1 eV, OCDFT simulates this peak perfectly with a gaussian centered at 404.2 eV. Peak D is the amalgamation of two $\pi^*$ resonances and multiple Rydberg states with the $\pi^*$ resonances being the transitions of strongest intensity. Excitation energies of these $\pi^*$ resonances agree well with the experimental peak assignment at 405.5 eV, with N$_4$ $\rightarrow$ $\pi^*_3$ at 405.3 eV and N$_3$ $\rightarrow$ $\pi^*_1$ at 405.7 eV.
+\subsubsection{Thymine Nitrogen K-Edge} \ The K-edge pictured in Figure \ref{figure:Thymine}b is characterized by four distinct spectral peaks. Unlike the oxygen spectra, the two lowest energy $\pi^*$ excitations merge into a single band (Peak A), rather than producing two distinct peaks. These lowest energy contributions to Peak A are excitations from N$_3$ and N$_4$ to $\pi^*_2$. OCDFT predicts their excitation energies to be 401.8 eV and 401.2 eV, respectively. The experimental peak maximum is at 401.7 eV, which agrees well with the gaussian profile shown in the OCDFT spectra. Rydberg transitions from the N$_3$ and N$_4$ to D$_1$ are the dominant resonances contributing to the character of peak B, along with a valence excitation N$_4$ $\rightarrow$ $\pi^*_1$ predicted at 402.5 eV. This agrees well with the experimental peak assignment at 402.7 eV. A very intense N$_4$ $\rightarrow$ D$_3$ transition accounts for the peak at 404.1 eV, OCDFT simulates this peak perfectly with a gaussian centered at 404.2 eV. Peak D is the amalgamation of two $\pi^*$ resonances and multiple Rydberg states with the $\pi^*$ resonances being the transitions of strongest intensity. Excitation energies of these $\pi^*$ resonances agree well with the experimental peak assignment at 405.5 eV, with N$_4$ $\rightarrow$ $\pi^*_3$ at 405.3 eV and N$_3$ $\rightarrow$ $\pi^*_1$ at 405.7 eV.
 \subsubsection{Thymine Carbon K-Edge} \
    The shape of the carbon K-edge displayed in Figure \ref{figure:Thymine}c is governed by four strong $\pi^*$ resonances. Unique to the carbon K-edge is the fact that the strongest transition is not the lowest energy $\pi^*$ resonance, the C$_5$ $\rightarrow$ $\pi_1^*$ transition is a relatively high energy excitation and produces the strongest peak intensity, despite close proximity to several Rydberg states. Peak A at 284.9 eV is the result of the transition C$_8$ $\rightarrow$ $\pi_2^*$, the position of this peak is predicted exactly by OCDFT. A slightly stronger transition at 285.9 eV is mostly due to a  C$_7$ $\rightarrow$ $\pi_2^*$ excitation, with small contribution from another $\pi_2^*$ resonance resulting from an excitation from the C$_9$ core. Peaks C and D have experimental peak maxima at 287.8 eV and 288.4 eV respectively, and blend together to form one band. Both contributions to the spectral band are represented well by OCDFT.
 %The most prominent contributor to Peak C is the excitation from C$_6$ $\rightarrow$ $\pi^*_3$, while Peak D is the result of a C$_9$ $\rightarrow$ $\pi^*_3$. 
@@ -629,7 +628,6 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
      \hline
      \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
-   \hline
  $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
    \hline
     \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
