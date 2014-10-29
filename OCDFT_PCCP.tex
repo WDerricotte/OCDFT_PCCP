@@ -200,7 +200,7 @@ E^{(n)}[\rho] = \min_{
 $E^{(n)}[\rho]$ searches for the wave function that minimizes the energy subject to density constraint and at the same time enforces the orthogonality between $\Psi$ and the first $n-1$ \textit{exact} electronic states:
 
 OCDFT starts from the time-independent approach based on the functionals $E^{(n)}[\rho]$ to produce a computationally viable method.
-%with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$ 
+%with wave function $\Phi^{(n)}$ and density $\rho_s{(n)}$ 
 %Starting from this theory, it is possible to introduce a generalization of the Kohn--Sham scheme that enables us to express variational excited state density functionals in terms of $\phi^{(n)}$, the occupied orbitals of electronic states $n$.
 The first step consists in defining a generalized Kohn--Shame scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the exact density of state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
 In addition, we assume that the auxiliary wave functions are orthogonal, that is:
@@ -221,7 +221,7 @@ E^{(n)}[\{\phi^{(n)}_i\}]=& -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\
 Minimization of the $E^{(n)}[\{\phi^{(n)}_i\}]$ with respect to the occupied orbitals for state $n$ can be performed with a modified self-consistent-field algorithm.\cite{evangelista_orthogonality_2013}
 
 In the case of the first excited ($n = 1$), it is possible to show that the orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] implies the existence of two special orbitals.
-These are the \textit{hole} [$\phi^{(1)}_{\rm h}$] and \textit{particle} [$\phi^{(1)}_{\rm p}$] orbitals, which are respectively unoccupied and occupied in the excited state wave function $\Phi^{(1)}$.
+As illustrated in Fig.~\ref{fig:projection}, these are the \textit{hole} [$\phi^{(1)}_{\rm h}$] and \textit{particle} [$\phi^{(1)}_{\rm p}$] orbitals, which are respectively unoccupied and occupied in the excited state wave function $\Phi^{(1)}$.
 These orbitals must satisfy the conditions:
 \begin{align}
 \label{eq:pq_conditions1}
@@ -229,20 +229,19 @@ These orbitals must satisfy the conditions:
 \label{eq:pq_conditions2}
 \hat{P}^{(0)}\phi_{\rm p}^{(1)} = 0,
 \end{align}
-where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(1)}}\bra[1]{\phi_i^{(1)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$, and $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$.
+where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(0)}}\bra[1]{\phi_i^{(0)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$, and $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$.
 Eqs.~\eqref{eq:pq_conditions1} and \eqref{eq:pq_conditions2} can be enforced via Lagrangian multipliers.
-%Minimization of the OCDFT functional yields a set of three eigenvalue equations:
 Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$, $\phi^{(1)}_{\rm h}$, and $\phi^{(1)}_{\rm p}$ to zero results in a set of stationary conditions that lead to the following eigenvalue equation:
 \begin{align}
 \label{eq:one_state_occ_eq}
 (1 - \hat{P}^{(1)}_{\rm h/p})\hat{f}^{(1)} (1 - \hat{P}^{(1)}_{\rm h/p})|\phi_i^{(1)}\rangle &= \epsilon^{(1)}_i |\phi_i^{(1)}\rangle,\\
 \label{eq:one_state_hole_eq}
-\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_{\rm h}^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
+\hat{P}^{(0)}(1-\hat{Q}_{\rm s}^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_{\rm s}^{(1)})\hat{P}^{(0)} |\phi_{\rm h}^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
 \label{eq:one_state_part_eq}
-\hat{Q}^{(0)}(1-\hat{P}_s^{(1)}) \hat{f}^{(1)} (1-\hat{P}_s^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle.
+\hat{Q}^{(0)}(1-\hat{P}_{\rm s}^{(1)}) \hat{f}^{(1)} (1-\hat{P}_{\rm s}^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle.
 \end{align}
-Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_part_eq} and \eqref{eq:one_state_hole_eq} determine the hole and particle orbitals.
-The projection operators involved in the OCDFT equations are defined as:
+Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_hole_eq} and \eqref{eq:one_state_part_eq} determine the hole and particle orbitals, respectively.
+The projection operators involved in the OCDFT equations are defined as (see Fig.~\ref{fig:projection}):
 \begin{align}
 \hat{P}^{(1)}_{\rm h/p} &= \hat{P}^{(1)}_{\rm h} + \hat{P}^{(1)}_{\rm p} = 
 \ket[1]{\phi^{(1)}_{\rm h}}\bra[1]{\phi^{(1)}_{\rm h}}
@@ -256,7 +255,7 @@ In OCDFT computations of valence excited states, the hole orbital is assumed to 
 \begin{figure}
 \centering
 \includegraphics[width=8.8cm]{Figure1.pdf}
-\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
+\caption{Illustration of the projection operators used in OCDFT.   the ground state determinant $\Phi^{(0)}$ and the excited state determinant $\Phi^{(1)}$. Notice, that a consequence of Eqs.~\eqref{eq:pq_conditions1}--\eqref{eq:pq_conditions2} is that the hole [$\phi^{(1)}_{\rm h}$] and particle [$\phi^{(1)}_{\rm p}$] orbitals are contained in the spaces spanned by $\hat{P}^{(0)}$ and $\hat{Q}^{(0)}$.}
 \label{fig:projection}
 \end{figure}
 
@@ -264,7 +263,7 @@ In OCDFT computations of valence excited states, the hole orbital is assumed to 
 \centering
 \includegraphics[width=18cm]{Figure2NEW.pdf}
 \caption{Constrained multiple hole/particle (CMHP) algorithm illustrated in the case of two hole and three particle orbitals.}
-\label{fig:projection}
+\label{fig:CMHP}
 \end{figure*}
 Our OCDFT approach for core-excited states introduces two new aspects.
 First, in order to compute core-excited states with OCDFT, we select hole orbitals with the smallest values of $\epsilon^{(1)}_{\rm h}$.
@@ -279,7 +278,7 @@ For example, if the hole orbital for the second excited state [$\phi_{\rm h}^{(2
 \end{align}
 then the determinant $\Phi^{(2)}$ is orthogonal to $\Phi^{(0)}$ and $\Phi^{(1)}$.
 
-In the following we describe our constrained multiple hole/particle (CMHP) algorithm.
+In the following we describe our constrained multiple hole/particle (CMHP) algorithm, which is illustrated in Fig.~\ref{fig:CMHP}.
 Suppose we are interested in the excited states that involve a given number of core orbitals ($n_{\rm c}$) and unoccupied orbitals ($n_{\rm u}$).
 For convenience we will label the excited state Kohn--Sham determinants with two indices, $i$ and $a$.  These approximately stand for the core and unoccupied orbital that are involved in an excited state.
 Our algorithm starts with a ground-state DFT computation, which yields the determinant [$\Phi^{(0,0)}$].
@@ -779,9 +778,50 @@ The relativistic correction emplyed in this study is an ad-hoc method specifical
 
 \section{Acknowledgements}
 W.D.D is currently supported by the National Science Foundation Graduate Research Fellowship Program. W.D.D would also like to acknowledge initial funding from the Emory Initiative for Maximizing Student Development of the National Institutes of Health under award number R25GM099644. We would also like to acknowledge start-up funds from Emory University. The content presented in this publication is solely the responsibility of the authors and does not necessarily represent the official views of the National Science Foundation or the National Institute of Health.\\
+
+%
+% Appendices
+%
+\appendix
+\renewcommand{\theequation}{A\arabic{equation}}
+\section*{Appendix A: OCDFT Equations for Multiple Core-Excited States}
+In this appendix we report the multiple constrained hole particle algorithm used to compute multiple solutions of the OCDFT equations.
+The OCDFT equations are solved following the sequence:
+\begin{equation}
+\begin{split}
+(i,a) : &(0,0) \rightarrow \\
+        &\rightarrow (1,1) \rightarrow (1,2) \rightarrow \cdots \rightarrow (1,n_{\rm u})  \rightarrow\\
+        &\rightarrow  (2,1) \rightarrow (2,2) \rightarrow \cdots \rightarrow (2,n_{\rm u})  \rightarrow\\
+        & \vdots\\
+        &\rightarrow  (n_{\rm c},1) \rightarrow (n_{\rm c},2) \rightarrow \cdots \rightarrow (n_{\rm c},n_{\rm u})  \rightarrow
+\end{split}
+\end{equation}
+
+The OCDFT equations consist of a set of three coupled eigenvalue equations:
+\begin{equation}
+\begin{cases}
+\label{eq:one_state_occ_eq_gen}
+(1 - \hat{P}^{(i,a)}_{\rm h/p})\hat{f}^{(i,a)} (1 - \hat{P}^{(i,a)}_{\rm h/p})|\phi_k^{(i,a)}\rangle = \epsilon^{(i,a)}_k |\phi_k^{(i,a)}\rangle,\\
+\hat{P}^{(0)}(1-\hat{Q}_{\rm s}^{(i,a)}) \hat{f}^{(i,a)} (1-\hat{Q}_{\rm s}^{(i,a)})\hat{P}^{(0)} |\phi_{\rm h}^{(i,a)}\rangle = \epsilon^{(i,a)}_{\rm h} |\phi_{\rm h}^{(i,a)}\rangle,\\
+\hat{Q}^{(0)}(1-\hat{P}_{\rm s}^{(i,a)}) \hat{f}^{(i,a)} (1-\hat{P}_{\rm s}^{(i,a)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(i,a)}\rangle = \epsilon^{(i,a)}_{\rm p} |\phi_{\rm p}^{(i,a)}\rangle,
+\end{cases}
+\end{equation}
+where the projection operators are defines as:
+%Eq.~\eqref{eq:one_state_occ_eq_gen} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_hole_eq_gen} and \eqref{eq:one_state_part_eq_gen} determine the hole and particle orbitals, respectively.
+%The projection operators involved in the OCDFT equations are defined as (see Fig.~\ref{fig:projection}):
+\begin{align}
+\hat{P}^{(i,a)}_{\rm h/p} =& \hat{P}^{(i,a)}_{\rm h} + \hat{P}^{(i,a)}_{\rm p} \\
+\hat{P}^{(i,a)}_{\rm h} =&  \sum_{j < i}^{\rm holes}  \ket[1]{\phi^{(j,1)}_{\rm h}}\bra[1]{\phi^{(j,1)}_{\rm h}} \\
+\hat{P}^{(i,a)}_{\rm p} =& \sum_{b < a}^{\rm particles}\ket[1]{\phi^{(i,b)}_{\rm p}}\bra[1]{\phi^{(i,b)}_{\rm p}},\\
+\hat{P}^{(i,a)}_{\rm s} =& \hat{P}^{(i,a)} - \hat{P}^{(i,a)}_{\rm p},\\
+\hat{Q}^{(i,a)}_{\rm s} =& \hat{Q}^{(i,a)} - \hat{P}^{(i,a)}_{\rm h}.
+\end{align}
+
+%
+% References 
+%
 \footnotesize{
 \bibliography{OCDFT.bib} %your .bib file
 \bibliographystyle{rsc} %the RSC's .bst file
 }
-
 \end{document}
