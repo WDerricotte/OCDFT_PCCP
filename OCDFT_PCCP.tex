@@ -18,6 +18,7 @@
 \usepackage[super,sort&compress,comma]{natbib} 
 \usepackage{mhchem}
 \usepackage{siunitx}
+\usepackage{dcolumn}
 \usepackage{times,mathptmx}
 % \usepackage{times}
 % feel free not to use mathptmx if it causes difficulties
@@ -389,7 +390,7 @@ cc-pCVQZ & 1.5 & 1.5 & 1.7 \\
 \end{table}
 The average error of OCDFT is commensurate to that of wavefunction methods for core-excited states. For example, Asmuruf and Besley\cite{asmuruf_calculation_2008} reported an average error of 1.2 eV for SOS-CIS(D) applied to a set of excitations similar to the ones used in the present study. While Coriani et al.\cite{coriani_coupled-cluster_2012} reported errors of less than 0.9 eV when applying coupled cluster response theory to a set of carbon, nitrogen, and neon core excitations. 
 
-A full comparison of the accuracy of OCDFT and TDDFT core-excitations computed at the B3LYP/def2-TZVP level of theory are shown in Fig. \ref{figure:Hist}. OCDFT performs very well,  yielding an error distribution peaked near zero and a maximum error of $-$3.7 eV. On the contrary, TDDFT performs rather poorly, underestimating the excitation energies, on average, by 15 eV with a maximum error of $-$53.6 eV. A common source of error in the calculation of core excited states is the inadequate treatment of relativistic effects. It is crucial that we reiterate that all excitation energies were computed using the DKH relativistic Hamiltonian, thus the underestimation of the excitation energies by TDDFT is not solely a product of relativistic effects.\cite{saue_relativistic_2011}
+A full comparison of the accuracy of OCDFT and TDDFT core-excitations computed at the B3LYP/def2-TZVP level of theory are shown in Fig. \ref{figure:Hist}. OCDFT performs very well,  yielding an error distribution peaked near zero and a maximum error of $-$3.7 eV. On the contrary, TDDFT performs rather poorly, underestimating the excitation energies, on average, by 15 eV with a maximum error of $-$53.6 eV. A common source of error in the calculation of core excited states is the inadequate treatment of relativistic effects. It is crucial that we reiterate that all excitation energies were computed using the DKH relativistic Hamiltonian, thus this eliminates relativistic effects as a potential source of error for TDDFT.\cite{saue_relativistic_2011}
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=8.8cm]{NEW_histogram2.pdf}
@@ -441,7 +442,7 @@ Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s
      \label{table:FirstRow}
      \end{table}
 \subsection{Importance of Orbital Overlap}
-When computing core excited states of second row nuclei, TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV, even when the DKH relativistic corrections are included. Previous work by Tozer and coworkers \cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
+When computing core excited states of second row nuclei, TDDFT becomes highly inaccurate, producing in an average error larger than 30 eV. Previous work by Tozer and coworkers \cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
 \begin{figure}[!t]
 \centering
 \includegraphics[width=8.8cm]{scatterNEWER3.pdf}
@@ -528,11 +529,12 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
 \end{figure}
 \subsubsection{Thymine Oxygen K-Edge}
 \ Figure \ref{figure:Thymine}a displays the experimental and theoretical spectra of thymine at the oxygen K-edge. The low energy regime of the oxygen K-edge is dominated by two high intensity peaks, Peak A results from the transition O$_2$ $\rightarrow$ $\pi^*_2$, while Peak B results from the transition O$_1$ $\rightarrow$ $\pi^*_1$ with a peak intensity that is roughly equal to that of Peak A. Experimentally, Peaks A and B are centered at 531.4 eV and 532.3 eV, respectively, and are predicted by OCDFT to within 0.3 eV. The  O$_2$ $\rightarrow$ $\pi_2^*$ transition is predicted as the peak of highest intensity with an f$_{\rm abs}$ of 0.02, and this result is consistent with the ADC(2) analysis performed by Plekan et al. \cite{plekan_theoretical_2008} which predicts an f$_{\rm abs}$ of 0.03. According to OCDFT the shoulder feature B$^{\prime}$ is composed of O$_1$ $\rightarrow$ $\pi^*_2$ and O$_2$ $\rightarrow$ $\pi^*_1$ transitions predicted to have a fairly strong oscillator strength (f$_{\rm rel}$ $\approx$ 0.2), which is inconsistent with the low intensity peaks that appear in this region in the experimental spectra.  As stated earlier, excitations of weaker intensity are characteristic of the higher energy regime of the K-Edge and have been attributed to strong mixing of core-valence excited states with Rydberg excited states of similar energy.\cite{robin_rydberg_1975} This strong mixing causes the character of each individual excitation to be spread out over several different final states, resulting in highly disordered peaks of weak intensity. The mixing in this region of the spectra makes it difficult to classify specific transitions experimentally. OCDFT results show that Peak C is largely composed of a mixture of diffuse Rydberg excitations within the energy interval of 534.7 to 536.4 eV. While the majority of the contributions to Peak D, are D$_2$ and D$_5$ excitations all with f$_{\text{rel}}$ $<$ 0.1, Peaks C and D both contain $\pi^*_3$ character. The contributions from these resonances are weak and overshadowed by multiple Rydberg transitions in both cases. 
+\newcolumntype{.}{D{.}{.}{-1}}
    \begin{table}[!t]
    \footnotesize
             \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_{\rm p}$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_{\rm h}$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
  \centering
-     \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
+     \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccrccc}
      \hline
      \hline\\[-8pt]
      \multicolumn{6}{c}{
