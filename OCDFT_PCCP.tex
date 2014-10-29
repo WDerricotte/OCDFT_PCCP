@@ -227,7 +227,7 @@ These orbitals must satisfy the conditions:
 \label{eq:pq_conditions1}
 \hat{Q}^{(0)}\phi_{\rm h}^{(1)} = 0,\\
 \label{eq:pq_conditions2}
-\hat{P}^{(0)}\phi_p^{(1)} = 0,
+\hat{P}^{(0)}\phi_{\rm p}^{(1)} = 0,
 \end{align}
 where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(1)}}\bra[1]{\phi_i^{(1)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$, and $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$.
 Eqs.~\eqref{eq:pq_conditions1} and \eqref{eq:pq_conditions2} can be enforced via Lagrangian multipliers.
@@ -237,7 +237,7 @@ Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$, $\ph
 \label{eq:one_state_occ_eq}
 (1 - \hat{P}^{(1)}_{\rm h/p})\hat{f}^{(1)} (1 - \hat{P}^{(1)}_{\rm h/p})|\phi_i^{(1)}\rangle &= \epsilon^{(1)}_i |\phi_i^{(1)}\rangle,\\
 \label{eq:one_state_hole_eq}
-\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_h^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
+\hat{P}^{(0)}(1-\hat{Q}_s^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_s^{(1)})\hat{P}^{(0)} |\phi_{\rm h}^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
 \label{eq:one_state_part_eq}
 \hat{Q}^{(0)}(1-\hat{P}_s^{(1)}) \hat{f}^{(1)} (1-\hat{P}_s^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle.
 \end{align}
@@ -263,7 +263,7 @@ In OCDFT computations of valence excited states, the hole orbital is assumed to 
 \begin{figure*}
 \centering
 \includegraphics[width=18cm]{Figure2NEW.pdf}
-\caption{Visual representation of the space spanned by all projection operators for the ground state determinant $|\Phi\rangle$ and the excited state determinant $|\Phi^{(1)}\rangle$. Notice that the hole orbital comes from the space spanned by $\hat{P}$ and that the particle orbital comes from the space spanned by  $\hat{Q}$, this is a direct result of Equations 2 and 3.}
+\caption{Constrained multiple hole/particle (CMHP) algorithm illustrated in the case of two hole and three particle orbitals.}
 \label{fig:projection}
 \end{figure*}
 Our OCDFT approach for core-excited states introduces two new aspects.
@@ -513,7 +513,7 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
 %\label{fig:numbering}
 %\end{figure}
 \subsubsection{Overall Performance}
-\ The simulation of the thymine and adenine NEXAS spectra shown in Figs.\ref{figure:Thymine} and \ref{figure:Adenine} agree well with the experimental data. A common feature of NEXAS spectra is the appearance of multiple low-intensity transitions in the higher energy regions. This is represented well by OCDFT as evidenced by the stick spectra shown in Figs. \ref{figure:Thymine} and \ref{figure:Adenine} where the higher energy regions are populated by multiple low intensity transitions. Tables \ref{table: thymine_k_oxygen} and \ref{fig: adenine_k_nitrogen} showcase the computed OCDFT excitations, with their corresponding 1s hole orbital ($\phi_h$), particle orbital ($\phi_p$), and relative oscillator strengths. Each transition can be interpreted as a vertical excitation of the 1s core electron from the occupied orbital $\phi_h$ to the virtual orbital $\phi_p$. We will refer to each transition by referencing the atom where the hole orbital is localized and the particle orbital it is excited to (X$_i$ $\rightarrow$ $\phi_p$, where X = O, N, C and $i$ is the number corresponding to the atom label).  The experimental energies reported are the peak maxima for each spectral feature, and can be approximated by the OCDFT transition in that region with the strongest oscillator strength. When using peak maxima as a comparison, OCDFT represents the thymine spectra with an average error of 0.3 eV, and that of adenine with an average error of 0.1 eV. We emphasize that the computed OCDFT spectra are obtained from unshifted excitation energies. 
+\ The simulation of the thymine and adenine NEXAS spectra shown in Figs.\ref{figure:Thymine} and \ref{figure:Adenine} agree well with the experimental data. A common feature of NEXAS spectra is the appearance of multiple low-intensity transitions in the higher energy regions. This is represented well by OCDFT as evidenced by the stick spectra shown in Figs. \ref{figure:Thymine} and \ref{figure:Adenine} where the higher energy regions are populated by multiple low intensity transitions. Tables \ref{table: thymine_k_oxygen} and \ref{fig: adenine_k_nitrogen} showcase the computed OCDFT excitations, with their corresponding 1s hole orbital ($\phi_{\rm h}$), particle orbital ($\phi_{\rm p}$), and relative oscillator strengths. Each transition can be interpreted as a vertical excitation of the 1s core electron from the occupied orbital $\phi_{\rm h}$ to the virtual orbital $\phi_{\rm p}$. We will refer to each transition by referencing the atom where the hole orbital is localized and the particle orbital it is excited to (X$_i$ $\rightarrow$ $\phi_{\rm p}$, where X = O, N, C and $i$ is the number corresponding to the atom label).  The experimental energies reported are the peak maxima for each spectral feature, and can be approximated by the OCDFT transition in that region with the strongest oscillator strength. When using peak maxima as a comparison, OCDFT represents the thymine spectra with an average error of 0.3 eV, and that of adenine with an average error of 0.1 eV. We emphasize that the computed OCDFT spectra are obtained from unshifted excitation energies. 
 \begin{figure}[!b]
 \centering
 \includegraphics[width=8.8cm]{ThymineVirtuals.png}
@@ -532,18 +532,18 @@ Here we present an OCDFT simulation of the thymine and adenine NEXAS spectra. We
 \ Figure \ref{figure:Thymine}a displays the experimental and theoretical spectra of thymine at the oxygen K-edge. The low energy regime of the oxygen K-edge is dominated by two high intensity peaks, Peak A results from the transition O$_2$ $\rightarrow$ $\pi^*_2$, while Peak B results from the transition O$_1$ $\rightarrow$ $\pi^*_1$ with a peak intensity that is roughly equal to that of Peak A. Experimentally, Peaks A and B are centered at 531.4 eV and 532.3 eV, respectively, and are predicted by OCDFT to within 0.3 eV. The  O$_2$ $\rightarrow$ $\pi_2^*$ transition is predicted as the peak of highest intensity with an f$_{\rm abs}$ of 0.02, and this result is consistent with the ADC(2) analysis performed by Plekan et al which predicts an f$_{\rm abs}$ of 0.03. According to OCDFT the shoulder feature B$^{\prime}$ is composed of O$_1$ $\rightarrow$ $\pi^*_2$ and O$_2$ $\rightarrow$ $\pi^*_1$ transitions predicted to have a fairly strong oscillator strength (f$_{\rm rel}$ $\approx$ 0.2), which is inconsistent with the low intensity peaks that appear in this region in the experimental spectra.  As stated earlier, excitations of weaker intensity are characteristic of the higher energy regime of the K-Edge and have been attributed to strong mixing of core-valence excited states with Rydberg excited states of similar energy.[CITE] This strong mixing causes the character of each individual excitation to be spread out over several different final states, resulting in highly disordered peaks of weak intensity. The mixing in this region of the spectra makes it difficult to classify specific transitions experimentally. OCDFT results show that Peak C is largely composed of a mixture of diffuse Rydberg excitations within the energy interval of 534.7 to 536.4 eV. While the majority of the contributions to Peak D, are 4s and 4p excitations all with f$_{\text{rel}}$ $<$ 0.1, Peaks C and D both contain $\pi^*_3$ character. The contributions from these resonances are weak and overshadowed by multiple Rydberg transitions in both cases. 
    \begin{table}[!t]
    \footnotesize
-            \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
+            \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_{\rm p}$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_{\rm h}$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
  \centering
      \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
      \hline
-     \hline 
+     \hline\\[-8pt]
      \multicolumn{6}{c}{
 % \parbox[c]{1em}{
  \includegraphics[width=3.cm]{ThymineNumbering.png}
  }\\
  \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
- $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
+ $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
     \multicolumn{6}{c}{\textbf{Oxygen K-Edge}} \vspace{0.05in}\\
     O$_2$
@@ -647,15 +647,15 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
 %The experimental spectra shows that these transitions get more intense as they appraoch 405.0 eV, which is represented well in our calculations. \\
  \begin{table}[!ht]
  \footnotesize
-\caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
+\caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_{\rm p}$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_{\rm h}$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
  \centering
      \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
-     \hline\hline
+     \hline\hline\\[-8pt]
      \multicolumn{6}{c}{
  \includegraphics[width=3.5cm]{AdenineNumbering.png}}\\
      \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
- $\phi_h$ &  $\phi_p$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\
+ $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
     \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
     N$_4$
