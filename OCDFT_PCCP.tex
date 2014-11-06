@@ -187,40 +187,44 @@ We demonstrate the potential of this new method with computations of the gas-pha
 \section{Theory}
 In this section we provide a brief summary of orthogonality constrained density functional theory along with the necessary extension to multiple excited states (for the full details of the OCDFT derivation we refer the reader to Ref.\citenum{evangelista_orthogonality_2013}).
 OCDFT builds upon the time-independent variational DFT approach developed by Ayers, Levy, and Nagy.\cite{ayers_time-independent_2012}
-To each electronic state [$\Psi^{(n)}, n=0,1,\ldots$] of a $N$-electron system, we associate a density functional $E^{(n)}[\rho]$:
+Within the variational DFT framework, to each electronic state [$\Psi^{(n)}, n=0,1,\ldots$] of a $N$-electron system, corresponds a density functional $E^{(n)}[\rho]$ which is a generalization of the ground-state functional of Levy.   $E^{(n)}[\rho]$ minimizes the energy subject to a density constraint and enforces orthogonality between the wave function $\Psi$ and the first $n-1$ \textit{exact} electronic states, $\{\Psi^{(k)}, k = 1,\ldots,n-1\}$:
 \begin{equation}
 E^{(n)}[\rho] = \min_{
 \substack{
 \Psi \rightarrow \rho\\
-\Psi\bot\Psi^{(k)}
+\Psi\bot \{\Psi^{(k)}\}
 }
 }
-\bra{\Psi}\hat{H}\ket{\Psi},
-\;\;\; k = 1,\ldots,n-1.
+\bra{\Psi}\hat{H}\ket{\Psi}.
 \end{equation}
-$E^{(n)}[\rho]$ searches for the wave function that minimizes the energy subject to density constraint and at the same time enforces the orthogonality between $\Psi$ and the first $n-1$ \textit{exact} electronic states:
 
 OCDFT starts from the time-independent approach based on the functionals $E^{(n)}[\rho]$ to produce a computationally viable method.
 %with wave function $\Phi^{(n)}$ and density $\rho_s{(n)}$ 
 %Starting from this theory, it is possible to introduce a generalization of the Kohn--Sham scheme that enables us to express variational excited state density functionals in terms of $\phi^{(n)}$, the occupied orbitals of electronic states $n$.
-The first step consists in defining a generalized Kohn--Shame scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the exact density of state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
+The first step consists in defining a generalized Kohn--Shame scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the density of the exact state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
 In addition, we assume that the auxiliary wave functions are orthogonal, that is:
 \begin{equation}\label{eq:orthogonality_condition}
 \braket[1]{\Phi^{(m)}}{\Phi^{(n)}} = \delta_{mn}.
 \end{equation}
 This condition can be imposed without loss of generality.  It avoids the excited state wave functions from collapsing down to the ground state solution, and effectively transfers some of the complexity of the excited state density functionals to the kinetic energy operator.
-Nevertheless, this variational Kohn--Sham scheme involves energy functionals [$E^{(n)}$] that contain exchange-correlation contributions [$E^{(n)}_{\rm xc}$] that are \textit{specific} for each excited state, and differ in general from the ground state functional.
+Nevertheless, this variational Kohn--Sham scheme involves energy functionals [$E_{\rm KS}^{(n)}$] that contain exchange-correlation contributions [$E^{(n)}_{\rm xc}$] that are \textit{specific} for each excited state, and differ in general from the ground state functional.
 In OCDFT, we invoke an adiabatic approximation similar to the one used in TDDFT, and replace $E^{(n)}_{\rm xc}$ with the ground state exchange-correlation functional, $E^{(0)}_{\rm xc}$.
 The resulting functional for excited state $n$ is given by:
 \begin{equation}
 \begin{split}
-E^{(n)}[\{\phi^{(n)}_i\}]=& -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\nabla^2\ket[1]{\phi_i^{(n)}} + 
+E^{(n)}_{\rm OCDFT}[\{\phi^{(n)}_i\}]=& -\frac{1}{2} \sum_i^{\rm occ} \bra[1]{\phi_i^{(n)}}\nabla^2\ket[1]{\phi_i^{(n)}} + 
 \int d \mathbf{r} \, v(\mathbf{r}) \rho^{(n)}(\mathbf{r})\\
  &+ J[\rho^{(n)}] + E^{(0)}_{\rm xc}[\rho^{(n)}]. 
 \end{split}
 \end{equation}
-Minimization of the $E^{(n)}[\{\phi^{(n)}_i\}]$ with respect to the occupied orbitals for state $n$ can be performed with a modified self-consistent-field algorithm.\cite{evangelista_orthogonality_2013}
 
+\begin{figure}
+\centering
+\includegraphics[width=8.8cm]{Figure1.pdf}
+\caption{Illustration of the projection operators used in OCDFT.   the ground state determinant $\Phi^{(0)}$ and the excited state determinant $\Phi^{(1)}$. Notice, that a consequence of Eqs.~\eqref{eq:pq_conditions1}--\eqref{eq:pq_conditions2} is that the hole [$\phi^{(1)}_{\rm h}$] and particle [$\phi^{(1)}_{\rm p}$] orbitals are contained in the spaces spanned by $\hat{P}^{(0)}$ and $\hat{Q}^{(0)}$.}
+\label{fig:projection}
+\end{figure}
+Minimization of the $E^{(n)}[\{\phi^{(n)}_i\}]$ with respect to the occupied orbitals for state $n$ can be performed with a modified self-consistent-field algorithm.\cite{evangelista_orthogonality_2013}
 In the case of the first excited ($n = 1$), it is possible to show that the orthogonality condition [Eq.~\eqref{eq:orthogonality_condition}] implies the existence of two special orbitals.
 As illustrated in Fig.~\ref{fig:projection}, these are the \textit{hole} [$\phi^{(1)}_{\rm h}$] and \textit{particle} [$\phi^{(1)}_{\rm p}$] orbitals, which are respectively unoccupied and occupied in the excited state wave function $\Phi^{(1)}$.
 These orbitals must satisfy the conditions:
@@ -232,15 +236,16 @@ These orbitals must satisfy the conditions:
 \end{align}
 where $\hat{P}^{(0)} = \sum_{i} \ket[1]{\phi_i^{(0)}}\bra[1]{\phi_i^{(0)}}$ is a projector onto the occupied orbitals of $\Phi^{(0)}$, and $\hat{Q}^{(0)} = 1 - \hat{P}^{(0)}$.
 Eqs.~\eqref{eq:pq_conditions1} and \eqref{eq:pq_conditions2} can be enforced via Lagrangian multipliers.
-Setting the variation of the Lagrangian with respect to $\{\phi^{(1)}_i\}$, $\phi^{(1)}_{\rm h}$, and $\phi^{(1)}_{\rm p}$ to zero results in a set of stationary conditions that lead to the following eigenvalue equation:
+Setting the variation of the Lagrangian with respect to the occupied ($\{\phi^{(1)}_i\}$), hole ($\phi^{(1)}_{\rm h}$), and particle ($\phi^{(1)}_{\rm p}$) orbitals to zero gives the following eigenvalue equations:
 \begin{align}
 \label{eq:one_state_occ_eq}
 (1 - \hat{P}^{(1)}_{\rm h/p})\hat{f}^{(1)} (1 - \hat{P}^{(1)}_{\rm h/p})|\phi_i^{(1)}\rangle &= \epsilon^{(1)}_i |\phi_i^{(1)}\rangle,\\
 \label{eq:one_state_hole_eq}
 \hat{P}^{(0)}(1-\hat{Q}_{\rm s}^{(1)}) \hat{f}^{(1)} (1-\hat{Q}_{\rm s}^{(1)})\hat{P}^{(0)} |\phi_{\rm h}^{(1)}\rangle &= \epsilon^{(1)}_{\rm h} |\phi_{\rm h}^{(1)}\rangle,\\
 \label{eq:one_state_part_eq}
-\hat{Q}^{(0)}(1-\hat{P}_{\rm s}^{(1)}) \hat{f}^{(1)} (1-\hat{P}_{\rm s}^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle.
+\hat{Q}^{(0)}(1-\hat{P}_{\rm s}^{(1)}) \hat{f}^{(1)} (1-\hat{P}_{\rm s}^{(1)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(1)}\rangle &= \epsilon^{(1)}_{\rm p} |\phi_{\rm p}^{(1)}\rangle,
 \end{align}
+where $\hat{f}^{(1)} $ is the Kohn--Sham Hamiltonian of the excited state.
 Eq.~\eqref{eq:one_state_occ_eq} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_hole_eq} and \eqref{eq:one_state_part_eq} determine the hole and particle orbitals, respectively.
 The projection operators involved in the OCDFT equations are defined as (see Fig.~\ref{fig:projection}):
 \begin{align}
@@ -253,12 +258,6 @@ The projection operators involved in the OCDFT equations are defined as (see Fig
 where the subscript ``s'' represents orbitals that are not involved in the excitation, which we refer to as spectator orbitals.
 %See Fig.~\ref{fig:projection} for a graphical representation of the projection operators.
 In OCDFT computations of valence excited states, the hole orbital is assumed to be the solution of Eq.~\eqref{eq:one_state_hole_eq} with the highest value of $\epsilon^{(1)}_{\rm h}$.  Similarly, the particle orbital corresponds to the lowest eigenvalue of Eq.~\eqref{eq:one_state_part_eq}.
-\begin{figure}
-\centering
-\includegraphics[width=8.8cm]{Figure1.pdf}
-\caption{Illustration of the projection operators used in OCDFT.   the ground state determinant $\Phi^{(0)}$ and the excited state determinant $\Phi^{(1)}$. Notice, that a consequence of Eqs.~\eqref{eq:pq_conditions1}--\eqref{eq:pq_conditions2} is that the hole [$\phi^{(1)}_{\rm h}$] and particle [$\phi^{(1)}_{\rm p}$] orbitals are contained in the spaces spanned by $\hat{P}^{(0)}$ and $\hat{Q}^{(0)}$.}
-\label{fig:projection}
-\end{figure}
 
 \begin{figure*}
 \centering
@@ -271,19 +270,22 @@ First, in order to compute core-excited states with OCDFT, we select hole orbita
 However, this simple extension allows us only to compute one core-excited state for each irreducible representation.
 In principle, OCDFT can be generalized to compute an arbitrary number of excited states.  For each additional excited state, a new set of conditions must be imposed that guarantees mutual orthogonality  between all the states while simultaneously minimizing the energy.
 While this appears to be a viable solution, it would undoubtedly lead to a more elaborate minimization procedure.
-In this work we propose simplified orthogonality conditions which are based on imposing orthogonality conditions onto the hole and/or particle orbitals.
-For example, if the hole orbital for the second excited state [$\phi_{\rm h}^{(2)}$] is orthogonal to the previous hole and spans the occupied space of the ground state determinant:
+In this work we propose simplified orthogonality conditions that are based on the orthogonality of the hole and/or particle orbitals.
+For example, if we choose the hole orbital for the second excited state [$\phi_{\rm h}^{(2)}$] to be orthogonal to the first hole [$\phi_{\rm h}^{(1)}$] and to spans the occupied space of the ground state determinant:
 \begin{align}
+\label{eq:ortho_example_1}
 \braket[1]{\phi_{\rm h}^{(2)}}{\phi_{\rm h}^{(1)}} = 0,\\
+\label{eq:ortho_example_2}
 \hat{Q}^{(0)}\phi_{\rm h}^{(2)} = 0,
 \end{align}
-then the determinant $\Phi^{(2)}$ is orthogonal to $\Phi^{(0)}$ and $\Phi^{(1)}$.
+then the determinant $\Phi^{(2)}$ is guaranteed to be orthogonal to $\Phi^{(0)}$ and $\Phi^{(1)}$.
+The conditions Eqs.~\eqref{eq:ortho_example_1} and \eqref{eq:ortho_example_2} are sufficient but not necessary to guarantee orthogonality among the first three electronic states. 
 
-In the following we describe our constrained multiple hole/particle (CMHP) algorithm, which is illustrated in Fig.~\ref{fig:CMHP}.
-Suppose we are interested in the excited states that involve a given number of core orbitals ($n_{\rm c}$) and unoccupied orbitals ($n_{\rm u}$).
-For convenience we will label the excited state Kohn--Sham determinants with two indices, $i$ and $a$.  These approximately stand for the core and unoccupied orbital that are involved in an excited state.
-Our algorithm starts with a ground-state DFT computation, which yields the determinant [$\Phi^{(0,0)}$].
-Next, we perform a sweep of $n_{\rm u}$ OCDFT computations, which produces a series of solutions:
+In the following we describe our constrained multiple hole/particle (CMHP) algorithm, which generalizes Eqs.~\eqref{eq:ortho_example_1} and \eqref{eq:ortho_example_2} to the case of $n$ electronic states.  Due to the complexity of this algorithm, we recommend the reader to follow it with the help of Fig.~\ref{fig:CMHP}.
+Suppose we are interested in the excited states that result from the excitation of a given number of core orbitals ($n_{\rm c}$) and unoccupied orbitals ($n_{\rm u}$).
+For convenience we will label the excited state Kohn--Sham determinants [$\Phi^{(i,a)}$] with two indices, $i$ and $a$, that stand respectively for the core and unoccupied orbital that are involved in an excited state.
+Our algorithm starts with a ground-state DFT computation, which yields the determinant $\Phi^{(0,0)}$.
+Next, we perform a sweep of $n_{\rm u}$ OCDFT computations, which produces the series of solutions:
 \begin{equation}
 \Phi^{(1,1)}, \Phi^{(1,2)}, \ldots, \Phi^{(1,n_{\rm u})}.
 \end{equation}
@@ -294,7 +296,7 @@ These solutions are characterized by hole (particle) orbitals span the occupied 
 \hat{P}^{(0)}\phi_{\rm p}^{(1,a)}
 \end{cases} &= 0,&\forall a \leq n_{\rm u},
 \end{align}
-and the particle orbitals are enforced to be orthogonal:
+and particle orbitals that form an orthogonal set:
 \begin{align}
 \braket[1]{\phi^{(1,a)}_{\rm p}}{\phi^{(1,b)}_{\rm p}} &= \delta_{ab},&\forall a,b \leq n_{\rm u}.
 \end{align}
@@ -317,8 +319,8 @@ and in addition, we simultaneously enforce that:
 \braket[1]{\phi^{(1,1)}_{\rm h}}{\phi^{(2,a)}_{\rm h}} &=0,&\forall a \leq n_{\rm u}.
 \end{align}
 The last of these two conditions, impose orthogonality between the first core orbital of the first sweep, $\phi^{(1,1)}_{\rm h}$, and the second core orbital of each of the states determined during the current sweep, $\phi^{(2,a)}_{\rm h}$.
-The following steps of the CMHP algorithm proceeds along similar steps, adding after every sweep a new set of orthogonality conditions among the hole orbitals.
-We notice that the CMHP algorithm does \textit{preserve strict orthogonality among all states}, but is not equivalent to imposing \textit{minimum} orthogonality conditions.
+The following steps of the CMHP algorithm proceeds in a similar way.  After every sweep over the particle orbitals, a new set of orthogonality conditions is imposed to the hole orbitals.
+We notice that the CMHP algorithm does \textit{preserve strict orthogonality among all states}, but is not equivalent to imposing the strictly minimum orthogonality conditions.
 
 
 \section{Computational Details}
