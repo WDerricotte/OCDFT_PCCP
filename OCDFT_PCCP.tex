@@ -542,7 +542,7 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectra of thymine an
 \newcolumntype{.}{D{.}{.}{-1}}
    \begin{table}[!t]
    \footnotesize
-            \caption{Calculated and experimental thymine oxygen, nitrogen, and carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_{\rm p}$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_{\rm h}$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
+            \caption{Calculated (B3LYP/def2-TZVP) and experimental thymine oxygen, nitrogen, and carbon core excitation energies ($\omega_{fi}$, in eV) and relative oscillator strengths ($f_{\rm real}$).  For each calculated transition, we also report the label of the core atomic orbital ($\phi_{\rm h}$) and the  largest ground-state virtual orbital contribution to the particle orbital ($\phi_{\rm p}$).}
  \centering
      \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccrccc}
      \hline
@@ -553,7 +553,7 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectra of thymine an
  }\\
  \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
- $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
+ $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{\rm rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
     \multicolumn{6}{c}{\textbf{Oxygen K-Edge}} \vspace{0.05in}\\
     O$_2$
@@ -660,7 +660,8 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
 %The experimental spectra shows that these transitions get more intense as they appraoch 405.0 eV, which is represented well in our calculations. \\
  \begin{table}[!ht]
  \footnotesize
-\caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_{\rm p}$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_{\rm h}$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
+\caption{Calculated (B3LYP/def2-TZVP) and experimental adenine nitrogen and carbon core excitation energies ($\omega_{fi}$, in eV) and relative oscillator strengths ($f_{\rm real}$).  For each calculated transition, we also report the label of the core atomic orbital ($\phi_{\rm h}$) and the  largest ground-state virtual orbital contribution to the particle orbital ($\phi_{\rm p}$).
+}
  \centering
      \begin{tabular*}{8.5cm}{@{\extracolsep{\fill} }cccccc}
      \hline\hline\\[-8pt]
@@ -668,7 +669,7 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
  \includegraphics[width=3.5cm]{AdenineNumbering.png}}\\
      \hline
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
- $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
+ $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{\rm rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
     \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
     N$_4$
@@ -762,7 +763,7 @@ however, the oscillator strength is inconsistent with experimental peak intensit
 
 \subsubsection{Comparison With ADC(2) Calculations} \
 Previous theoretical studies performed using ADC(2) provide a good basis of comparison for the performance of the OCDFT spectra. Three key differences in the spectra are noted here. 
-The shoulder feature B$^{\prime}$ in the thymine oxygen K-Edge shown in Fig. \ref{figure:Thymine} is absent from the ADC(2) spectra\cite{plekan_theoretical_2008}. However, a more recent study by Wenzel, Wormit, and Dreuw \cite{wenzel_calculating_2014} uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile.
+The shoulder feature B$^{\prime}$ in the thymine oxygen K-Edge shown in Fig. \ref{figure:Thymine} is absent from the ADC(2) spectra\cite{plekan_theoretical_2008}. However, a more recent study by Wenzel, Wormit, and Dreuw \cite{wenzel_calculating_2014} uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{\rm abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile.
 
 The overall shape of the OCDFT thymine K-Edge is more consistent with the experimental excitation manifold than the ADC(2) spectra. The two peaks A and B in Fig. \ref{figure:Thymine}b have clear, distinct maxima which are produced well quantitatively with ADC(2) (after applying a uniform shift of -2.59 eV to the spectra), strong $\pi^*$ resonances are reported near both experimental peak maxima. However, the contour of the peak is inconsistent with the experimental manifold. The ADC(2) spectra blends into one large spectral band over the interval from 401.0 eV to 404.5 eV encompassing very closely spaced transitions, all with relatively high oscillator strengths. The extremely tight spacings and high intensities of these transitions seem to be present even in the updated CVS-ADC(2) results. The OCDFT spectra doest not suffer from this single band issue, as the $\pi^*$ resonances in peak A are well separated from the strong D1 transitions in peak B by more than 1.0 eV. The agreement of these results with experiment, suggest that well-separated $\pi^*$ and Rydberg resonances are more congruous with reality. However, a more detailed study of the nitrogen core excitation manifold of thymine is required to verify this observation. \\
 ADC(2) was unable to fully resolve peaks B$^{\prime}$, B, and C in the adenine nitrogen edge shown in Fig. \ref{figure:Adenine}a. On the contrary, the OCDFT spectra represents these peaks well, as separated spectral features, in compliance with the experimental result. 
@@ -800,7 +801,7 @@ W.D.D is currently supported by the National Science Foundation Graduate Researc
 \appendix
 \renewcommand{\theequation}{A\arabic{equation}}
 \section*{Appendix A: OCDFT Equations for Multiple Core-Excited States}
-In this appendix we report the multiple constrained hole particle algorithm used to compute multiple solutions of the OCDFT equations.
+In this appendix we report details of the algorithm used to compute multiple solutions of the OCDFT equations.
 The OCDFT equations are solved following the sequence:
 \begin{equation}
 \begin{split}
