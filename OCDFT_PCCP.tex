@@ -3,9 +3,9 @@
 %Copyright The Royal Society of Chemistry 2010
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[8.5pt,twoside,twocolumn]{article}
+\documentclass[8.5pt,twoside,twocolumn]{article}
 
-\documentclass[12pt]{article}
+%\documentclass[12pt]{article}
 \oddsidemargin -1.2cm
 \evensidemargin -1.2cm
 \textwidth 18cm
@@ -144,7 +144,7 @@ First published on the web Xth XXXXXXXXXX 200X}}}
 \vspace{0.5cm}
  %\end{@twocolumnfalse}
  % ]
-\doublespacing
+%\doublespacing
 \section{Introduction}
 The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near-edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
 The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
@@ -297,9 +297,9 @@ Next, we perform a sweep of $n_{\rm u}$ OCDFT computations, which produces the s
 These solutions are characterized by hole (particle) orbitals span the occupied (unoccupied) space of $\Phi^{(0,0)}$:
 \begin{align}
 \begin{cases}
-\hat{Q}^{(0)}\phi_{\rm h}^{(1,a)}\\
-\hat{P}^{(0)}\phi_{\rm p}^{(1,a)}
-\end{cases} &= 0,&\forall a \leq n_{\rm u},
+\hat{Q}^{(0)}\phi_{\rm h}^{(1,a)}= 0\\
+\hat{P}^{(0)}\phi_{\rm p}^{(1,a)}= 0
+\end{cases} &,&\forall a \leq n_{\rm u},
 \end{align}
 and particle orbitals that form an orthogonal set:
 \begin{align}
@@ -314,9 +314,9 @@ In the following iteration of the CMHP algorithm we increase the core index by o
 with:
 \begin{align}
 \begin{cases}
-\hat{Q}^{(0)}\phi_{\rm h}^{(2,a)}\\
-\hat{P}^{(0)}\phi_{\rm p}^{(2,a)}
-\end{cases} &= 0,&\forall a \leq n_{\rm u},
+\hat{Q}^{(0)}\phi_{\rm h}^{(2,a)}= 0\\
+\hat{P}^{(0)}\phi_{\rm p}^{(2,a)}= 0
+\end{cases} &,&\forall a \leq n_{\rm u},
 \end{align}
 and in addition, we simultaneously enforce that:
 \begin{align}
@@ -332,8 +332,11 @@ We notice that the CMHP algorithm does \textit{preserve strict orthogonality amo
 Our OCDFT for core-excited states was implemented as a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
 The OCDFT excitation energies for a set of 13 small molecules reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals, using the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)\cite{woon_gaussian_1995-1}
 and the Karlsruhe valence polarized basis sets (def2-$X$ZVP, $X$ = T,Q).\cite{weigend_balanced_2005,weigend_accurate_2006} All geometries were optimized at the same level of theory as the given excitation energy.
-The optimized geometries and the NEXAS spectra of adenine and thymine were computed at the def2-TZVP/B3LYP level of theory. 
+The optimized geometries and the NEXAS spectra of adenine and thymine were computed at the def2-TZVP/B3LYP level of theory.
 Benchmark TDDFT excitation energies were computed at the B3LYP/def2-QZVP level of theory using the ORCA software package.\cite{neese_orca_2012}
+All excitation energies reported in this work, including TDDFT, are for singlet states.
+In the case of OCDFT, the singlet excitation energies were computed via the spin-raising approach described in Ref.~\citenum{evangelista_orthogonality_2013}.
+
 
 It is mandatory to consider relativistic effects when studying excitations of core electrons.\cite{maganas_l-edge_2014,debeer_george_calibration_2010,bauer_herfd-xas_2014,ankudinov_sensitivity_2002}
 %Work by Desclaux et al. \cite{desclaux_relativistic_1971} shows that the largest orbital effect when solving the relativistic hartree-fock equations is the contraction of the 1s orbital, the corresponding energy correction ($\Delta\epsilon_{\text{1s}}$) can be approximated by 
@@ -767,7 +770,7 @@ The experimental spectra shows a relatively weak resonance around 403.0 (peak C)
 %Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.5 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting its dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. 
 however, the oscillator strength is inconsistent with experimental peak intensities. According to the experimental results, peak C should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\pi^*_1$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not assigned due to their low intensities. OCDFT reveals that peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital D$_3$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak 
 
-\subsubsection{Comparison With ADC(2) Calculations} \
+\subsubsection{Comparison with ADC(2) Calculations} \
 Previous theoretical studies performed using ADC(2) provide a good basis of comparison for the performance of the OCDFT spectra. Three key differences in the spectra are noted here. 
 The shoulder feature B$^{\prime}$ in the thymine oxygen K-Edge shown in Fig. \ref{figure:Thymine} is absent from the ADC(2) spectra\cite{plekan_theoretical_2008}. However, a more recent study by Wenzel, Wormit, and Dreuw \cite{wenzel_calculating_2014} uses a core-valence separation (CVS) approximation to the ADC(2) working equations [CVS-ADC(2)] and predicts three excitations in this shoulder region B$^{\prime}$, all with f$_{\rm abs}$ $<$ 0.001. These weaker oscillator strengths predicted by CVS-ADC(2) are more consistent with the experimental peak profile.
 
@@ -832,29 +835,29 @@ W.D.D is currently supported by the National Science Foundation Graduate Researc
 %
 \appendix
 \renewcommand{\theequation}{A\arabic{equation}}
-\section*{Appendix A: OCDFT Equations for Multiple Core-Excited States}
-In this appendix we report details of the algorithm used to compute multiple solutions of the OCDFT equations.
+\section*{Appendix A: OCDFT Equations for the Constrained Multiple Hole/Particle Approach}
+In this appendix we report details of the algorithm used to compute multiple solutions of the OCDFT equations via the constrained multiple hole/particle method.
 The OCDFT equations are solved following the sequence:
 \begin{equation}
 \begin{split}
-(i,a) : &(0,0) \rightarrow \\
-        &\rightarrow (1,1) \rightarrow (1,2) \rightarrow \cdots \rightarrow (1,n_{\rm u})  \rightarrow\\
+(i,a) : (0,0)  &\rightarrow (1,1) \rightarrow (1,2) \rightarrow \cdots \rightarrow (1,n_{\rm u})  \rightarrow\\
         &\rightarrow  (2,1) \rightarrow (2,2) \rightarrow \cdots \rightarrow (2,n_{\rm u})  \rightarrow\\
         & \vdots\\
-        &\rightarrow  (n_{\rm c},1) \rightarrow (n_{\rm c},2) \rightarrow \cdots \rightarrow (n_{\rm c},n_{\rm u})  \rightarrow
-\end{split}
+        &\rightarrow  (n_{\rm c},1) \rightarrow (n_{\rm c},2) \rightarrow \cdots \rightarrow (n_{\rm c},n_{\rm u}),
+\end{split},
 \end{equation}
+where $n_{\rm c}$ and $n_{\rm u}$ are the number of core and unoccupied orbitals, respectively, and $n_{\rm c} n_{\rm u}$ is the total number of excited states computed.
 
 The OCDFT equations consist of a set of three coupled eigenvalue equations:
 \begin{equation}
-\begin{cases}
+\begin{split}
 \label{eq:one_state_occ_eq_gen}
 (1 - \hat{P}^{(i,a)}_{\rm h/p})\hat{f}^{(i,a)} (1 - \hat{P}^{(i,a)}_{\rm h/p})|\phi_k^{(i,a)}\rangle = \epsilon^{(i,a)}_k |\phi_k^{(i,a)}\rangle,\\
 \hat{P}^{(0)}(1-\hat{Q}_{\rm s}^{(i,a)}) \hat{f}^{(i,a)} (1-\hat{Q}_{\rm s}^{(i,a)})\hat{P}^{(0)} |\phi_{\rm h}^{(i,a)}\rangle = \epsilon^{(i,a)}_{\rm h} |\phi_{\rm h}^{(i,a)}\rangle,\\
 \hat{Q}^{(0)}(1-\hat{P}_{\rm s}^{(i,a)}) \hat{f}^{(i,a)} (1-\hat{P}_{\rm s}^{(i,a)}) \hat{Q}^{(0)}|\phi_{\rm p}^{(i,a)}\rangle = \epsilon^{(i,a)}_{\rm p} |\phi_{\rm p}^{(i,a)}\rangle,
-\end{cases}
+\end{split}
 \end{equation}
-where the projection operators are defines as:
+where $\hat{f}^{(i,a)} $ is the Kohn--Sham Hamiltonian operator computed using the density corresponding to the state $\Phi^{(i,a)}$.  The projection operators that enter the OCDFT equations are defines as:
 %Eq.~\eqref{eq:one_state_occ_eq_gen} determines the occupied orbitals, while Eqs.~\eqref{eq:one_state_hole_eq_gen} and \eqref{eq:one_state_part_eq_gen} determine the hole and particle orbitals, respectively.
 %The projection operators involved in the OCDFT equations are defined as (see Fig.~\ref{fig:projection}):
 \begin{align}
