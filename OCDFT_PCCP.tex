@@ -3,9 +3,9 @@
 %Copyright The Royal Society of Chemistry 2010
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\documentclass[8.5pt,twoside,twocolumn]{article}
+\documentclass[8.5pt,twoside,twocolumn]{article}
 
-\documentclass[12pt]{article}
+%\documentclass[12pt]{article}
 \oddsidemargin -1.2cm
 \evensidemargin -1.2cm
 \textwidth 18cm
@@ -144,7 +144,7 @@ First published on the web Xth XXXXXXXXXX 200X}}}
 \vspace{0.5cm}
  %\end{@twocolumnfalse}
  % ]
-\doublespacing
+%\doublespacing
 \section{Introduction}
 The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near-edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
 The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
@@ -332,8 +332,11 @@ We notice that the CMHP algorithm does \textit{preserve strict orthogonality amo
 Our OCDFT for core-excited states was implemented as a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
 The OCDFT excitation energies for a set of 13 small molecules reported in this study were computed using the B3LYP, \cite{becke_new_1993,lee_development_1988,vosko_accurate_1980,stephens_ab_1994} PBE0 \cite{adamo_toward_1999}, and BLYP\cite{stephens_ab_1994,miehlich_results_1989} functionals, using the correlation-consistent polarized core-valence basis sets (cc-pCV$X$Z, $X$ = T,Q)\cite{woon_gaussian_1995-1}
 and the Karlsruhe valence polarized basis sets (def2-$X$ZVP, $X$ = T,Q).\cite{weigend_balanced_2005,weigend_accurate_2006} All geometries were optimized at the same level of theory as the given excitation energy.
-The optimized geometries and the NEXAS spectra of adenine and thymine were computed at the def2-TZVP/B3LYP level of theory. 
+The optimized geometries and the NEXAS spectra of adenine and thymine were computed at the def2-TZVP/B3LYP level of theory.
 Benchmark TDDFT excitation energies were computed at the B3LYP/def2-QZVP level of theory using the ORCA software package.\cite{neese_orca_2012}
+All excitation energies reported in this work, including TDDFT, are for singlet states.
+In the case of OCDFT, the singlet excitation energies were computed via the spin-raising approach described in Ref.~\citenum{evangelista_orthogonality_2013}.
+
 
 It is mandatory to consider relativistic effects when studying excitations of core electrons.\cite{maganas_l-edge_2014,debeer_george_calibration_2010,bauer_herfd-xas_2014,ankudinov_sensitivity_2002}
 %Work by Desclaux et al. \cite{desclaux_relativistic_1971} shows that the largest orbital effect when solving the relativistic hartree-fock equations is the contraction of the 1s orbital, the corresponding energy correction ($\Delta\epsilon_{\text{1s}}$) can be approximated by 
