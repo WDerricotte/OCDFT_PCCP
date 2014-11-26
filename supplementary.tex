@@ -17,13 +17,14 @@
 \textheight 22cm
 \usepackage[super,sort&compress,comma]{natbib} 
 \usepackage{mhchem}
-\usepackage[nomarkers]{endfloat}
+%\usepackage[nomarkers,nofiglist,notablist]{endfloat}
 \usepackage{siunitx}
 \usepackage{times,mathptmx}
 % \usepackage{times}
 % feel free not to use mathptmx if it causes difficulties
 \usepackage{sectsty}
 \usepackage{balance} 
+\usepackage{fancyhdr}
 \usepackage{comment}
 \usepackage{graphicx} %eps figures can be used instead
 \usepackage{lastpage}
@@ -80,7 +81,6 @@
 {Error}}}}}
 }
 
-
 \begin{document}
 \thispagestyle{plain}
 \fancypagestyle{plain}{
@@ -110,7 +110,7 @@
 \fancyfoot[LO,RE]{\vspace{-7pt}\includegraphics[height=9pt]{headers/LF}}
 \fancyfoot[CO]{\vspace{-7.2pt}\hspace{12.2cm}\includegraphics{headers/RF}}
 \fancyfoot[CE]{\vspace{-7.5pt}\hspace{-13.5cm}\includegraphics{headers/RF}}
-\fancyfoot[RO]{\footnotesize{\sffamily{1--\pageref{LastPage} ~\textbar  \hspace{2pt}\thepage}}}
+\fancyfoot[RO]{\footnotesize{\sffamily{1--\pageref{LastPage} ~\textbar  \hspace{2pt}S\thepage}}}
 \fancyfoot[LE]{\footnotesize{\sffamily{\thepage~\textbar\hspace{3.45cm} 1--\pageref{LastPage}}}}
 \fancyhead{}
 \renewcommand{\headrulewidth}{1pt} 
@@ -122,71 +122,58 @@
 %\linenumbers
 \noindent\LARGE{\textbf{
 %Using Conventional Density Functionals to Simulate X-Ray Absorption Spectra: With Applications to Adenine and Thymine Photoabsorption Spectra
-Simulation of X-Ray Absorption Spectra with Orthogonality Constrained Density Functional Theory
+Supplementary Material
 }}
 \vspace{0.6cm}
-
-\noindent\large{\textbf{Wallace D. Derricotte and Francesco A. Evangelista$^{\ast}$}}\vspace{0.5cm}
 %Please note that \ast indicates the corresponding author(s) but no footnote text is required. 
-
-
-\noindent\textit{\small{\textbf{Received Xth XXXXXXXXXX 20XX, Accepted Xth XXXXXXXXX 20XX\newline
-First published on the web Xth XXXXXXXXXX 200X}}}
-
-\noindent \textbf{\small{DOI: 10.1039/b000000x}}
+\tableofcontents
+\newpage
 \vspace{0.6cm}
-\section*{Supplementary Materials}
-\begin{table}
-\centering
-\caption{Optimized cartesian geometry of adenine used for simulation of NEXAS spectra optimized at the B3LYP/def2-TZVP level of theory using the \textsc{psi4} {\textit{ab initio}} quantum chemistry package.}
-\begin{tabular}{cccc}
-\hline
-\hline
-    C     &      -1.970585664532  &   -1.395137524338  &   -0.045467117394 \vspace{0.3cm}\\
-    N      &      -1.881922764968  &   -0.101178970901 &    -0.187746915294 \vspace{0.3cm}\\
-    C       &     -0.530036651175  &    0.162042066892  &   -0.075212958513 \vspace{0.3cm}\\
-    C       &      0.194518534413  &   -1.008769908818  &    0.138884730519 \vspace{0.3cm}\\
-    N        &    -0.752839154291  &   -2.003591795126 &     0.155019478510 \vspace{0.3cm}\\
-    H       &     -0.575304730981&     -2.985001122876  &    0.288894532977 \vspace{0.3cm}\\
-    H      &      -2.887084126393 &    -1.963704194624  &   -0.076026591074 \vspace{0.3cm}\\
-    C         &    0.220821847281  &    1.350420528553  &   -0.134877528376 \vspace{0.3cm}\\
-    N        &     1.548880751460  &    1.275830644080 &     0.014725285193 \vspace{0.3cm}\\
-    C        &     2.109044063853   &   0.076787593229   &   0.214691629565 \vspace{0.3cm}\\
-    N        &     1.515353675426  &   -1.110912425553  &    0.290953400869 \vspace{0.3cm}\\
-    H      &       3.187892320597 &     0.080293623862  &    0.328711091758 \vspace{0.3cm}\\
-    N       &     -0.350021924019   &   2.556054469300  &   -0.336758184831 \vspace{0.3cm}\\
-    H       &     -1.344255431781  &    2.632817141374  &   -0.451219656473 \vspace{0.3cm}\\
-    H      &       0.231906121724   &   3.373853460732  &   -0.370895998201 \\
-    \hline
-    \hline
-    \end{tabular}
-\end{table}
-\begin{table}
-\centering
-\caption{ Optimized cartesian geometry of thymine used for simulation of NEXAS spectra optimized at the B3LYP/def2-TZVP level of theory using the \textsc{psi4} {\textit{ab initio}} quantum chemistry package.}
-\begin{tabular}{cccc}
-\hline
-\hline
-    C      &     -1.246495845834  &   0.412642804754 &   -0.003573103168 \vspace{0.3cm}\\
-    C      &     -2.507237287316   &  1.217084061874  &  -0.011848989295 \vspace{0.3cm}\\
-    H      &     -3.117873132937   &  1.004161896948  &  -0.892346853646 \vspace{0.3cm}\\
-    H       &    -2.252332058556   &  2.276314275673  &  -0.024950360779 \vspace{0.3cm}\\
-    H     &      -3.115843391524   &  1.025528612536   &  0.874939447790 \vspace{0.3cm}\\
-    C     &      -1.217630214628  &  -0.931441458484  &   0.012635606229 \vspace{0.3cm}\\
-    N      &     -0.056489889005  &  -1.654192870252  &   0.020052122522 \vspace{0.3cm}\\
-    C      &      1.197028093408  &  -1.083944060777   &  0.011743762351 \vspace{0.3cm}\\
-    N      &      1.154191491462  &   0.288466721271  &  -0.004799899183 \vspace{0.3cm}\\
-    C      &      0.033038734047  &   1.117787686433  &  -0.013561659185 \vspace{0.3cm}\\
-    H       &     2.050520064174  &   0.753906293046  &  -0.011435103920 \vspace{0.3cm}\\
-    O       &     0.171793664591  &   2.321663419892  &  -0.028248779210 \vspace{0.3cm}\\
-    O       &     2.217898772608   & -1.730464525441  &   0.018397425821 \vspace{0.3cm}\\
-    H       &    -2.125375374356  &  -1.524102636497  &   0.020825176486 \vspace{0.3cm}\\
-    H       &    -0.070123074504 &   -2.660021414373  &   0.032219688224 \\
-    \hline
-    \hline
-    \end{tabular}
-\end{table}
-   \begin{table}
+\section{Optimized cartesian geometry of adenine}
+{\small
+\begin{verbatim}
+    C            -1.970585     -1.395137     -0.045467 
+    N            -1.881922     -0.101178     -0.187746 
+    C            -0.530036      0.162042     -0.075212
+    C             0.194518     -1.008769      0.138884 
+    N            -0.752839     -2.003591      0.155019 
+    H            -0.575304     -2.985001      0.288894 
+    H            -2.887084     -1.963704     -0.076026 
+    C             0.220821      1.350420     -0.134877 
+    N             1.548880      1.275830      0.014725 
+    C             2.109044      0.076787      0.214691 
+    N             1.515353     -1.110912      0.290953
+    H             3.187892      0.080293      0.328711 
+    N            -0.350021      2.556054     -0.336758 
+    H            -1.344255      2.632817     -0.451219 
+    H             0.231906      3.373853     -0.370895 
+\end{verbatim}}
+\newpage
+\section{Optimized cartesian geometry of thymine}
+{\small
+\begin{verbatim}
+    C           -1.246495     0.412642    -0.003573 
+    C           -2.507237     1.217084    -0.011848 
+    H           -3.117873     1.004161    -0.892346 
+    H           -2.252332     2.276314    -0.024950 
+    H           -3.115843     1.025528     0.874939 
+    C           -1.217630    -0.931441     0.012635 
+    N           -0.056489    -1.654192     0.020052 
+    C            1.197028    -1.083944     0.011743 
+    N            1.154191     0.288466    -0.004799
+    C            0.033038     1.117787    -0.013561 
+    H            2.050520     0.753906    -0.011435 
+    O            0.171793     2.321663    -0.028248 
+    O            2.217898    -1.730464     0.018397 
+    H           -2.125375    -1.524102     0.020825 
+    H           -0.070123    -2.660021     0.032219 
+\end{verbatim}}
+\newpage
+\section{Thymine Oxygen K-Edge} 
+\setcounter{table}{0}
+\makeatletter 
+\renewcommand{\thetable}{S\arabic{table}}
+   \begin{table}[!h]
    \footnotesize
  \centering
           \caption{Calculated and experimental thymine oxygen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
@@ -242,10 +229,14 @@ First published on the web Xth XXXXXXXXXX 200X}}}
  \vspace{0.1in}\\
     O$_1$
  &   70.7$\%$ $\rm D_6$  & 538.49 & 0.058 \\
+ \hline
+ \hline
    \end{tabular}
    \label{table: thymine_k_oxygen}
 \end{table}
-        \begin{table}
+\newpage
+\section{Thymine Nitrogen K-Edge}
+        \begin{table}[!h]
         \footnotesize
  \centering
    \caption{Calculated and experimental thymine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
@@ -285,10 +276,14 @@ First published on the web Xth XXXXXXXXXX 200X}}}
  &   71.2$\%$ $\pi_1^*$  & 405.67 & 0.490 \\
     N$_3$
  &   76.3$\%$ $\rm D_2$  & 405.76 & 0.177 \\
+ \hline
+ \hline
  \end{tabular}
    \label{table: thymine_k_nitrogen}
 \end{table}
-      \begin{table}
+\newpage
+\section{Thymine Carbon K-Edge}
+      \begin{table}[!h]
       \footnotesize
  \centering
     \caption{Calculated and experimental thymine carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
@@ -371,10 +366,14 @@ First published on the web Xth XXXXXXXXXX 200X}}}
  &   65.9$\%$ $\rm D_1$  & 291.59 & 0.036 \\
     C$_7$
  &   44.3$\%$ $\rm D_5$  & 291.83 & 0.055 \\
+ \hline
+ \hline
  \end{tabular}
    \label{table: thymine_k_carbon}
 \end{table}
-  \begin{table}
+\newpage
+\section{Adenine Nitrogen K-Edge}
+  \begin{table}[!h]
   \footnotesize
  \centering
     \caption{Calculated and experimental adenine nitrogen core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
@@ -441,20 +440,6 @@ First published on the web Xth XXXXXXXXXX 200X}}}
     N$_5$
  &   91.1$\%$ $\rm D_6$  & 403.38 & 0.052 
  \vspace{0.1in}\\
-    N$_4$
- &   61.7$\%$ $\rm D_6$  & 403.67 & 0.007 \\
-    N$_3$
- &   77.6$\%$ $\rm D_5$  & 403.72 & 0.007 \\
-    N$_5$
- &   61.6$\%$  $\rm D_7$ & 403.79 & 0.073 \\
-    N$_1$
- &   77.2$\%$ $\pi_3^*$  & 403.97 & 0.083 \\
-    N$_4$
- &   37.1$\%$ $\rm D_7$  & 404.07 & 0.040 \\
-    N$_5$
- &   36.3$\%$ $\rm D_4$  & 404.20 & 0.008 \\
-    N$_4$
- &   39.8$\%$ $\rm D_7$ & 404.24 & 0.022 \\
     N$_2$
  &   94.8$\%$ $\pi_3^*$  & 404.33 & 0.038 \\
     N$_3$
@@ -474,7 +459,9 @@ First published on the web Xth XXXXXXXXXX 200X}}}
    \end{tabular}
  \label{fig: adenine_k_nitrogen}
 \end{table}
-  \begin{table}
+\newpage
+\section{Adenine Carbon K-Edge}
+  \begin{table}[!h]
   \footnotesize
  	\centering
 \caption{Calculated and experimental adenine carbon core excitation energies in eV are shown in the table. All computations are performed using the def2-TZVP basis set and B3LYP functional. The largest contribution to the particle orbital ($\phi_p$) with reference to the ground state valence set is reported along with the hole orbital ($\phi_h$) for each transition. Relative oscillator strengths (f$_{rel}$) are also reported}
