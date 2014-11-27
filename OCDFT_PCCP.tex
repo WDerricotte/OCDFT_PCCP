@@ -142,16 +142,15 @@ In this work we extend OCDFT  to compute core-excited states and generalize the 
 Benchmark computations on a set of 13 small molecules and 40 excited states show that \textit{unshifted} OCDFT/B3LYP excitation energies have a mean absolute error of 1.0 eV.
 Contrary to time-dependent DFT, OCDFT excitation energies for first- and second-row elements are computed with near-uniform accuracy.
 OCDFT core excitation energies are insensitive to the choice of the functional and the amount of Hartree--Fock exchange.
-We show that OCDFT is a powerful tool for the assignment of X-ray absorption spectra of larger molecules by simulating the gas-phase near-edge spectra of adenine and thymine.}
+We show that OCDFT is a powerful tool for the assignment of X-ray absorption spectra of large molecules by simulating the gas-phase near-edge spectra of adenine and thymine.}
 %\end{@twocolumnfalse}
 \vspace{0.5cm}
 \doublespacing
 \newpage
 \section{Introduction}
 The advent of synchrotron light sources created a strong resurgence of spectroscopy in the X-ray region. \cite{mcmillan_synchrotronproposed_1945} Near-edge X-ray absorption spectroscopy (NEXAS) is a useful experimental technique to probe the local electronic and geometrical structure in a variety of molecular environments.
-The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied orbitals.
-In particular, excitations from 1s orbitals are atom-specific and sensitive to the local chemical environment.
-Thus, NEXAS spectra can provide information about the chemical composition and the electronic structure of molecules.
+The most dominant feature of NEXAS spectra, the \textit{near edge}  (see Fig.~\ref{fig:nexas-illustration}), is composed of the excitations of core-electrons to unoccupied valence orbitals.
+Core excitations are atom-specific and sensitive to the local chemical environment, thus, NEXAS spectra can provide information about the chemical composition and the electronic structure of molecules.
 NEXAS has been successfully applied to large biological systems, \cite{hua_refinement_2010} small molecules in the gas phase,\cite{contini_gas-phase_2001} organic thin-films,\cite{hahner_near_2006} and semiconducting materials.\cite{guo_electronic_2011} This wide range of applications is possible because synchrotron light sources can span an energy range that goes from a few electron volt (eV) \cite{feneberg_synchrotron-based_2011} to hundreds of MeV.\cite{nakazato_observation_1989}
 
 \begin{figure}[!b]
@@ -168,20 +167,21 @@ Calculations of NEXAS spectra are challenging, and require computational methods
 TDDFT is a rigorous extension of the DFT ground-state formalism,\cite{runge_density-functional_1984} and it is regarded as the method of choice to treat electronic excited states within a density functional framework.
 %Within the framework of density functional theory, TDDFT is regarded as the method of choice to treat electronic excited states because it is a rigorous extension of the ground-state formalism.\cite{runge_density-functional_1984}
  When applied in conjunction with frequency-independent exchange-correlation potentials, TDDFT yields accurate excitation energies for low-lying excited states. For example, the TDDFT benchmark study of Silva-Junior and co-workers\cite{silva-junior_benchmarks_2008} on 28 organic molecules, showed that singlet and triplet excitation energies can be calculated with a mean average error (MAE) of 0.27 eV and 0.44 eV, respectively. However, Besley et al.\cite{besley_self-consistent-field_2009} showed that TDDFT core excitations computed with conventional exchange-correlation functionals grossly underestimate experimental results, yielding a MAE of 20.2 eV. It is customary to remedy this deficiency of TDDFT by shifting the position of computed spectra by an amount that minimizes the difference between the computational and experimental peak features. For example, a study done by DeBeer, Petrenko, and Neese\cite{debeer_george_prediction_2008} showed that it is necessary shift the TDDFT Fe near-edge spectra of different iron complexes by 171.3 eV in order to correct the spectra.
- TDDFT core-valence excitation energies can also be improved by introducing self-interaction corrections (SIC),\cite{tu_core_2007} or range separated hybrid functionals in which the amount of long and short range Hartree--Fock exchange is reparametrized.\cite{besley_time-dependent_2009, nakata_time-dependent_2006} This is often the limiting factor for studying the edge structure of many chemical systems since the optimal amount of Hartree--Fock exchange is system dependent.\cite{capano_role_2013,besley_time-dependent_2007,besley_time-dependent_2010}
 
-Given the difficulties encountered by TDDFT in computing charge-transfer excited states\cite{dreuw_failure_2004} and the self interaction error that afflicts traditional density functionals, this failure is to be expected.
-Work by Peach et al. \cite{peach_excitation_2008} suggests that there is a direct correlation between the accuracy of TDDFT and the degree of spatial overlap ($\Lambda$) between the occupied and virtual orbitals involved in the excitation. Low orbital overlap is a characteristic feature of both charge transfer excitations and core excitations, with the relationship between accuracy and orbital overlap being persistent through core excitations as well. \cite{besley_time-dependent_2009}
-The inaccuracy of TDDFT for excitations with low values of $\Lambda$ has been attributed to the incorrect asymptotic behavior of the exchange-correlation potential and self-interaction error.\cite{peach_excitation_2008}
+Work by Peach et al.\cite{peach_excitation_2008} provided evidence for a direct correlation between the accuracy of TDDFT and the degree of spatial overlap ($\Lambda$) between the occupied and virtual orbitals.
+The inaccuracy of TDDFT for excitations with low values of $\Lambda$ has been attributed to the incorrect asymptotic behavior of the exchange-correlation potential and self-interaction error.\cite{peach_excitation_2008} Low orbital overlap is a characteristic feature of both charge-transfer excitations and core excitations, and as expected, the same correlation between accuracy and orbital overlap is observed for core excitations.\cite{besley_time-dependent_2009}
+As a consequence, TDDFT core-valence excitation energies can be improved by introducing self-interaction corrections (SIC)\cite{tu_core_2007} or range separated hybrid functionals in which the amount of long and short range Hartree--Fock exchange is reparametrized.\cite{besley_time-dependent_2009, nakata_time-dependent_2006}  However, the optimal value of the range separation parameter and the amount of Hartree--Fock exchange are strongly system dependent and must be tuned.\cite{capano_role_2013,besley_time-dependent_2007,besley_time-dependent_2010}
+%Given the difficulties encountered by TDDFT in computing charge-transfer excited states\cite{dreuw_failure_2004} and the self interaction error that afflicts traditional density functionals, this failure is to be expected.
 
-A general method that can systematically produce accurate core-excitation energies with traditional hybrid density functionals is highly desirable. The maximum overlap method (MOM) \cite{besley_self-consistent-field_2009} combined with a $\Delta$SCF treatment of core-valence excitations is able to obtain highly accurate excitation energies using conventional functionals. However, this procedure is not guaranteed to avoid the problem of variational collapse---albeit MOM ameliorates the difficulties encountered by a straightforward $\Delta$SCF procedure---and has not been generalized to multiple excited states of the same symmetry.
+
+A general method that can systematically produce accurate core-excitation energies with traditional (that is, non range corrected) hybrid density functionals is highly desirable. The maximum overlap method (MOM) \cite{besley_self-consistent-field_2009} combined with a $\Delta$SCF treatment of core-valence excitations is able to obtain highly accurate excitation energies using conventional functionals. However, this procedure is not guaranteed to avoid the problem of variational collapse---albeit MOM ameliorates the difficulties encountered by a straightforward $\Delta$SCF procedure---and has not been generalized to multiple excited states of the same symmetry.
 
 The goal of this work is to find cost-effective alternative theories to TDDFT that can be used to simulate NEXAS spectra.
 Orthogonality constrained density functional theory (OCDFT)\cite{evangelista_orthogonality_2013}  was rigorously derived from a variational time-independent formulation of excited state DFT.
 It builds upon previous successful efforts to formulate variational excited state DFT, such as: the $\Delta$SCF procedure, \cite{kowalczyk_assessment_2011,ziegler_calculation_1977} constrained DFT,\cite{wu_constrained_2006} stationary state DFT, \cite{gorling_density-functional_1999}  constricted variational density functional theory (CV-DFT), \cite{ziegler_relation_2009,ziegler_application_2011,krykunov_self-consistent_2013,ziegler_implementation_2012}
 perturbative constrained excited state DFT,\cite{baruah_dft_2009,olguin_effect_2013,zope_charge_2012} ensemble DFT,\cite{theophilou_energy_1979,fritsche_generalized_1986,gross_rayleigh-ritz_1988,gross_density-functional_1988} and variational time independent DFT (TI-DFT). \cite{levy_variational_1999,nagy_variational_2001}
-Formally OCDFT may be viewed as bridging constrained and constricted variational DFT.  Its main advantages are: 1) it has favorable accuracy/cost ratio, similar to that of ground state DFT, 2) it is numerically robust and avoids variational collapse, and 3) it yields excitation energies that are spin adapted.
-Benchmark computations\cite{evangelista_orthogonality_2013} show that valence excitation energies computed with OCDFT have error metrics comparable to that of TDDFT.  In addition, OCDFT has the ability to accurately compute charge transfer excitation energies regardless of the amount of Hartree--Fock exchange present in the exchange-correlation functional.
+Formally, OCDFT may be viewed as bridging constrained and constricted variational DFT.  Its main advantages are: 1) a favorable accuracy/cost ratio, similar to that of ground state DFT, 2) a numerically robust optimization procedure that avoids variational collapse, and 3) the ability to compute spin adapted excitation energies.
+Benchmark computations\cite{evangelista_orthogonality_2013} show that valence excitation energies computed with OCDFT have error metrics comparable to that of TDDFT.  In addition, OCDFT has the ability to accurately compute charge-transfer excitation energies regardless of the amount of Hartree--Fock exchange present in the exchange-correlation functional.
 
 This work introduces two new developments of OCDFT that are necessary for the simulation of near-edge X-ray  absorption spectra.
 First, we formulate an OCDFT algorithm that can be used to compute core-valence excitation energies.  This new method is assessed over a test set that includes 13 molecules with 40 unique core-electron excitations.
@@ -192,7 +192,7 @@ We demonstrate the potential of this new method with computations of the gas-pha
 \section{Theory}
 In this section we provide a brief summary of orthogonality constrained density functional theory along with the necessary extension to multiple excited states (for the full details of the OCDFT derivation we refer the reader to Ref.\citenum{evangelista_orthogonality_2013}).
 OCDFT builds upon the time-independent variational DFT approach developed by Ayers, Levy, and Nagy.\cite{ayers_time-independent_2012}
-Within this framework each electronic state ($\Psi^{(n)}, n=0,1,\ldots$) of a $N$-electron system has a corresponding density functional ($E^{(n)}[\rho]$) which is a generalization of the ground-state functional of Levy.   $E^{(n)}[\rho]$ minimizes the energy expectation value $\bra{\Psi}\hat{H}\ket{\Psi}$ imposing two constraints on to the trial wave function $\Psi$: 1) $\Psi$ must be compatible with the density $\rho$, and 2) $\Psi$ must be orthogonal to the first $n-1$ \textit{exact} electronic states, $\{\Psi^{(k)}, k = 1,\ldots,n-1\}$:
+Within this framework, each electronic state ($\Psi^{(n)}, n=0,1,\ldots$) of a $N$-electron system has a corresponding density functional ($E^{(n)}[\rho]$) which is a generalization of the ground-state functional of Levy.   $E^{(n)}[\rho]$ minimizes the energy expectation value $\bra{\Psi}\hat{H}\ket{\Psi}$ imposing two constraints on to the trial wave function $\Psi$: 1) $\Psi$ must be compatible with the density $\rho$, and 2) $\Psi$ must be orthogonal to the first $n-1$ \textit{exact} electronic states, $\{\Psi^{(k)}, k = 1,\ldots,n-1\}$:
 \begin{equation}
 E^{(n)}[\rho] = \min_{
 \substack{
@@ -597,7 +597,7 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectra of thymine an
     O$_1$
  &   64.0$\%$ $\pi_2^*$  & 532.1 & 0.968 & B & 532.3 \vspace{0.05in}\\
     O$_1$
- &   71.2$\%$ $\pi_1^*$  & 533.4 & 0.146 & \multirow{2}{*}{B$^{\prime}$} & \multirow{2}{*}{ 533.8}  \\ % $\approx$
+ &   71.2$\%$ $\pi_1^*$  & 533.4 & 0.146 & \multirow{2}{*}{B$^{\prime}$} & \multirow{2}{*}{533.8}  \\ % $\approx$
     O$_2$
  &   78.3$\%$ $\pi_2^*$  & 533.8 & 0.162 \vspace{0.05in}\\
     O$_1$
@@ -756,7 +756,7 @@ The OCDFT carbon and nitrogen K-edge spectra were convoluted with a Gaussian fun
  &   63.7$\%$ $\pi_1^*$  & 287.4 & 0.961 
  \vspace{0.05in}\\
     C$_{10}$
- &   34.7$\%$ $\pi_3^*$  & 287.9 & 0.092 & \multirow{2}{*}{C$^{\prime}$} &  \multirow{2}{*}{$\approx$ 288.0}\\
+ &   34.7$\%$ $\pi_3^*$  & 287.9 & 0.092 & \multirow{2}{*}{C$^{\prime}$} &  \multirow{2}{*}{288.0}\\
     C$_9$
  &   98.9$\%$ $\pi_2^*$
  & 288.0 & 0.026 
@@ -851,7 +851,7 @@ Our gas-phase OCDFT X-ray absorption spectra of thymine and adenine are in excel
 OCDFT reproduces all the characteristic features of the NEXAS spectra of these molecules,\cite{plekan_theoretical_2008,wenzel_calculating_2014} including the distinct $\pi^*$ transitions in the lower energy regime and the significant mixing between the $\pi^*$ and diffuse orbitals in the higher energy regime of the spectra.
 In addition, OCDFT assignments of the spectral features are in excellent agreement with those made using the ADC(2) method.\cite{plekan_theoretical_2008}
 This study shows that our OCDFT approach for core-excited states is a practical and useful tool for the interpretation of NEXAS experiments. 
-From the computational point of view, the scaling of OCDFT vs. the number of electrons ($N$) is identical to that of ground state DFT ($N^3$ and $N^4$ for pure and hybrid functionals) and it is lower than that of approximate coupled cluster (e.g. CC2) and Green's function methods[ADC(2)], which scale as $N^5$.
+From the computational point of view, the scaling of OCDFT vs. the number of electrons ($N$) is identical to that of ground state DFT ($N^3$ and $N^4$ for pure and hybrid functionals) and it is lower than the second-order approximate coupled cluster method (CC2)\cite{christiansen_cc2_1995} and [ADC(2)], which scale as $N^5$.
 
 Perhaps one of the aspects of our approach that needs further refinement is the treatment of relativistic effects.
 The simple additive correction used in this work can at most account for the relativistic contraction of the 1s orbital and omits relaxation effects that affect all other orbitals.
