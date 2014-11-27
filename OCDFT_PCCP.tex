@@ -181,7 +181,7 @@ Orthogonality constrained density functional theory (OCDFT)\cite{evangelista_ort
 It builds upon previous successful efforts to formulate variational excited state DFT, such as: the $\Delta$SCF procedure, \cite{kowalczyk_assessment_2011,ziegler_calculation_1977} constrained DFT,\cite{wu_constrained_2006} stationary state DFT, \cite{gorling_density-functional_1999}  constricted variational density functional theory (CV-DFT), \cite{ziegler_relation_2009,ziegler_application_2011,krykunov_self-consistent_2013,ziegler_implementation_2012}
 perturbative constrained excited state DFT,\cite{baruah_dft_2009,olguin_effect_2013,zope_charge_2012} ensemble DFT,\cite{theophilou_energy_1979,fritsche_generalized_1986,gross_rayleigh-ritz_1988,gross_density-functional_1988} and variational time independent DFT (TI-DFT). \cite{levy_variational_1999,nagy_variational_2001}
 Formally OCDFT may be viewed as bridging constrained and constricted variational DFT.  Its main advantages are: 1) it has favorable accuracy/cost ratio, similar to that of ground state DFT, 2) it is numerically robust and avoids variational collapse, and 3) it yields excitation energies that are spin adapted.
-Benchmark computations\cite{evangelista_orthogonality_2013} show that valence excitation energies computed with OCDFT have error metrics comparable to that of TDDFT.  In addition, OCDFT has the ability to accurately compute charge transfer excitation energies regardless of the amount of Hartree-Fock exchange present in the exchange-correlation functional.
+Benchmark computations\cite{evangelista_orthogonality_2013} show that valence excitation energies computed with OCDFT have error metrics comparable to that of TDDFT.  In addition, OCDFT has the ability to accurately compute charge transfer excitation energies regardless of the amount of Hartree--Fock exchange present in the exchange-correlation functional.
 
 This work introduces two new developments of OCDFT that are necessary for the simulation of near-edge X-ray  absorption spectra.
 First, we formulate an OCDFT algorithm that can be used to compute core-valence excitation energies.  This new method is assessed over a test set that includes 13 molecules with 40 unique core-electron excitations.
@@ -371,7 +371,7 @@ Although OCDFT does not provide a direct way to compute transition dipole moment
 \boldsymbol{\mu}_{n0} = \bra[1]{\Phi^{(n)}} \hat{\textbf{r}}\ket[1]{\Phi^{(0)}},
 \end{equation}
 where $\Phi^{(n)}$ is a generic excited state and $\hat{\textbf{r}}$ is the position vector.
-Eq. \eqref{osc} yields the absolute oscillator strength ($f_{\rm abs}$) for a given transition. The intensity of the spectra is then scaled relative to the most intense peak, we will refer to these scaled values as the \textit{relative oscillator strength} ($f_{\rm rel}$).
+Eq.~\eqref{osc} yields the absolute oscillator strength ($f_{\rm abs}$) for a given transition. The intensity of the spectra is then scaled relative to the most intense peak, we will refer to these scaled values as the \textit{relative oscillator strength} ($f_{\rm rel}$).
 Natural spectroscopic broadening effects are simulated by convoluting the OCDFT peaks with a Gaussian function whose exponent was calibrated to best fit the experimental spectra.
 %This procedure yield Gaussian widths in the range 0.1--0.4 eV.
 
@@ -480,15 +480,21 @@ core hole and valence particle orbitals have little overlap. Following Tozer et 
 \Lambda_{\rm hp} = &\int |\phi^{(n)}_{\rm h} (\bf{r})||\phi^{(\textit{n})}_{\rm p} (\bf{r})| \ \rm d\bf{r}  .
 \end{align}
 \begin{comment}
-Multiple studies have concluded that the shortcoming of traditional density functionals is not the treatment of long-range interaction, but instead it is the incorrect description of the core region that leads to inaccuracy. \cite{heyd_hybrid_2003,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008 } This problem was specifically addressed by the SRC-BLYP functional \cite{besley_time-dependent_2009} which is a flexible functional that increases the amount of Hartree-Fock exchange at short range and is identical to the long range corrected CAM-BLYP at long range. 
+Multiple studies have concluded that the shortcoming of traditional density functionals is not the treatment of long-range interaction, but instead it is the incorrect description of the core region that leads to inaccuracy. \cite{heyd_hybrid_2003,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008 } This problem was specifically addressed by the SRC-BLYP functional \cite{besley_time-dependent_2009} which is a flexible functional that increases the amount of Hartree--Fock exchange at short range and is identical to the long range corrected CAM-BLYP at long range. 
 It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{heyd_hybrid_2003,nakata_time-dependent_2006,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008} however, here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange.
 \end{comment}
 Figure \ref{figure:scatter} reports the distribution of OCDFT and TDDFT excited states as a function of the energy error and the hole/particle orbital overlap. The scatterplot clearly shows that OCDFT is less sensitive to variations in the overlap. When calculating core excited states with $\Lambda_{\rm hp}$ $<$ 0.12, the MAE for OCDFT increases by only 1.5 eV, while in the case of TDDFT the absolute error increases drastically by 35.9 eV.
 
-To understand why OCDFT outperforms TDDFT, we will consider a model consisting of two electrons in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) with zero overlap ($\Lambda_{\rm hp}$ = 0) and compare the TDDFT and OCDFT excitation energies to that of CIS, since, in this case CIS is exact. Similar analyses have been reported for variational DFT \cite{ziegler_implementation_2012} and TDDFT. \cite{casida_charge-transfer_2000} For a functional containing a given fraction ($a$) of HF exchange, the TDDFT and CIS excitation energies for our model differ approximately by:
+To understand why OCDFT outperforms TDDFT, we will consider a model consisting of two electrons in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) of different symmetry.\cite{casida_charge-transfer_2000,ziegler_implementation_2012,evangelista_orthogonality_2013}
+This model makes it possible to compare the TDDFT and OCDFT excitation energies to that of CIS.
+As illustrated in Fig.~\ref{figure:scatter}, core excitations are characterized by a very small overlap between the hole and particle orbital.
+Therefore, our analysis considers the limit of zero overlap ($\Lambda_{\rm hp}$ = 0).
+%Similar analyses have been reported for variational DFT \cite{ziegler_implementation_2012} and TDDFT. \cite{casida_charge-transfer_2000}
+For a functional containing a given fraction ($a$) of Hartree--Fock exchange, the TDDFT and CIS singlet excitation energies ($\omega_s$) for our model differ approximately by:
 \begin{align}
 \label{eq:TDDFT_CIS}
- \nonumber \omega^{\text{TDDFT}}_s - \ \omega^{\text{CIS}}_s &\cong (1 - a) [J_{\text{ph}} - J_{\text{hh}}] \\ &+ (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x] ,
+\omega^{\text{TDDFT}}_s - \ \omega^{\text{CIS}}_s &\cong
+(1 - a) [v_{\text{p}}^x - v_{\text{h}}^x] +  (1 - a) [J_{\text{ph}} - J_{\text{hh}}]  ,
 \end{align}
 \begin{table}[!t]
 \small
@@ -523,12 +529,22 @@ To understand why OCDFT outperforms TDDFT, we will consider a model consisting o
     \end{tabular*}
      \label{table:SecondRow}
 \end{table}
-where $\nu_{\rm h}^x$ and $\nu_{\rm p}^x$ are exchange potential integrals [$\nu_{i}^x = (\phi_{i}|\nu_x|\phi_{i})$] for orbitals p and h, respectively and J$_{ij}$ is the Coulomb repulsion integral $(\phi_i \phi_i|r_{12}^{-1}|\phi_j \phi_j)$. When $a \neq 1$, the term in Eq. ~\ref{eq:TDDFT_CIS} contains three local integrals $\nu_{\rm h}^x$, $\nu_{\rm p}^x$, and $J_{\text{hh}}$. However, the coulomb repulsion integral between the hole and particle orbitals ($J_{\text{ph}}$) is nonlocal and causes TDDFT to incorrectly describe the physics of the hole/particle pair. This nonlocality hampers TDDFT's treatment of core excitations as well. Repeating the same analysis on OCDFT, one finds that the excitation energy differs from CIS by local self-interaction terms, that is, integrals that depend only on the hole or particle orbitals:
+where $v_{i}^x = (\phi_{i}|v_x|\phi_{i})$ is an exchange potential integral and $J_{ij}$ is the Coulomb repulsion integral $(\phi_i \phi_i|r_{12}^{-1}|\phi_j \phi_j)$. When $a \ll 1$, the right-hand side of Eq.~\ref{eq:TDDFT_CIS} contains three local integrals $v_{\rm h}^x$, $v_{\rm p}^x$, and $J_{\text{hh}}$. However, the Coulomb repulsion integral between the hole and particle orbitals ($J_{\text{ph}}$) is nonlocal and causes TDDFT to incorrectly describe the physics of the hole/particle pair.
+On the contrary, when $a=1$ there is exact cancellation of the nonlinear terms and TDDFT is equivalent to CIS.
+This is consistent with the observation that increasing the amount of Hartree--Fock exchange improves the description of core-excited states.\cite{heyd_hybrid_2003,nakata_time-dependent_2006,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008}
+ 
+The same analysis finds that the OCDFT and CIS excitation energies differs by a sum of  local self-interaction terms:
 \begin{align}
-\nonumber \omega^{\text{OCDFT}}_s - \ \omega^{\text{CIS}}_s  &\cong (1 - a) [\nu_{\text{p}}^x - \nu_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}} \\
-&+ \frac{1}{2} (\text{hh}|\hat{f}_x|\text{hh}) +\frac{1}{2} (\text{pp}|\hat{f}_x|\text{pp})] ,
+\label{eq:ocdft_error}
+\omega^{\text{OCDFT}}_s - \ \omega^{\text{CIS}}_s  &\cong (1 - a) [v_{\text{p}}^x - v_{\text{h}}^x + \frac{1}{2} J_{\text{pp}} - \frac{1}{2} J_{\text{hh}}+ \frac{1}{2} (\text{hh}|\hat{f}_x|\text{hh}) +\frac{1}{2} (\text{pp}|\hat{f}_x|\text{pp})] ,
 \end{align}
-where $(ii|\hat{f}_x|ii)$ = $\int |\phi_{i}|^2\ \hat{f}_x\  |\phi_{i}|^2 \ d\bf{r}$ is an exchange kernel integral. The local nature of the integrals in this term provide a better approximation to exact exchange. It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{heyd_hybrid_2003,nakata_time-dependent_2006,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008} however, here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange.
+where $(ii|\hat{f}_x|ii)$
+% = $\int |\phi_{i}|^2\ \hat{f}_x\  |\phi_{i}|^2 \ d\bf{r}$
+is an exchange kernel integral.
+As observed by Ziegler and co-workers in the case of charge-transfer excitations computed via the constricted variational DFT,\cite{ziegler_implementation_2012} there is partial cancellation between the local integrals that appear in Eq.~\eqref{eq:ocdft_error} and the  excitation energy has the correct asymptotic behavior.
+Our observation that the amount of Hartree--Fock exchange has little influence on the computed core excitation energies, suggests that even in the case of OCDFT there is partial cancellation of the terms in Eq.~\eqref{eq:ocdft_error} that appear in square brackets.
+Thus, although charge-transfer and core-excited states are very different in nature, this simple model suggests a formal connection between the two.
+
 \subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
 Nucleobases play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications. \cite{di_mauro_dna_1993,niemeyer_dna_1997,niemeyer_nanoparticles_2001,song_nucleobase_2012} Early X-ray studies of nucleobases consisted of scattering and diffraction experiments.\cite{langridge_x-ray_1964,sundaralingam_structure_1975,camerman_photodimer_1968,davies_x-ray_1967} The first near-edge absorption experiments were performed in the 90s by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} These authors specifically targeted the nitrogen  core electrons and probed the sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. More recent experiments have moved beyond simple characterization of the intramolecular environment and aim to probe intermolecular interactions of nucleobases with metal surfaces.\cite{seifert_molecular_2007,yamada_adsorption_2004,fujii_x-ray_2003,fujii_near-edge_2004}  At the same time a wide array of computational methods have been used to compute the near-edge structure of nucleobases, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF) \cite{macnaughton_electronic_2005}, a complex polarization propagator method (CPP) \cite{ekstrom_polarization_2006}, SIC-DFT,\cite{bolognesi_investigation_2009} a DFT transition potential method (DFTTP), \cite{macnaughton_electronic_2005} the equivalent core approximation (ECA) method,\cite{healion_probing_2008} and the second-order algebraic diagrammatic construction [ADC(2)] method.\cite{plekan_theoretical_2008,wenzel_calculating_2014}
   
@@ -536,7 +552,7 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectra of thymine an
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=6.5cm]{adenineThymineNumbering3D.png}
-%\caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree-Fock orbital energy of their 1s core orbital. }
+%\caption{Numbering scheme of adenine (left) and thymine(right), atoms are assigned a number based on decreasing Hartree--Fock orbital energy of their 1s core orbital. }
 %\label{fig:numbering}
 %\end{figure}
 \subsubsection{Overall Performance}
