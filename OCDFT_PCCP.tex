@@ -121,7 +121,7 @@
 \setlength\bibsep{1pt}
 
 %\twocolumn[
-%  \begin{@twocolumnfalse}
+%\begin{@twocolumnfalse}
 %\linenumbers
 \noindent\LARGE{\textbf{Simulation of X-Ray Absorption Spectra with Orthogonality Constrained Density Functional Theory\dag
 }} 
@@ -144,6 +144,7 @@ Contrary to time-dependent DFT, OCDFT excitation energies for first- and second-
 OCDFT core excitation energies are insensitive to the choice of the functional and the amount of Hartree--Fock exchange.
 We show that OCDFT is a powerful tool for the assignment of X-ray absorption spectra of large molecules by simulating the gas-phase near-edge spectrum of adenine and thymine.}
 %\end{@twocolumnfalse}
+
 \vspace{0.5cm}
 \doublespacing
 \newpage
@@ -204,7 +205,7 @@ E^{(n)}[\rho] = \min_{
 \end{equation}
 
 OCDFT provides a practical realization of this time-independent DFT approach.
-The first step in the OCDFT derivation consists in defining a generalized Kohn--Shame scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the density of the exact state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
+The first step in the OCDFT derivation consists in defining a generalized Kohn--Sham scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the density of the exact state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
 In addition, we assume that the auxiliary wave functions are orthogonal, that is:
 \begin{equation}\label{eq:orthogonality_condition}
 \braket[1]{\Phi^{(m)}}{\Phi^{(n)}} = \delta_{mn}.
@@ -303,7 +304,7 @@ These solutions are characterized by hole (particle) orbitals that span the occu
 \end{align}
 and particle orbitals that form an orthogonal set:
 \begin{align}
-\braket[1]{\phi^{(1,a)}_{\rm p}}{\phi^{(1,b)}_{\rm p}} &= \delta_{ab},&\forall a,b \leq n_{\rm u}.
+\braket[1]{\phi^{(1,a)}_{\rm p}}{\phi^{(1,b)}_{\rm p}} &= \delta_{ab}, &\forall a,b \leq n_{\rm u}.
 \end{align}
 
 
@@ -429,36 +430,36 @@ Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s
 %\footnotesize
 \caption{Core excitation energies for molecules containing first-row elements. Computations were performed using the B3LYP density functional and def2-QZVP basis set. The OCDFT and TDDFT results are reported here as deviations from the experimental value in electron volts (eV), mean absolute error (MAE) is also reported for each method. Experimental values are from Refs.\citenum{puttner_vibrationally_1999}--\citenum{domke_carbon_1990}}
 \begin{center}
-\begin{tabular*}{10.5cm}{@{\extracolsep{\fill} }llcrrHH}
+\begin{tabular*}{12.5cm}{@{\extracolsep{\fill} }llcrrrHH}
 %    \begin{tabular*}{8cm}{@{\extracolsep{\fill} }llcrrHH}
     \hline
     \hline
-     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} \\ ~&~ &~   & TDDFT  & OCDFT\\
+     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} \\ ~&~ &~   & TDDFT  & OCDFT & $f_{abs} \times 10^{-2}$\\
      \hline
-    CO        & C 1s $\rightarrow$ $\pi^*$     & 287.4 & $-$11.3     & $-$0.8  & $-$10.9    & \ 0.9   \\
-             & C 1s $\rightarrow$ 3s          & 292.4 & $-$10.5     & \ 0.9   & $-$10.8    & \ 1.2   \\
-             & O 1s $\rightarrow$  $\pi^*$    & 534.2 & $-$13.4     & $-$1.2  & $-$14.4    & $-$1.4   \\
-             & O 1s $\rightarrow$ 3s          & 538.9 & $-$13.0     & \ 0.2    & $-$13.9    & \ 0.3 \\ 
-    H$_2$CO   & C 1s $\rightarrow$ $\pi^*$     & 286.0   & $-$10.7     & $-$0.6  & $-$10.7    & $-$0.8   \\
-    ~         & C 1s $\rightarrow$ 3s          & 290.2 & $-$10.7     & $-$0.2   & $-$10.7    & $-$0.3   \\
-    ~         & O 1s $\rightarrow$ 3s          & 535.4 & $-$14.1     & $-$0.6   & $-$14.1    & $-$0.7   \\
-    ~         & O 1s $\rightarrow$  $\pi^*$    & 530.8 & $-$14.0    & $-$0.8    & $-$14.1    & $-$1.1  \\
-    N$_2$O$^{\dagger}$    &O 1s  $\rightarrow$ $\pi^*$ &  534.8 & $-$14.3 &  $-$1.0 & $-$14.3 & $-$1.3 \\
-    ~         &O 1s  $\rightarrow$ 3s &  536.7 & $-$13.6 &  $-$0.4 & $-$13.6 & $-$0.6 \\
-    ~         & N$_\text{c}$ 1s $\rightarrow$ 3s      & 407.5 & $-$12.1     & \ 0.6   & $-$12.6    & \ 0.6   \\
-    ~         & N$_\text{t}$ 1s $\rightarrow$ $\pi^*$ & 401.1 & $-$12.2     & $-$0.9  & $-$14.6    & \ 2.5   \\
-    ~         & N$_\text{t}$ 1s $\rightarrow$ 3s      & 404.0   & $-$11.5    & $-$0.4   & $-$11.0    & $-$0.5  \\
-    N$_2$         &N 1s  $\rightarrow$ $\pi^*$ & 401.0 & $-$12.4 & $-$0.9 & $-$12.4 & $-$1.1 \\
-    ~         & N 1s  $\rightarrow$ 3s & 406.2 & $-$8.5 & 1.7  & $-$7.2 & \ 2.7\\ 
-    HCN       & C 1s $\rightarrow$ $\pi^*$     & 286.4 & $-$10.6     & $-$0.5  & $-$10.6    & $-$0.7  \\
-    ~         & C 1s $\rightarrow$ 3s          & 289.1 & $-$9.9      & $-$0.1   & $-$9.9    & $-$0.3  \\
-    ~         & N 1s $\rightarrow$  $\pi^*$    & 399.7 & $-$12.0     & $-$0.8  & $-$12.0    & $-$1.0  \\
-    ~         & N 1s $\rightarrow$ 3s          & 401.8 & $-$10.4      & \ 0.2    & $-$10.4    & \ 0.0  \\
-    CH$_4$      & C 1s $\rightarrow$ 3p          & 288.0   & $-$10.1      & \ 0.1   & $-$10.1    & \ 0.0   \\
-    ~         & C 1s $\rightarrow$ 3s          & 287.1 & $-$10.8    & $-$0.5   & $-$10.8     & $-$0.6 \\ 
-        C$_2$H$_2$      & C 1s $\rightarrow$ $\pi^*$           & 285.8   & $-$10.5      & $-$0.1   & $-$10.4   & $-$0.7  \\
-    ~         & C 1s $\rightarrow$ 3s            & 287.7 & $-$9.1 & $-$0.6   & $-$8.9    & $-$0.3\\\\
-    ~MAE         &                            & ~     & 11.6      & 0.4   & 11.7     & 0.6 \\ 
+    CO        & C 1s $\rightarrow$ $\pi^*$     & 287.4 & $-$11.3     & $-$0.8 & 4.70  & $-$10.9    & \ 0.9   \\
+             & C 1s $\rightarrow$ 3s          & 292.4 & $-$10.5     & \ 0.9 & 0.32   & $-$10.8    & \ 1.2   \\
+             & O 1s $\rightarrow$  $\pi^*$    & 534.2 & $-$13.4     & $-$1.2 & 2.17  & $-$14.4    & $-$1.4   \\
+             & O 1s $\rightarrow$ 3s          & 538.9 & $-$13.0     & \ 0.2 & 0.01    & $-$13.9    & \ 0.3 \\ 
+    H$_2$CO   & C 1s $\rightarrow$ $\pi^*$     & 286.0   & $-$10.7     & $-$0.6 & 3.87  & $-$10.7    & $-$0.8   \\
+    ~         & C 1s $\rightarrow$ 3s          & 290.2 & $-$10.7     & $-$0.2 & 0.77   & $-$10.7    & $-$0.3   \\
+    ~         & O 1s $\rightarrow$ 3s          & 535.4 & $-$14.1     & $-$0.6 & 0.08   & $-$14.1    & $-$0.7   \\
+    ~         & O 1s $\rightarrow$  $\pi^*$    & 530.8 & $-$14.0    & $-$0.8 & 2.56    & $-$14.1    & $-$1.1  \\
+    N$_2$O$^{\dagger}$    &O 1s  $\rightarrow$ $\pi^*$ &  534.8 & $-$14.3 &  $-$1.0 & 1.42 & $-$14.3 & $-$1.3 \\
+    ~         &O 1s  $\rightarrow$ 3s &  536.7 & $-$13.6 &  $-$0.4 & 2.05 & $-$13.6 & $-$0.6 \\
+    ~         & N$_\text{c}$ 1s $\rightarrow$ 3s      & 407.5 & $-$12.1     & \ 0.6 & 0.37   & $-$12.6    & \ 0.6   \\
+    ~         & N$_\text{t}$ 1s $\rightarrow$ $\pi^*$ & 401.1 & $-$12.2     & $-$0.9 & 0.29 & $-$14.6    & \ 2.5   \\
+    ~         & N$_\text{t}$ 1s $\rightarrow$ 3s      & 404.0   & $-$11.5    & $-$0.4 & 1.17   & $-$11.0    & $-$0.5  \\
+    N$_2$         &N 1s  $\rightarrow$ $\pi^*$ & 401.0 & $-$12.4 & $-$0.9 & 3.41 & $-$12.4 & $-$1.1 \\
+    ~         & N 1s  $\rightarrow$ 3s & 406.2 & $-$8.5 & 1.7 & 0.00  & $-$7.2 & \ 2.7\\ 
+    HCN       & C 1s $\rightarrow$ $\pi^*$     & 286.4 & $-$10.6     & $-$0.5 & 3.02  & $-$10.6    & $-$0.7  \\
+    ~         & C 1s $\rightarrow$ 3s          & 289.1 & $-$9.9      & $-$0.1 & 0.97   & $-$9.9    & $-$0.3  \\
+    ~         & N 1s $\rightarrow$  $\pi^*$    & 399.7 & $-$12.0     & $-$0.8 & 3.00  & $-$12.0    & $-$1.0  \\
+    ~         & N 1s $\rightarrow$ 3s          & 401.8 & $-$10.4      & \ 0.2 & 0.38    & $-$10.4    & \ 0.0  \\
+    CH$_4$      & C 1s $\rightarrow$ 3p          & 288.0   & $-$10.1      & \ 0.1 & 2.23   & $-$10.1    & \ 0.0   \\
+    ~         & C 1s $\rightarrow$ 3s          & 287.1 & $-$10.8    & $-$0.5 & 0.00   & $-$10.8     & $-$0.6 \\ 
+        C$_2$H$_2$      & C 1s $\rightarrow$ $\pi^*$           & 285.8   & $-$10.5      & $-$0.6 & 2.75   & $-$10.4   & $-$0.7  \\
+    ~         & C 1s $\rightarrow$ 3s            & 287.7 & $-$9.1 & $-$0.1 & 0.14   & $-$8.9    & $-$0.3\\\\
+    ~MAE         &                            & ~     & 11.6      & 0.4 &   & 11.7     & 0.6 \\ 
     \hline
     \hline
     \end{tabular*}
@@ -500,30 +501,30 @@ For a functional containing a given fraction ($a$) of Hartree--Fock exchange, th
 \small
     \caption{Core excitation energies for molecules containing second-row elements. Computations were performed using the B3LYP density functional and def2-QZVP basis set. The OCDFT and TDDFT results are reported here as deviations from the experimental value in electron volts (eV), mean absolute error (MAE) is also reported for each method. Experimental values are from Refs. \citenum{nayandin_angle-resolved_2001} -- \citenum{bodeur_photoabsorption_1985}}
     \centering
-    \begin{tabular*}{9.5cm}{@{\extracolsep{\fill} }llrrrHH}
+    \begin{tabular*}{11.5cm}{@{\extracolsep{\fill} }llrrrrHH}
 %    \begin{tabular*}{8.cm}{@{\extracolsep{\fill} }llrrrHH}
     \hline
     \hline
-     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} \\ ~&~ &~   & TDDFT  & OCDFT\\
+     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} \\ ~&~ &~   & TDDFT  & OCDFT & $f_{abs} \times 10^{-2}$\\
      \hline
-    SiH$_4$        & Si 1s $\rightarrow$ $\sigma^*$     & 1842.5 & $-$38.4    & $-$1.8  & $-$38.9    & $-$2.3   \\
-             & Si 2p $\rightarrow$ $\sigma^*$ & 102.8 & $-$4.8 & 0.6    & $-$4.1    & 1.5 \\
-    PH$_3$     & P 1s $\rightarrow$ $\sigma^*$ & 2145.8   & $-$44.1     & $-$2.9  & $-$44.1    & $-$3.2   \\
-    ~         & P 2p $\rightarrow$ $\sigma^*$          & 132.3 & $-$5.1     & 0.7   & $-$5.1    & 0.0 \\
-    H$_2$S    &S 1s  $\rightarrow$ $\sigma^*$ &  2473.1 & $-$48.3 &  $-$3.0 & $-$48.3 & $-$3.8 \\
-    ~         &S 1s  $\rightarrow$ 4p &  2476.3 & $-$52.1 &  $-$1.5 & $-$52.1 & $-$0.6 \\
-    ~         & S 2p $\rightarrow$ $\sigma^*$ & 164.5 & $-$5.1    & 0.8  & $-$5.1    & 0.4  \\
-    ~         & S 2p $\rightarrow$ 4s      & 166.5 &  $-$7.1    & $-$0.7    & $-$7.1    & $-$1.0 \\
-    SO$_2$         &S 1s  $\rightarrow$ $\pi^*$ & 2473.8 & $-$50.1 & $-$3.7 & $-$51.3 & $-$4.5 \\
-    ~         & S 1s  $\rightarrow$ 4p & 2478.4 & $-$49.3 & $-$2.4 & $-$50.4 & $-$3.2 \\
-    ~         & S 2p $\rightarrow$ 4s      & 171.3 & $-$8.3     & $-$1.5    & $-$8.2    & $-$1.9 \\
-    HCl       & Cl 1s $\rightarrow$ $\sigma^*$     & 2823.9 & $-$53.8     & $-$2.3  & $-$55.4    & $-$4.7  \\
-    ~         & Cl 1s $\rightarrow$ 4p          & 2827.8 & $-$52.1      & $-$0.7   & $-$52.7    & $-$1.7  \\
-    ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 201.0 & $-$6.1 & 0.8   & $-$6.1    & 0.3 \\
-    Cl$_2$      & Cl 1s $\rightarrow$ $\sigma^*$          & 2821.3   & $-$53.6      & $-$1.6   & $-$55.3    & $-$3.6   \\
-    ~         & Cl 1s $\rightarrow$ 4p          & 2828.5 & $-$51.7    & 0.9  & $-$53.5     & $-$0.2  \\
-        ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 198.7 & $-$5.7     & $-$0.8  & $-$5.8    & $-$0.3\\\\
-    MAE         &                            & ~     & 31.6      & 1.6   & 32.0     & 2.0   \\
+    SiH$_4$        & Si 1s $\rightarrow$ $\sigma^*$     & 1842.5 & $-$38.4    & $-$1.8 & 0.22  & $-$38.9    & $-$2.3   \\
+             & Si 2p $\rightarrow$ $\sigma^*$ & 102.8 & $-$4.8 & 0.6 & 0.38    & $-$4.1    & 1.5 \\
+    PH$_3$     & P 1s $\rightarrow$ $\sigma^*$ & 2145.8   & $-$44.1     & $-$2.9 & 0.28  & $-$44.1    & $-$3.2   \\
+    ~         & P 2p $\rightarrow$ $\sigma^*$          & 132.3 & $-$5.1     & 0.7 & 0.41   & $-$5.1    & 0.0 \\
+    H$_2$S    &S 1s  $\rightarrow$ $\sigma^*$ &  2473.1 & $-$48.3 &  $-$3.0 & 0.18 & $-$48.3 & $-$3.8 \\
+    ~         &S 1s  $\rightarrow$ 4p &  2476.3 & $-$52.1 &  $-$1.5 & 0.30 & $-$52.1 & $-$0.6 \\
+    ~         & S 2p $\rightarrow$ $\sigma^*$ & 164.5 & $-$5.1    & 0.8 & 2.20  & $-$5.1    & 0.4  \\
+    ~         & S 2p $\rightarrow$ 4s      & 166.5 &  $-$7.1    & $-$0.7 & 0.56    & $-$7.1    & $-$1.0 \\
+    SO$_2$         &S 1s  $\rightarrow$ $\pi^*$ & 2473.8 & $-$50.1 & $-$3.7 & 0.46 & $-$51.3 & $-$4.5 \\
+    ~         & S 1s  $\rightarrow$ 4p & 2478.4 & $-$49.3 & $-$2.4 & 0.28 & $-$50.4 & $-$3.2 \\
+    ~         & S 2p $\rightarrow$ 4s      & 171.3 & $-$8.3     & $-$1.5 & 0.05    & $-$8.2    & $-$1.9 \\
+    HCl       & Cl 1s $\rightarrow$ $\sigma^*$     & 2823.9 & $-$53.8     & $-$2.3 & 0.26  & $-$55.4    & $-$4.7  \\
+    ~         & Cl 1s $\rightarrow$ 4p          & 2827.8 & $-$52.1      & $-$0.7 & 0.27   & $-$52.7    & $-$1.7  \\
+    ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 201.0 & $-$6.1 & 0.8 & 0.00   & $-$6.1    & 0.3 \\
+    Cl$_2$      & Cl 1s $\rightarrow$ $\sigma^*$          & 2821.3   & $-$53.6      & $-$1.6  & 0.44 & $-$55.3    & $-$3.6   \\
+    ~         & Cl 1s $\rightarrow$ 4p          & 2828.5 & $-$51.7    & 0.9 & 0.16  & $-$53.5     & $-$0.2  \\
+        ~         & Cl 2p $\rightarrow$  $\sigma^*$    & 198.7 & $-$5.7     & $-$0.8 & 0.00  & $-$5.8    & $-$0.3\\\\
+    MAE         &                            & ~     & 31.6      & 1.6   &  \\
     \hline
     \hline
     \end{tabular*}
@@ -648,8 +649,7 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectrum of thymine a
     C$_9$
  &   89.9$\%$ $\pi_1^*$  & 287.9 & 0.117  
  \vspace{0.05in}  \\
-     C$_9$
- &   87.7$\%$ $\rm D_1$  & 288.5 & 0.229 & D & 288.4
+     C$_9$ &   87.7$\%$ $\rm D_1$  & 288.5 & 0.229 & D & 288.4
   \vspace{0.05in}  \\
     C$_5$
  &   64.0$\%$ $\pi_2^*$  & 289.1 & 1.000 & \multirow{3}{*}{E} & \multirow{3}{*}{289.4} \\
@@ -796,7 +796,7 @@ The OCDFT carbon and nitrogen K-edge spectra were convoluted with a Gaussian fun
 \subsubsection{Adenine Carbon K-Edge}
 \ Fig. \ref{figure:Adenine}b compares the OCDFT and experimental carbon K-edge of adenine. The experimental carbon K-edge for adenine is dominated by a large single band with three distinct resonances in the low energy regime. The theoretical spectrum shows peaks A and B, blending together into a single band, the experimental spectrum shows these peaks at similar intensities, with peak B being slightly more intense, this is represented well in our calculated spectrum. Spectral positions for peaks A, B, and C are all in good agreement with experiment, 
 %Peak A has a maximum located at 286.4 eV in the experimental spectra, our calculations agree well with this predicting a transition from C$_9$ $\rightarrow$ $\pi_1^*$ at 286.5 eV as the dominant contributor. Similar agreement is seen with peak B located at 286.8 eV, with OCDFT predicting its dominant contributor to be a transition from C$_7$ $\rightarrow$ $\pi_1^*$.  The OCDFT spectra predicts peak C as the most intense spectral feature, which is consistent with experiment. 
-however, the oscillator strength is inconsistent with experimental peak intensities. According to the experimental results, peak C should be roughly 3 times more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\phi_{\pi^*_1}$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not assigned due to their low intensities. OCDFT reveals that peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital $\phi_{\rm D_3}$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak 
+however, the oscillator strength is inconsistent with experimental peak intensities. According to the experimental results, peak C should be roughly 50\% more intense than the adjacent peak B. OCDFT predicts that the C$_6$ $\rightarrow$ $\phi_{\pi^*_1}$ that dominates peak C is only slightly more intense than the dominant contributions to peaks A and B. A very weak shoulder feature is present on the falling edge of peak C, we denote this feature as C$^{\prime}$ and it is represented well by OCDFT. This shoulder results from $\pi^*$ transitions with hole orbitals located on the bridge carbons (C$_8$ and C$_{10}$) and a carbon located on the six-member ring (C$_9$). Peaks D-G were not assigned due to their low intensities. OCDFT reveals that peak D is a very weak spectral feature with dominant contributions from excitations to diffuse orbital $\phi_{\rm D_3}$. Peaks E and F are also weak spectral features resulting mostly from transitions to diffuse orbitals. Every transition with energy higher than peak F is extremely weak 
 
 \subsubsection{Comparison with ADC(2) Calculations} \
 Previous theoretical studies performed using ADC(2) allow us to assess the accuracy of our adenine and thymine OCDFT spectra. Three key differences in the spectra are noted here. 
