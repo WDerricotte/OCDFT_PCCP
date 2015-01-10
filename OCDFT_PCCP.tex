@@ -848,10 +848,23 @@ In this work we have extended OCDFT in order to calculate multiple core-excited 
 We present two developments in OCDFT theory: 1) we show that core excitations can be easily targeted by selecting \textit{hole} orbitals that correspond to core electrons, and 2) we proposed a generalized set of orthogonality conditions that can be used to compute multiple excited states.
 Our benchmark computations on core excitations from 1s and 2p orbitals of first- and second-row elements using conventional pure and hybrid functionals yield excitation energies with a mean absolute error (MAE) of 1.0 eV.
 OCDFT excitation energies are slightly more accurate for first-row elements (MAE = 0.4 eV) than second-row elements (MAE = 1.6 eV).
+
 \hl{There are a few potential sources of the remaining error in the OCDFT excitation energies.  First, is the fact that the (in principle) exact OCDFT excited state functional is approximated with the ground-state exchange-correlation functional.
 Second, in our comparison with experiment we use vertical excitation energies, which neglect vibrational effects.
 Third, our treatment of relativistic effects is rather simplistic.   It can only approximately account for the relaxation of the core-hole and neglects relaxation effects of valence orbitals.  Last, OCDFT cannot properly handle states that have a multideterminantal character.
-We expect that the use of an approximate excited state functional is the most important source of error, and that the relativistic and configuration mixing errors are perhaps the least relevant in the case of first- and second-row elements.}
+We expect that the use of an approximate excited state functional is the most important source of error, and that the relativistic and configuration mixing errors are perhaps the least relevant in the case of first- and second-row elements.
+}
+
+\hl{The results of our formal analysis and benchmark computations suggests that there are two factors contributing to the success of OCDFT.
+As in the case of other variational DFT approaches, OCDFT can properly describe charge-transfer excitations.
+In addition, because the wave function of the auxiliary system is only subject to orthogonality constraints, OCDFT can fully describe orbital relaxation.
+To demonstrate this, we consider the NEXAS spectrum of CO$_2$, which was suggested as a test case by one of the reviewers. 
+Previous computational studies of CO$_2$[TODO add ref] showed that B3LYP/TD-DFT underestimates the oxygen K-edge by 14 eV.
+MRCI/CIS and MRCI/CISD underestimate the same feature by 8 and 4.2 eV, respectively.
+In the case of MRCI/CIS and MRCI/CISD, the residual error was attributed to the lack of orbital relaxation effects.
+A broken symmetry OCDFT computation predicts the oxygen K-edge to be at 534.4 eV, which corresponds to a deviation from experiment of 0.6 eV.  This result suggests that relaxation effects do indeed play an important role in the oxygen K-edge of CO$_2$ and that OCDFT can fully account for them.
+%We interpret the excellent agreement of the OCDFT spectrum of CO$_2$ to the 
+}
 
 Excitation energies computed with TDDFT are significantly less accurate and degrade as one goes from first-row (MAE = 11.6 eV) to second-row elements (MAE = 31.6 eV).
 Moreover, we show that in OCDFT the choice of the functional and the amount of Hartree--Fock exchange has little effect on the accuracy of the computed core excitation energies.
