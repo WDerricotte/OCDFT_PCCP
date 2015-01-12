@@ -560,6 +560,8 @@ As observed by Ziegler and co-workers in the case of charge-transfer excitations
 Our observation that the amount of Hartree--Fock exchange has little influence on the computed core excitation energies, suggests that even in the case of OCDFT there is partial cancellation of the terms in Eq.~\eqref{eq:ocdft_error} that appear in square brackets.
 Thus, although charge-transfer and core-excited states are very different in nature, this simple model suggests a formal connection between the two.
 
+
+
 \subsection{Application to Nucleobases: Thymine and Adenine Near-Edge Spectra}
 Nucleobases play a key biological role as the building blocks of DNA and recently show promise as potential materials for electronic/technological applications. \cite{di_mauro_dna_1993,niemeyer_dna_1997,niemeyer_nanoparticles_2001,song_nucleobase_2012} Early X-ray studies of nucleobases consisted of scattering and diffraction experiments.\cite{langridge_x-ray_1964,sundaralingam_structure_1975,camerman_photodimer_1968,davies_x-ray_1967} The first near-edge absorption experiments were performed in the 90s by Mitra-Kirtley et al.\cite{kirtley_nitrogen_1992} These authors specifically targeted the nitrogen  core electrons and probed the sensitivity of the 1s $\rightarrow$ $\pi^*$ resonances to the surrounding chemical environment. More recent experiments have moved beyond simple characterization of the intramolecular environment and aim to probe intermolecular interactions of nucleobases with metal surfaces.\cite{seifert_molecular_2007,yamada_adsorption_2004,fujii_x-ray_2003,fujii_near-edge_2004}  At the same time a wide array of computational methods have been used to compute the near-edge structure of nucleobases, including: restricted active space SCF (RASSCF),\cite{mochizuki_hf-stex_2001} improved virtual orbital SCF (IVO-SCF) \cite{macnaughton_electronic_2005}, a complex polarization propagator method (CPP) \cite{ekstrom_polarization_2006}, SIC-DFT,\cite{bolognesi_investigation_2009} a DFT transition potential method (DFTTP), \cite{macnaughton_electronic_2005} the equivalent core approximation (ECA) method,\cite{healion_probing_2008} and the second-order algebraic diagrammatic construction [ADC(2)] method.\cite{plekan_theoretical_2008,wenzel_calculating_2014}
   
@@ -896,7 +898,8 @@ One way to overcome this limitation is to employ the basis of non-orthogonal det
 This solution will certainly present some challenges, but if successful, could be used to account for the coupling of various molecular multiplets via spin-orbit interactions.
 These considerations also apply to species with a high-spin open-shell ground state and whose excited states that cannot be represented by a single Slater determinant.
 A case that is more problematic is that of molecules with a low-spin open-shell ground state.
-In this situation, if the ground state DFT calculation yields an unphysical result, than it will be unlikely for OCDFT to yield accurate excitation energies.}
+In this situation, if the ground state DFT calculation yields an unphysical result, than it will be unlikely for OCDFT to yield accurate excitation energies.
+}
 
 \begin{comment}
 Perhaps one of the aspects of our approach that needs further refinement is the treatment of relativistic effects.
