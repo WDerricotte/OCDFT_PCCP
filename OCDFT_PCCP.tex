@@ -22,7 +22,7 @@
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{siunitx}
 \usepackage{soul}
-\sethlcolor{Apricot}
+\sethlcolor{yellow}
 %\usepackage[nomarkers,figuresonly]{endfloat}
 \usepackage{notes2bib}
 \usepackage{dcolumn}
@@ -47,6 +47,7 @@
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 \pagestyle{fancy}
 
+\newcommand{\hilight}[1]{\begin{mdframed}[hidealllines=true,backgroundcolor=yellow] {#1} \end{mdframed}}
 
 \newcommand{\bra}[2][0]
 {\ifthenelse{\equal{#1}{0}}{\left\langle #2 \right|}
@@ -167,7 +168,7 @@ NEXAS has been successfully applied to large biological systems, \cite{hua_refin
 
 As NEXAS experiments are becoming more feasible, there is a growing need to develop accurate theoretical approaches to aid the interpretation of experimental spectra.
 %In order for a method to properly replicate and analyze NEXAS spectra, it must demonstrate accuracy in describing core-electron excitations. 
-Calculations of NEXAS spectra are challenging, and require computational methods that explicitly account for the excitations of core-level electrons, orbital relaxation effects, and electron correlation. \cite{coriani_coupled-cluster_2012} Several theoretical approaches have been adapted to compute core-valence excitations, including: scaled-opposite-spin configuration interaction singles with perturbative doubles [SOS-CIS(D)],\cite{asmuruf_calculation_2008} \hl{a hybrid DFT and restricted open-shell CIS method}\cite{roemelt_excited_2013,roemelt_combined_2013} second-order algebraic digrammatic construction [ADC(2)],\cite{schirmer_beyond_1982,trofimov_efficient_1995} multiple scattering X$_\alpha$ methods, \cite{sheehy_correlation_1989} a maximum overlap $\Delta$SCF approach, \cite{besley_self-consistent-field_2009} restricted active space SCF method (RASSCF), \cite{agren_relaxation_1993} transition potential theory,\cite{triguero_calculations_1998} coupled-cluster response theory, \cite{coriani_coupled-cluster_2012} time-dependent density functional theory (TDDFT),\cite{stener_time_2003} and restricted excitation window TDDFT (REW-TDDFT). \cite{lopata_linear-response_2012} Among these methods, TDDFT is perhaps the most attractive option because of its reduced computational cost and ability to calculate multiple excited states.
+Calculations of NEXAS spectra are challenging, and require computational methods that explicitly account for the excitations of core-level electrons, orbital relaxation effects, and electron correlation. \cite{coriani_coupled-cluster_2012} Several theoretical approaches have been adapted to compute core-valence excitations, including: scaled-opposite-spin configuration interaction singles with perturbative doubles [SOS-CIS(D)],\cite{asmuruf_calculation_2008} \hl{a restricted open-shell DFT/CIS method},\cite{roemelt_excited_2013,roemelt_combined_2013} second-order algebraic digrammatic construction [ADC(2)],\cite{schirmer_beyond_1982,trofimov_efficient_1995} multiple scattering X$_\alpha$ methods, \cite{sheehy_correlation_1989} a maximum overlap $\Delta$SCF approach, \cite{besley_self-consistent-field_2009} restricted active space SCF method (RASSCF), \cite{agren_relaxation_1993} transition potential theory,\cite{triguero_calculations_1998} coupled-cluster response theory, \cite{coriani_coupled-cluster_2012} time-dependent density functional theory (TDDFT),\cite{stener_time_2003} and restricted excitation window TDDFT (REW-TDDFT). \cite{lopata_linear-response_2012} Among these methods, TDDFT is perhaps the most attractive option because of its reduced computational cost and ability to calculate multiple excited states.
 
 TDDFT is a rigorous extension of the DFT ground-state formalism,\cite{runge_density-functional_1984} and it is regarded as the method of choice to treat electronic excited states within a density functional framework.
 %Within the framework of density functional theory, TDDFT is regarded as the method of choice to treat electronic excited states because it is a rigorous extension of the ground-state formalism.\cite{runge_density-functional_1984}
@@ -334,7 +335,12 @@ In addition, we impose orthogonality between the first core orbital of the first
 This condition guarantees that the hole orbital for the second series of computations is different from the first one.
 The CMHP algorithm proceeds in a similar way until $i = n_{\rm c}$.  After each sweep over the particle orbitals, a new set of orthogonality conditions is imposed onto the hole orbitals.
 We notice that the CMHP algorithm does \textit{preserve strict orthogonality among all states}, but it is not equivalent to imposing the strictly minimum orthogonality conditions.
-
+\hilight{In summary, the CMHP algorithm simplifies the optimization of a series of mutually orthogonal determinants by imposing separate orthogonality conditions onto the core (hole) and valence (particle) orbitals.
+It is instructive to compare the computational cost of OCDFT and TDDFT.
+The cost to compute $d$ excited states in OCDFT is proportional to $d N^3$ and $d N^4$ for pure and hybrid functional, respectively, since for each excited states one has to solve a set of constrained Kohn--Sham equations.
+In the case of TDDFT, the computational cost is dominated by the solution of a pseudo-eigenvalue problem, which scales as $d N^4$.
+TDDFT certainly provides a more direct approach to the computation of multiple excited states, but in our experience we observe that the OCDFT/CMHP algorithm has a cost comparable to that of TDDFT and in most cases can be applied in a black-box way.
+}
 
 \section{Computational Details}
 Our OCDFT for core-excited states was implemented as a plugin for the \textsc{psi4} \textit{ab initio} quantum chemistry package.\cite{turney_psi4:_2012}
@@ -438,7 +444,7 @@ Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s
 %    \begin{tabular*}{8cm}{@{\extracolsep{\fill} }llcrrHH}
     \hline
     \hline
-     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} & $f_{abs} \times 10^{-2}$\\ ~&~ &~   & TDDFT  & OCDFT & OCDFT\\
+     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} & $f_{\rm abs} \times 10^{-2}$\\ ~&~ &~   & TDDFT  & OCDFT & OCDFT\\
      \hline
     CO        & C 1s $\rightarrow$ $\pi^*$     & 287.4 & $-$11.3     & $-$0.8 & 4.70  & $-$10.9    & \ 0.9   \\
              & C 1s $\rightarrow$ 3s          & 292.4 & $-$10.5     & \ 0.9 & 0.32   & $-$10.8    & \ 1.2   \\
@@ -489,9 +495,10 @@ Multiple studies have concluded that the shortcoming of traditional density func
 It has been concluded that varying HF exchange parameters can vastly improve the description of core-excited states,\cite{heyd_hybrid_2003,nakata_time-dependent_2006,song_core-excitation_2008,henderson_importance_2007,henderson_assessment_2008} however, here we approached the problem in a different way. With a slight augmentation to DFT derived from first principles, an accurate description of core excited states is possible without relying on varying the amount of HF exchange.
 \end{comment}
 Figure \ref{figure:scatter} reports the distribution of OCDFT and TDDFT excited states as a function of the energy error and the hole/particle orbital overlap. The scatterplot clearly shows that OCDFT is less sensitive to variations in the overlap. When calculating core excited states with $\Lambda_{\rm hp}$ $<$ 0.12, the MAE for OCDFT increases by only 1.5 eV, while in the case of TDDFT the absolute error increases drastically by 35.9 eV.
-\begin{mdframed}[hidealllines=true,backgroundcolor=blue!20]
-Tables \ref{table:FirstRow} and \ref{table:SecondRow} also report oscillator strengths computed with OCDFT at the B3LYP level of theory. An extensive quantitative comparison with experimental line intensities is not practical, however, some qualitative analysis is possible and provides insight into the reliability of the computed oscillator strengths. In general, the lower energy core-valence excitations are more intense than the higher energy Rydberg excitations. For example, analysis of the experimental K-edge spectrum of carbon monoxide obtained by Domcke et al. shows that the C 1s $\rightarrow$ $\pi^*$ transition is a sharp, very intense peak at 287.4 eV. While the C 1s $\rightarrow$ 3s transition is a peak of significantly lower intensity at 292.4 eV. OCDFT produces an oscillator strength for the C 1s $\rightarrow$ $\pi^*$ transition that is an order of magnitude greater than that of the C 1s $\rightarrow$ 3s transition, which is consistent with the observed experimental trend. The same comparison can be done with the oxygen K-edge of carbon monoxide and OCDFT shows similar agreement with the experimental spectrum.
-\end{mdframed}
+%\begin{mdframed}[hidealllines=true,backgroundcolor=yellow!70]
+\hilight{Tables \ref{table:FirstRow} and \ref{table:SecondRow} also report oscillator strengths computed with OCDFT at the B3LYP level of theory. An extensive quantitative comparison with experimental line intensities is not practical, however, some qualitative analysis is possible and provides insight into the reliability of the computed oscillator strengths. In general, the lower energy core-valence excitations are more intense than the higher energy Rydberg excitations. For example, analysis of the experimental K-edge spectrum of carbon monoxide obtained by Domcke et al. shows that the C 1s $\rightarrow$ $\pi^*$ transition is a sharp, very intense peak at 287.4 eV. While the C 1s $\rightarrow$ 3s transition is a peak of significantly lower intensity at 292.4 eV. OCDFT produces an oscillator strength for the C 1s $\rightarrow$ $\pi^*$ transition that is an order of magnitude greater than that of the C 1s $\rightarrow$ 3s transition, which is consistent with the observed experimental trend. The same comparison can be done with the oxygen K-edge of carbon monoxide and OCDFT shows similar agreement with the experimental spectrum.
+}
+%\end{mdframed}
 
 To understand why OCDFT outperforms TDDFT, we will consider a model consisting of two electrons in two orbitals ($\phi_{\rm h}$, $\phi_{\rm p}$) of different symmetry.\cite{casida_charge-transfer_2000,ziegler_implementation_2012,evangelista_orthogonality_2013}
 This model makes it possible to compare the TDDFT and OCDFT excitation energies to that of CIS.
@@ -512,7 +519,7 @@ For a functional containing a given fraction ($a$) of Hartree--Fock exchange, th
 %    \begin{tabular*}{8.cm}{@{\extracolsep{\fill} }llrrrHH}
     \hline
     \hline
-     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} & $f_{abs} \times 10^{-2}$\\ ~&~ &~   & TDDFT  & OCDFT &  OCDFT\\
+     Molecule & Excitation                     & Exp. (eV) & \multicolumn{2}{c}{Error (eV)} & $f_{\rm abs} \times 10^{-2}$\\ ~&~ &~   & TDDFT  & OCDFT &  OCDFT\\
      \hline
     SiH$_4$        & Si 1s $\rightarrow$ $\sigma^*$     & 1842.5 & $-$38.4    & $-$1.8 & 0.22  & $-$38.9    & $-$2.3   \\
              & Si 2p $\rightarrow$ $\sigma^*$ & 102.8 & $-$4.8 & 0.6 & 0.38    & $-$4.1    & 1.5 \\
@@ -849,20 +856,20 @@ We present two developments in OCDFT theory: 1) we show that core excitations ca
 Our benchmark computations on core excitations from 1s and 2p orbitals of first- and second-row elements using conventional pure and hybrid functionals yield excitation energies with a mean absolute error (MAE) of 1.0 eV.
 OCDFT excitation energies are slightly more accurate for first-row elements (MAE = 0.4 eV) than second-row elements (MAE = 1.6 eV).
 
-\hl{There are a few potential sources of the remaining error in the OCDFT excitation energies.  First, is the fact that the (in principle) exact OCDFT excited state functional is approximated with the ground-state exchange-correlation functional.
+\hilight{There are a few potential sources of the remaining error in the OCDFT excitation energies.  First, is the fact that the (in principle) exact OCDFT excited state functional is approximated with the ground-state exchange-correlation functional.
 Second, in our comparison with experiment we use vertical excitation energies, which neglect vibrational effects.
 Third, our treatment of relativistic effects is rather simplistic.   It can only approximately account for the relaxation of the core-hole and neglects relaxation effects of valence orbitals.  Last, OCDFT cannot properly handle states that have a multideterminantal character.
 We expect that the use of an approximate excited state functional is the most important source of error, and that the relativistic and configuration mixing errors are perhaps the least relevant in the case of first- and second-row elements.
 }
 
-\hl{The results of our formal analysis and benchmark computations suggests that there are two factors contributing to the success of OCDFT.
+\hilight{The results of our formal analysis and benchmark computations suggests that there are two factors contributing to the success of OCDFT.
 As in the case of other variational DFT approaches, OCDFT can properly describe charge-transfer excitations.
 In addition, because the wave function of the auxiliary system is only subject to orthogonality constraints, OCDFT can fully describe orbital relaxation.
 To demonstrate this, we consider the NEXAS spectrum of CO$_2$, which was suggested as a test case by one of the reviewers. 
-Previous computational studies of CO$_2$[TODO add ref] showed that B3LYP/TD-DFT underestimates the oxygen K-edge by 14 eV.
+Previous computational studies of CO$_2$\cite{Maganas:ji} showed that B3LYP/TD-DFT underestimates the oxygen K-edge by 14 eV.
 MRCI/CIS and MRCI/CISD underestimate the same feature by 8 and 4.2 eV, respectively.
 In the case of MRCI/CIS and MRCI/CISD, the residual error was attributed to the lack of orbital relaxation effects.
-A broken symmetry OCDFT computation predicts the oxygen K-edge to be at 534.4 eV, which corresponds to a deviation from experiment of 0.6 eV.  This result suggests that relaxation effects do indeed play an important role in the oxygen K-edge of CO$_2$ and that OCDFT can fully account for them.
+A broken-symmetry OCDFT computation predicts the dominant feature of the oxygen K-edge to be at 534.4 eV, which corresponds to a deviation from experiment of 0.6 eV.  This result suggests that relaxation effects do indeed play an important role in the oxygen K-edge of CO$_2$ and that OCDFT can fully account for them.
 %We interpret the excellent agreement of the OCDFT spectrum of CO$_2$ to the 
 }
 
@@ -877,22 +884,19 @@ In addition, OCDFT assignments of the spectral features are in excellent agreeme
 This study shows that our OCDFT approach for core-excited states is a practical and useful tool for the interpretation of NEXAS experiments. 
 From the computational point of view, the scaling of OCDFT vs. the number of electrons ($N$) is identical to that of ground state DFT ($N^3$ and $N^4$ for pure and hybrid functionals) and it is lower than the second-order approximate coupled cluster method (CC2)\cite{christiansen_cc2_1995} and [ADC(2)], which scale as $N^5$.
 
-\begin{mdframed}[hidealllines=true,backgroundcolor=blue!20]
-Two classes of systems that are worth further exploration are transition metal complexes and open-shell molecules. Core excitations in transition metal complexes present a number of additional challenges that will require further extension of the theory.
+\hilight{Two classes of systems that are worth further exploration are transition metal complexes and open-shell molecules. Core excitations in transition metal complexes present a number of additional challenges that will require further extension of the theory.
 One of the biggest improvements that will be necessary is a proper treatment of relativistic effects.
 While the scheme used in this work was sufficient for first- and second-row elements, it will likely prove ineffective for the treatment of transition metals where both scalar and spin-orbit relativistic effect play an important role.
 Scalar relativistic effects can be accounted for by combining OCDFT with spin-free approximate relativistic Hamiltonians.
-We already started work in this direction and expect that this improvement will be essential to compute accurate K-edge spectra of transition metals.
-The simulation of L-edge spectra presents additional challenges due to the strong mixing of excitation from degenerate 2p core orbitals and the necessity to account for the coupling of molecular multiplets that experience strong spin-orbit coupling.
+One of our immediate goals is to combine OCDFT with the one-electron spin-free version of the exact two-component approach.\cite{Dyall:1997fx,Dyall:2001du,Kutzelnigg:2005ba,Liu:2009cv,Zou:2011ih,Cheng:2011ia}
+This improvement will provide a more consistent way to introduce scalar relativistic effects, and will be essential to compute accurate K-edge spectra of elements past the second row.
+The simulation of L-edge spectra presents additional challenges\cite{roemelt_combined_2013} due to the strong mixing of excitation from degenerate 2p core orbitals and the necessity to account for the coupling of molecular multiplets that experience strong spin-orbit coupling.
 In this respect, the current formulation of OCDFT---which is ideal for excitations that are dominated by a single Slater determinant---cannot properly treat multideterminantal electronic states that arise in L-edge excitations.
-One way to overcome this limitation is to employ the basis of non-orthogonal determinants that are generated in an OCDFT computation in a subsequent configuration interaction procedure, as described in the original formulation of OCDFT.\cite{evangelista_orthogonality_2013}
-This solution will certainly present some challenges, but if successful could be used to account for the coupling of various molecular multiplets via spin-orbit interactions.
-
-TODO: open-shell states.
-%Since OCDFT reIn the case of molecules with a quasi-degenerate ground state, the OCDFT formalism does not offer 
-
-%There are two possibilities in order to extend OCDFT to treat open-shell molecules. One possibility is to implement a restricted open-shell Kohn--Sham (ROKS) formalism in OCDFT. However this approach has received criticism due to the essential unrestricted character of Kohn--Sham orbitals for open-shell systems. \cite{pople_spin-unrestricted_1995} Nonetheless, there have still been studies done computing excitation energies with ROKS with varying degrees of success. \cite{filatov_application_1999,grimm_restricted_2003} We can also utilize an unrestricted Kohn--Sham formalism, An accurate unrestricted  OCDFT formalism to treat  open-shell systems would require a spin-adapted mixed spin solution. Spin adaptation was explored in two ways in our original implementation of OCDFT:\cite{evangelista_orthogonality_2013} 1) Involved using a spin raising operator to express the triplet state in terms of the mixed spin solution and 2) Computed the singlet state using configuration interaction and introduces spin adaption by using a linear combination of the true mixed state wave function and a spin flipped wave function obtained by interchanging alpha and beta spins of the true wave function. These two methods of spin adaptation have been tested on a class of singlet valence-valence excitations and show comparable accuracy to TDDFT.\cite{evangelista_orthogonality_2013} These spin-adaptation procedures should aid in our development an unrestricted theory to treat open-shell systems.
-\end{mdframed}
+One way to overcome this limitation is to employ the basis of non-orthogonal determinants that are generated in an OCDFT computation in a subsequent configuration interaction procedure, as described in the original formulation of OCDFT.
+This solution will certainly present some challenges, but if successful, could be used to account for the coupling of various molecular multiplets via spin-orbit interactions.
+These considerations also apply to species with a high-spin open-shell ground state and whose excited states that cannot be represented by a single Slater determinant.
+A case that is more problematic is that of molecules with a low-spin open-shell ground state.
+In this situation, if the ground state DFT calculation yields an unphysical result, than it will be unlikely for OCDFT to yield accurate excitation energies.}
 
 \begin{comment}
 Perhaps one of the aspects of our approach that needs further refinement is the treatment of relativistic effects.
