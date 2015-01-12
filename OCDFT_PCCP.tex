@@ -337,7 +337,7 @@ The CMHP algorithm proceeds in a similar way until $i = n_{\rm c}$.  After each 
 We notice that the CMHP algorithm does \textit{preserve strict orthogonality among all states}, but it is not equivalent to imposing the strictly minimum orthogonality conditions.
 \hilight{In summary, the CMHP algorithm simplifies the optimization of a series of mutually orthogonal determinants by imposing separate orthogonality conditions onto the core (hole) and valence (particle) orbitals.
 It is instructive to compare the computational cost of OCDFT and TDDFT.
-The cost to compute $d$ excited states in OCDFT is proportional to $d N^3$ and $d N^4$ for pure and hybrid functional, respectively, since for each excited states one has to solve a set of constrained Kohn--Sham equations.
+The cost to compute $d$ excited state in OCDFT is proportional to $d N^3$ and $d N^4$ for pure and hybrid functional, respectively, since for each excited states one has to solve a set of constrained Kohn--Sham equations.
 In the case of TDDFT, the computational cost is dominated by the solution of a pseudo-eigenvalue problem, which scales as $d N^4$.
 TDDFT certainly provides a more direct approach to the computation of multiple excited states, but in our experience we observe that the OCDFT/CMHP algorithm has a cost comparable to that of TDDFT and in most cases can be applied in a black-box way.
 }
@@ -865,7 +865,7 @@ We expect that the use of an approximate excited state functional is the most im
 }
 
 \hilight{The results of our formal analysis and benchmark computations suggests that there are two factors contributing to the success of OCDFT.
-As in the case of other variational DFT approaches, OCDFT can properly describe charge-transfer excitations.
+As in the case of other variational and constrained DFT approaches, OCDFT can properly describe charge-transfer excitations.
 In addition, because the wave function of the auxiliary system is only subject to orthogonality constraints, OCDFT can fully describe orbital relaxation.
 To demonstrate this, we consider the NEXAS spectrum of CO$_2$, which was suggested as a test case by one of the reviewers. 
 Previous computational studies of CO$_2$\cite{Maganas:ji} showed that B3LYP/TD-DFT underestimates the oxygen K-edge by 14 eV.
@@ -888,17 +888,17 @@ From the computational point of view, the scaling of OCDFT vs. the number of ele
 
 \hilight{Two classes of systems that are worth further exploration are transition metal complexes and open-shell molecules. Core excitations in transition metal complexes present a number of additional challenges that will require further extension of the theory.
 One of the biggest improvements that will be necessary is a proper treatment of relativistic effects.
-While the scheme used in this work was sufficient for first- and second-row elements, it will likely prove ineffective for the treatment of transition metals where both scalar and spin-orbit relativistic effect play an important role.
+While the scheme used in this work was sufficient for first- and second-row elements, it will likely prove ineffective for the treatment of transition metals where both scalar and spin-orbit relativistic effects play an important role.
 Scalar relativistic effects can be accounted for by combining OCDFT with spin-free approximate relativistic Hamiltonians.
 One of our immediate goals is to combine OCDFT with the one-electron spin-free version of the exact two-component approach.\cite{Dyall:1997fx,Dyall:2001du,Kutzelnigg:2005ba,Liu:2009cv,Zou:2011ih,Cheng:2011ia}
 This improvement will provide a more consistent way to introduce scalar relativistic effects, and will be essential to compute accurate K-edge spectra of elements past the second row.
-The simulation of L-edge spectra presents additional challenges\cite{roemelt_combined_2013} due to the strong mixing of excitation from degenerate 2p core orbitals and the necessity to account for the coupling of molecular multiplets that experience strong spin-orbit coupling.
+The simulation of L-edge spectra presents additional challenges\cite{roemelt_combined_2013} due to the strong mixing of excitations from degenerate 2p core orbitals and the necessity to account for the coupling of molecular multiplets that experience strong spin-orbit coupling.
 In this respect, the current formulation of OCDFT---which is ideal for excitations that are dominated by a single Slater determinant---cannot properly treat multideterminantal electronic states that arise in L-edge excitations.
 One way to overcome this limitation is to employ the basis of non-orthogonal determinants that are generated in an OCDFT computation in a subsequent configuration interaction procedure, as described in the original formulation of OCDFT.
 This solution will certainly present some challenges, but if successful, could be used to account for the coupling of various molecular multiplets via spin-orbit interactions.
-These considerations also apply to species with a high-spin open-shell ground state and whose excited states that cannot be represented by a single Slater determinant.
+These considerations also apply to species with a high-spin open-shell ground state and whose excited states cannot be represented by a single Slater determinant.
 A case that is more problematic is that of molecules with a low-spin open-shell ground state.
-In this situation, if the ground state DFT calculation yields an unphysical result, than it will be unlikely for OCDFT to yield accurate excitation energies.
+In this situation, if the ground state DFT calculation yields an unphysical result, then it will be unlikely for OCDFT to yield accurate excitation energies.
 }
 
 \begin{comment}
