@@ -272,7 +272,7 @@ In OCDFT computations of valence excited states, the hole orbital is assumed to 
 
 \begin{figure*}
 \centering
-\includegraphics[width=18cm]{Figure2NEW.pdf}
+\includegraphics[width=17cm]{figure_3.eps}
 \caption{Constrained multiple hole/particle (CMHP) algorithm illustrated in the case of two hole and three particle orbitals.}
 \label{fig:CMHP}
 \end{figure*}
@@ -428,7 +428,7 @@ The TDDFT error distribution has a peculiar shape, displaying two distinct group
 
 \begin{figure}[b]
 \centering
-\includegraphics[width=8.8cm]{NEW_histogram2.pdf}
+\includegraphics[width=8.8cm]{figure_4.eps}
 \caption{Histogram showing the distribution of the error in the computed core excited states. All calculations were done using the B3LYP functional and the def2-QZVP basis set. The red filled bar is OCDFT while the empty blue bar is TDDFT. Notice that the two distributions do not overlap.}
 \label{figure:Hist}
 \end{figure}
@@ -482,7 +482,7 @@ Table \ref{table:FirstRow} reports valence and Rydberg excitation energies of 1s
 When computing core excited states of second-row nuclei, TDDFT becomes highly inaccurate, producing an average error larger than 30 eV. Previous work by Tozer and coworkers \cite{peach_excitation_2008}  showed that there is a correlation between the level of accuracy of TDDFT excitation energies and the amount of overlap between the orbitals involved. We expect this correlation to also be observed in core electron excitations, where the
 \begin{figure}[!t]
 \centering
-\includegraphics[width=8.8cm]{scatterNEWER2.pdf}
+\includegraphics[width=8.8cm]{figure_5.eps}
 \caption{Scatterplot displaying the excitation energy error as a function of orbital overlap for a benchmarking test set of 40 core excitations from 13 different molecules. Excitation energies were calculated using the B3LYP functional and def2-QZVP basis set. The overlap integrals were computed with numerical grid integration making use of the Gaussian cube files produced by in Psi4 OCDFT calculations. Grids were calculated with a double zeta basis set and 0.1 grid spacing.}
 \label{figure:scatter}
 \end{figure}
@@ -578,15 +578,13 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectrum of thymine a
  The experimental energies reported are the peak maxima for each spectral feature, and can be approximated by the OCDFT transition in that region with the strongest oscillator strength. When using peak maxima as a comparison, OCDFT represents the thymine spectrum with an average error of 0.3 eV, and that of adenine with an average error of 0.1 eV. A common feature of NEXAS spectra is the appearance of multiple low-intensity transitions in the higher energy regions. This is represented well by OCDFT as evidenced by the stick spectrum shown in Figs. \ref{figure:Thymine} and \ref{figure:Adenine} where the higher energy regions are populated by multiple low intensity transitions. We emphasize that the computed OCDFT spectra are obtained from unshifted excitation energies. 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=8.8cm]{ThymineVirtuals.png}
+\includegraphics[width=8.8cm]{figure_6.png}
 \caption{Relevant virtual orbitals for thymine numbered in according to the orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is diffused  are labeled as D.}
 \label{fig:thyminevirtuals}
 \end{figure}
   \begin{figure}[!t]
 \centering
-\includegraphics[width=8.8cm]{ThymineOKexperiment.png}\\
-\includegraphics[width=8.8cm]{ThymineNKexperiment.png} \\
-\includegraphics[width=8.8cm]{ThymineCKexperiment.png}
+\includegraphics[width=8.8cm]{figure_7.png}
 \caption{Core excited states for thymine computed using B3LYP functional and def2-TZVP basis set. The OCDFT oxygen and nitrogen K-edge spectra were convoluted with a Gaussian function with full width at half maximum (FWHM) equal to 0.3 eV, while the carbon spectrum uses a Gaussian with FWHM equal to 0.2 eV. The experimental spectra are reproduced with permission from Ref. \citenum{plekan_theoretical_2008}.}
 \label{figure:Thymine}
 \end{figure}
@@ -694,7 +692,7 @@ Peak E is mostly composed of core excitations to diffuse orbitals, however these
 %Peak E is mostly a fusion of core excitations to diffuse orbitals, however these transitions have relatively weak intensities compared to the dominant $\pi_1^*$ character present in the region. There is also $\pi^*_2$ character here, however the oscillator strength of this transition is very small compared to the Rydberg contributions. A small shoulder E$^{\prime}$ is present at the base of peak E, and is mostly due to a weak transition from C$_6$ $\rightarrow$ $\pi_1^*$.  Rydberg states dominate the rest of the spectra, and are provide the strongest contributions to Peak F and the shoulder feature at F$^{\prime}$. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8.8cm]{AdenineVirtuals.png} \\
+\includegraphics[width=8.8cm]{figure_8.png} \\
 \caption{Relevant virtual orbitals for adenine numbered according to the orbital energy. Orbitals with obvious $\pi^*$ character are labeled as such, while orbitals where electron density is mostly diffused on the outside of the molecule are labeled as $\phi_D$.}
 \label{figure:adeninevirtuals} 
 \end{figure}
@@ -704,8 +702,7 @@ Peak E is mostly composed of core excitations to diffuse orbitals, however these
 The experimental spectrum shows a relatively weak resonance around 403.0 (peak C).  We predict that the dominant contributor to peak C is a transition from N$_2$ $\rightarrow$ $\phi_{\rm D_6}$, the intensity of which, that rivals the strongest transition (peak A f$_{\rm rel}$ = 0.918). This peak intensity is contrary to the experimental spectrum which shows peak C  as a superposition of weak transitions. The highest energy transitions are all weak transitions to mostly orbitals of diffuse character, with transitions getting more intense as they approach 405.0 eV. 
  \begin{figure}[!t]
 \centering
-\includegraphics[width=8.8cm]{AdenineNKexperiment.png} \\
-\includegraphics[width=8.8cm]{AdenineCKexperiment.png}
+\includegraphics[width=8.8cm]{figure_9.png}
 \caption{Core excited states for adenine computed using B3LYP functional and def2-TZVP basis set. 
 The OCDFT carbon and nitrogen K-edge spectra were convoluted with a Gaussian function with full width at half maximum (FWHM) equal to 0.3 eV.  The experimental spectra are reproduced with permission from Ref. \citenum{plekan_theoretical_2008}.}
 \label{figure:Adenine}
