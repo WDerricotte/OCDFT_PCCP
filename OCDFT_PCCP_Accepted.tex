@@ -210,7 +210,7 @@ E^{(n)}[\rho] = \min_{
 \end{equation}
 
 OCDFT provides a practical realization of this time-independent DFT approach.
-The first step in the OCDFT derivation consists in defining a generalized Kohn--Sham scheme that, for each electronic state $\Psi^{(n)}$,  defines an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the density of the exact state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
+The first step in the OCDFT derivation consists in defining a generalized Kohn--Sham scheme that, for each electronic state $\Psi^{(n)}$,  postulates an auxiliary system of noninteracting electrons with wave function $\Phi^{(n)}$ and density $\rho_s^{(n)}$.  The density of state $\Phi^{(n)}$ is assumed to be equal to the density of the exact state $\Psi^{(n)}$, which we indicate with $\rho^{(n)}$.
 In addition, we assume that the auxiliary wave functions are orthogonal, that is:
 \begin{equation}\label{eq:orthogonality_condition}
 \braket[1]{\Phi^{(m)}}{\Phi^{(n)}} = \delta_{mn}.
@@ -421,7 +421,7 @@ Thus all results for highly symmetric molecules reported in Tables~\ref{table:Fi
 \caption{Histogram showing the distribution of the error in the computed core excited states. All calculations were done using the B3LYP functional and the def2-QZVP basis set. The red filled bar is OCDFT while the empty blue bar is TDDFT. Notice that the two distributions do not overlap.}
 \label{figure:Hist}
 \end{figure}
-The three functionals considered in Table \ref{table:OverallPerformance} produce MAEs ranging from 0.9--1.7 eV. Interestingly, there is no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree--Fock (HF) exchange present in the functional. Even the BLYP functional, which contains no HF exchange, yields a MAE (1.0 eV using the def2-QZVP basis set) comparable to that of the MAEs produced by its hybrid counterparts.
+The three functionals considered in Table~\ref{table:OverallPerformance} produce MAEs ranging from 0.9--1.7 eV. Interestingly, there is no dramatic difference in the accuracy of OCDFT regardless of the amount of Hartree--Fock (HF) exchange present in the functional. Even the BLYP functional, which contains no HF exchange, yields a MAE (1.0 eV using the def2-QZVP basis set) comparable to that of the MAEs produced by its hybrid counterparts.
 %B3LYP produces errors in the range of 1.0 eV $\rightarrow$ 1.5 eV, while PBE0 produces errors in the range of 0.9 eV $\rightarrow$ 1.7 eV. BLYP outperforms PBE0 when employing three of the fours basis sets considered and yields similar MAEs as B3LYP.
 The Karlsruhe family of basis sets yields results that are in better agreement with the experimental excitation energies than the correlation-consistent basis sets.
 
@@ -608,72 +608,72 @@ Here we present an OCDFT simulation of the gas-phase NEXAS spectrum of thymine a
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
  $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{\rm rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
-    \multicolumn{6}{c}{\textbf{Oxygen K-Edge}} \vspace{0.05in}\\
+    \multicolumn{6}{c}{\textbf{Oxygen K-Edge}} \\[0.05in]
     O$_2$
- &   81.8$\%$ $\pi_1^*$  & 531.1 & 1.000 & A  & 531.4 \vspace{0.05in}\\
+ &   81.8$\%$ $\pi_1^*$  & 531.1 & 1.000 & A  & 531.4 \\[0.05in]
     O$_1$
- &   64.0$\%$ $\pi_2^*$  & 532.1 & 0.968 & B & 532.3 \vspace{0.05in}\\
+ &   64.0$\%$ $\pi_2^*$  & 532.1 & 0.968 & B & 532.3 \\[0.05in]
     O$_1$
  &   71.2$\%$ $\pi_1^*$  & 533.4 & 0.146 & \multirow{2}{*}{B$^{\prime}$} & \multirow{2}{*}{533.8}  \\ % $\approx$
     O$_2$
- &   78.3$\%$ $\pi_2^*$  & 533.8 & 0.162 \vspace{0.05in}\\
+ &   78.3$\%$ $\pi_2^*$  & 533.8 & 0.162\\[0.05in]
     O$_1$
  &   69.5$\%$ $\rm D_3$  & 535.5 & 0.098   & \multirow{3}{*}{C} & \multirow{3}{*}{535.7}  \\
     O$_1$
  &   76.0$\%$ $\pi_3^*$  & 536.1 & 0.222 \\
     O$_2$
- &   69.0$\%$ $\pi_3^*$  & 536.2 & 0.104 \vspace{0.05in}\\
+ &   69.0$\%$ $\pi_3^*$  & 536.2 & 0.104 \\[0.05in]
     O$_1$
  &   83.5$\%$ $\rm D_2$  & 537.1 & 0.047 & \multirow{3}{*}{D} & \multirow{3}{*}{537.1} \\
     O$_1$
  &   35.6$\%$ $\rm D_5$  & 537.5 & 0.054 \\
     O$_2$
- &   44.0$\%$ $\rm D_5$  & 537.7 & 0.073 \vspace{0.05in}\\
-  \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
+ &   44.0$\%$ $\rm D_5$  & 537.7 & 0.073 \\[0.05in]
+  \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \\[0.05in]
      N$_4$
  &   81.8$\%$ $\pi_1^*$  & 401.2 & 1.000 & \multirow{2}{*}{A} & \multirow{2}{*}{401.7} \\
     N$_3$
  &   64.0$\%$ $\pi_2^*$  & 401.8 & 0.805 
- \vspace{0.05in}\\
+ \\[0.05in]
     N$_4$
  &   78.3$\%$ $\pi_2^*$  & 402.5 & 0.087 & \multirow{3}{*}{B} & \multirow{3}{*}{402.7}\\
     N$_3$
  &   77.0$\%$ $\rm D_1$  & 403.1 & 0.863 \\
     N$_4$
  &   65.9$\%$ $\rm D_1$  & 403.3 & 0.765 
- \vspace{0.05in}\\
+ \\[0.05in]
     N$_4$
  &   44.1$\%$ $\rm D_3$  & 404.2 & 0.912 & C & 404.1 
- \vspace{0.05in}\\
+ \\[0.05in]
     N$_3$
  &   69.5$\%$ $\rm D_3$  & 405.1 & 0.374  & \multirow{3}{*}{D} & \multirow{3}{*}{405.5} \\
     N$_4$
  &   86.3$\%$ $\rm D_2$  & 405.3 & 0.864 \\
     N$_3$
- &   71.2$\%$ $\pi_1^*$  & 405.7 & 0.490 \vspace{0.05in}\\
-   \multicolumn{6}{c}{\textbf{Carbon K-Edge}} \vspace{0.05in}\\
+ &   71.2$\%$ $\pi_1^*$  & 405.7 & 0.490 \\[0.05in]
+   \multicolumn{6}{c}{\textbf{Carbon K-Edge}} \\[0.05in]
        C$_8$
  &   92.1$\%$ $\pi_1^*$  & 284.9 & 0.372 & A & 284.9  
- \vspace{0.05in} \\
+  \\[0.05in]
     C$_7$
  &   95.9$\%$ $\pi_1^*$  & 286.0 & 0.698 & B & 285.9
- \vspace{0.05in} \\
+  \\[0.05in]
     C$_8$
  &   97.6$\%$ $\pi_2^*$  & 287.3 & 0.171   & \multirow{3}{*}{C} & \multirow{3}{*}{287.8}  \\
     C$_6$
  &   81.8$\%$ $\pi_1^*$  & 287.7 & 0.792 \\
     C$_9$
  &   89.9$\%$ $\pi_1^*$  & 287.9 & 0.117  
- \vspace{0.05in}  \\
+  \\[0.05in]
      C$_9$ &   87.7$\%$ $\rm D_1$  & 288.5 & 0.229 & D & 288.4
-  \vspace{0.05in}  \\
+   \\[0.05in]
     C$_5$
  &   64.0$\%$ $\pi_2^*$  & 289.1 & 1.000 & \multirow{3}{*}{E} & \multirow{3}{*}{289.4} \\
     C$_9$
  &   63.1$\%$ $\pi_3^*$  & 289.3 & 0.333 \\
     C$_9$
  &   49.5$\%$ $\rm D_2$  & 289.3 & 0.375 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_8$
  &   33.3$\%$ $\rm D_4$  & 290.3 & 0.119 & \multirow{3}{*}{F} &  \multirow{3}{*}{290.7}  \\
     C$_9$
@@ -750,80 +750,80 @@ however, the oscillator strength is inconsistent with experimental peak intensit
    \multicolumn{4}{c}{OCDFT} &\multicolumn{2}{c}{Experiment} \\
  $\phi_{\rm h}$ &  $\phi_{\rm p}$ & $\omega_{fi}$ & f$_{\rm rel}$ & Peak &  $\omega_{fi}$   \\[1pt]
    \hline
-    \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \vspace{0.05in}\\
+    \multicolumn{6}{c}{\textbf{Nitrogen K-Edge}} \\[0.05in]
     N$_4$
  &   81.0$\%$ $\pi_1^*$  & 399.1 & 0.851 & \multirow{3}{*}{A} & \multirow{3}{*}{399.5} \\
     N$_3$
  &   63.7$\%$ $\pi_1^*$  & 399.3 & 0.926 \\
     N$_5$
  &   92.6$\%$ $\pi_2^*$  & 399.4 & 1.000 
-\vspace{0.05in}\\
+\\[0.05in]
     N$_5$
  &   92.4$\%$ $\pi_1^*$  & 399.7 & 0.002 & \multirow{2}{*}{A$^{\prime}$} & \multirow{2}{*}{400.4}  \\ %$\approx$ 
     N$_4$
  &   98.9$\%$ $\pi_2^*$
  & 400.4 & 0.022 
- \vspace{0.05in}\\
+ \\[0.05in]
     N$_3$
  &   81.6$\%$ $\pi_2^*$  & 401.2 & 0.109 & B$^{\prime}$ & 401.3 
- \vspace{0.05in}\\
+ \\[0.05in]
     N$_2$
  &   82.1$\%$ $\pi_1^*$  & 401.4 & 0.364 & \multirow{3}{*}{B} & \multirow{3}{*}{401.9}\\
     N$_1$
  &   69.3$\%$ $\pi_1^*$  & 401.8 & 0.594 \\
     N$_2$
  &   78.4$\%$ $\rm D_2$  & 402.3 & 0.204
- \vspace{0.05in}\\ 
+ \\[0.05in] 
     N$_1$
  &   74.8$\%$ $\pi_2^*$  & 403.1 & 0.122 & \multirow{3}{*}{C} & \multirow{3}{*}{403.0} \\
     N$_1$
  &   87.2$\%$ $\rm D_1$  & 403.3 & 0.418 \\
     N$_2$
  &   57.1$\%$ $\rm D_3$  & 403.3 & 0.918
- \vspace{0.05in}\\
- \multicolumn{6}{c}{\textbf{Carbon K-Edge}} \vspace{0.05in}\\
+ \\[0.05in]
+ \multicolumn{6}{c}{\textbf{Carbon K-Edge}} \\[0.05in]
      C$_{10}$
  &   92.6$\%$ $\pi_2^*$  & 286.3 & 0.298 & \multirow{2}{*}{A} & \multirow{2}{*}{286.4}\\
     C$_9$
  &   81.0$\%$ $\pi_1^*$  & 286.5 & 0.936 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_{10}$
  &   92.4$\%$ $\pi_1^*$  & 286.7 & 0.260 &  \multirow{2}{*}{B} &  \multirow{2}{*}{286.8} \\
     C$_7$
  &   82.1$\%$ $\pi_1^*$  & 286.9 & 0.893 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_6$
  &   69.3$\%$ $\pi_1^*$  & 287.3 & 1.000 &  \multirow{2}{*}{C} &  \multirow{2}{*}{287.4}\\
     C$_8$
  &   63.7$\%$ $\pi_1^*$  & 287.4 & 0.961 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_{10}$
  &   34.7$\%$ $\pi_3^*$  & 287.9 & 0.092 & \multirow{2}{*}{C$^{\prime}$} &  \multirow{2}{*}{288.0}\\
     C$_9$
  &   98.9$\%$ $\pi_2^*$
  & 288.0 & 0.026 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_6$
  &   74.8$\%$ $\pi_2^*$  & 288.8 & 0.008 & \multirow{3}{*}{D} & \multirow{3}{*}{289.0} \\
     C$_{10}$
  &   36.4$\%$ $\rm D_2$  & 289.2 & 0.038 \\
     C$_8$
  &   66.2$\%$ $\pi_3^*$  & 289.2 & 0.014 
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_9$
  &   77.4$\%$ $\pi_3^*$  & 289.4 & 0.016 & \multirow{3}{*}{E} \\
     C$_7$
  &   87.1$\%$ $\pi_2^*$  & 289.4 & 0.042 \\
     C$_7$
  &   57.1$\%$ $\rm D_3$  & 289.7 & 0.329 
- \vspace{0.05in}\\ 
+ \\[0.05in] 
     C$_9$
- &   80.2$\%$ $\rm D_1$  & 290.0 & 0.266 & \multirow{5}{*}{F} \\
+ &   80.2$\%$ $\rm D_1$  & 290.0 & 0.266 & \multirow{3}{*}{F} \\
     C$_8$
  &   90.2$\%$ $\rm D_1$  & 290.1 & 0.044 \\
     C$_9$
  &   83.4$\%$ $\rm D_2$  & 290.1 & 0.166
- \vspace{0.05in}\\
+ \\[0.05in]
     C$_7$
  &   94.8$\%$ $\pi_3^*$  & 290.4 & 0.086  & \multirow{3}{*}{G} \\
     C$_6$
