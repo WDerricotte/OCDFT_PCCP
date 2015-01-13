@@ -866,7 +866,7 @@ The results of our formal analysis and benchmark computations suggests that ther
 As in the case of other variational and constrained DFT approaches, OCDFT can properly describe charge-transfer excitations.
 In addition, because the wave function of the auxiliary system is only subject to orthogonality constraints, OCDFT can fully describe orbital relaxation.
 To demonstrate this, we consider the NEXAS spectrum of CO$_2$, which was suggested as a test case by one of the reviewers. 
-Previous computational studies of CO$_2$\cite{Maganas:ji} showed that B3LYP/TD-DFT underestimates the oxygen K-edge by 14 eV.
+Previous computational studies of CO$_2$\cite{Maganas:ji} showed that B3LYP/TDDFT underestimates the oxygen K-edge by 14 eV.
 MRCI/CIS and MRCI/CISD underestimate the same feature by 8 and 4.2 eV, respectively.
 In the case of MRCI/CIS and MRCI/CISD, the residual error was attributed to the lack of orbital relaxation effects.
 A broken-symmetry OCDFT computation predicts the dominant feature of the oxygen K-edge to be at 534.4 eV, which corresponds to a deviation from experiment of 0.6 eV.  This result suggests that relaxation effects do indeed play an important role in the oxygen K-edge of CO$_2$ and that OCDFT can fully account for them.
@@ -883,7 +883,7 @@ In addition, OCDFT assignments of the spectral features are in excellent agreeme
 This study shows that our OCDFT approach for core-excited states is a practical and useful tool for the interpretation of NEXAS experiments. 
 From the computational point of view, the scaling of OCDFT vs. the number of electrons ($N$) is identical to that of ground state DFT ($N^3$ and $N^4$ for pure and hybrid functionals) and it is lower than the second-order approximate coupled cluster method (CC2)\cite{christiansen_cc2_1995} and [ADC(2)], which scale as $N^5$.
 
-Two classes of systems that are worth further exploration are transition metal complexes and open-shell molecules. Core excitations in transition metal complexes present a number of additional challenges that will require further extension of the theory.
+Two classes of systems that are worth further exploration are transition metal complexes and open-shell molecules. Core excitations in transition metal complexes present a number of additional challenges that will require further extension of the present theory.
 One of the biggest improvements that will be necessary is a proper treatment of relativistic effects.
 While the scheme used in this work was sufficient for first- and second-row elements, it will likely prove ineffective for the treatment of transition metals where both scalar and spin-orbit relativistic effects play an important role.
 Scalar relativistic effects can be accounted for by combining OCDFT with spin-free approximate relativistic Hamiltonians.
